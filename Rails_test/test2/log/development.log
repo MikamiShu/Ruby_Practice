@@ -2256,3 +2256,118 @@ Processing by PostsController#index as HTML
 Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 0.0ms | Allocations: 2369)
 
 
+Started GET "/" for ::1 at 2023-11-01 12:55:08 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/mikami/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/mikami/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.3ms | Allocations: 374)
+Completed 200 OK in 7ms (Views: 2.1ms | ActiveRecord: 0.0ms | Allocations: 4270)
+
+
+Started GET "/posts/new" for ::1 at 2023-11-01 12:55:13 +0900
+Processing by PostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 0.3ms | Allocations: 95)
+  Rendered layout layouts/application.html.erb (Duration: 78.3ms | Allocations: 40232)
+Completed 200 OK in 83ms (Views: 81.1ms | ActiveRecord: 0.0ms | Allocations: 41151)
+
+
+Started GET "/posts" for ::1 at 2023-11-01 12:55:20 +0900
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 134)
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 2247)
+Completed 200 OK in 27ms (Views: 4.5ms | ActiveRecord: 0.0ms | Allocations: 8349)
+
+
+Started GET "/" for ::1 at 2023-11-01 14:03:59 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/mikami/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/mikami/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.5ms | Allocations: 374)
+Completed 200 OK in 7ms (Views: 2.2ms | ActiveRecord: 0.0ms | Allocations: 4270)
+
+
+Started GET "/" for ::1 at 2023-11-01 14:04:02 +0900
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/mikami/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/mikami/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.1ms | Allocations: 12)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 211)
+
+
+Started GET "/posts" for ::1 at 2023-11-01 14:04:03 +0900
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 139)
+  Rendered layout layouts/application.html.erb (Duration: 63.7ms | Allocations: 35272)
+Completed 200 OK in 83ms (Views: 65.3ms | ActiveRecord: 0.0ms | Allocations: 41983)
+
+
+Started GET "/footer.html" for ::1 at 2023-11-01 14:04:03 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/footer.html"):
+  
+Started GET "/posts" for ::1 at 2023-11-01 14:04:05 +0900
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 6)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 2132)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.0ms | Allocations: 2397)
+
+
+Started GET "/footer.html" for ::1 at 2023-11-01 14:04:05 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/footer.html"):
+  
+Started GET "/posts" for ::1 at 2023-11-01 14:04:29 +0900
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 135)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 13700)
+Completed 200 OK in 8ms (Views: 6.5ms | ActiveRecord: 0.0ms | Allocations: 15171)
+
+
+Started GET "/footer.html.erb" for ::1 at 2023-11-01 14:04:29 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/footer.html.erb"):
+  
+Started GET "/posts" for ::1 at 2023-11-01 14:04:56 +0900
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 134)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 13717)
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.0ms | Allocations: 15187)
+
+
+Started GET "/footer.html" for ::1 at 2023-11-01 14:04:56 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/footer.html"):
+  
+Started GET "/posts" for ::1 at 2023-11-01 14:04:57 +0900
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 6)
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | Allocations: 2129)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.0ms | Allocations: 2385)
+
+
+Started GET "/footer.html" for ::1 at 2023-11-01 14:04:57 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/footer.html"):
+  
+Started GET "/posts" for ::1 at 2023-11-01 14:05:18 +0900
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 131)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 13696)
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.0ms | Allocations: 15174)
+
+
