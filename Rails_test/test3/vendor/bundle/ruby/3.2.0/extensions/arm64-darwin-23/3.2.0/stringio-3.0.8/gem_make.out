@@ -1,0 +1,19 @@
+current directory: /Users/mikami/Git/Ruby_Practice/Rails_test/test3/vendor/bundle/ruby/3.2.0/gems/stringio-3.0.8/ext/stringio
+/Users/mikami/.rbenv/versions/3.2.2/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/mikami/Git/Ruby_Practice/Rails_test/test3/vendor/bundle/ruby/3.2.0/gems/stringio-3.0.8/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20231101-63531-3ku9do sitelibdir\=./.gem.20231101-63531-3ku9do clean
+
+current directory: /Users/mikami/Git/Ruby_Practice/Rails_test/test3/vendor/bundle/ruby/3.2.0/gems/stringio-3.0.8/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20231101-63531-3ku9do sitelibdir\=./.gem.20231101-63531-3ku9do
+compiling stringio.c
+linking shared-object stringio.bundle
+ld: warning: ignoring duplicate libraries: '-lruby.3.2'
+
+current directory: /Users/mikami/Git/Ruby_Practice/Rails_test/test3/vendor/bundle/ruby/3.2.0/gems/stringio-3.0.8/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20231101-63531-3ku9do sitelibdir\=./.gem.20231101-63531-3ku9do install
+/usr/bin/install -c -m 0755 stringio.bundle ./.gem.20231101-63531-3ku9do
+
+current directory: /Users/mikami/Git/Ruby_Practice/Rails_test/test3/vendor/bundle/ruby/3.2.0/gems/stringio-3.0.8/ext/stringio
+make DESTDIR\= sitearchdir\=./.gem.20231101-63531-3ku9do sitelibdir\=./.gem.20231101-63531-3ku9do clean
