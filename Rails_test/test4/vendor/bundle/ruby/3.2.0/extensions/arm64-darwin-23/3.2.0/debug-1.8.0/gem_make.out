@@ -1,0 +1,20 @@
+current directory: /Users/mikami/Git/Ruby_Practice/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/debug-1.8.0/ext/debug
+/Users/mikami/.rbenv/versions/3.2.2/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/mikami/Git/Ruby_Practice/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/debug-1.8.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20231127-51582-ssw5mi sitelibdir\=./.gem.20231127-51582-ssw5mi clean
+
+current directory: /Users/mikami/Git/Ruby_Practice/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/debug-1.8.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20231127-51582-ssw5mi sitelibdir\=./.gem.20231127-51582-ssw5mi
+compiling debug.c
+compiling iseq_collector.c
+linking shared-object debug/debug.bundle
+ld: warning: ignoring duplicate libraries: '-lruby.3.2'
+
+current directory: /Users/mikami/Git/Ruby_Practice/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/debug-1.8.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20231127-51582-ssw5mi sitelibdir\=./.gem.20231127-51582-ssw5mi install
+/usr/bin/install -c -m 0755 debug.bundle ./.gem.20231127-51582-ssw5mi/debug
+
+current directory: /Users/mikami/Git/Ruby_Practice/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/debug-1.8.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20231127-51582-ssw5mi sitelibdir\=./.gem.20231127-51582-ssw5mi clean
