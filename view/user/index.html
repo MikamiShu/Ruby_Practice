@@ -1,0 +1,36 @@
+<DOCUTYPE html>
+    <html lang="ja">
+    <html>
+    <head>
+    <meta charset="UTF-8" />
+    <link rel = "stylesheet" href="./css/application.css">
+    <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script>
+        $(function() {
+            $("#footer").load("../footer/footer.html");
+        });
+    </script>
+    </head>
+
+    <body>
+        <div id="footer"></div>
+
+        <div class="center">
+            <div class="right">
+                <button id="button" onclick="location.href='./email/email.html'">お問い合わせ</button>
+            </div>
+            <h1>楽譜管理アプリ</h1>
+            <h2>ログイン</h2>
+            <label for="username"><h3>メールアドレス</h3></label>
+            <input type="text" id="username" size="40">
+            
+
+            <label for="password"><h3>パスワード</h3></label>
+            <input type="text" id="password" size="40"><br>
+            
+            
+
+            <button id="button" onclick="location.href='./add_user/top_page.html'">ログイン</button><br>
+            <button id="button" onclick="location.href='./add_user/adduser.html'">新規登録</button>
+    </body>
+</html>

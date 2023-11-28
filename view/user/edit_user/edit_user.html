@@ -1,0 +1,33 @@
+<DOCUTYPE html>
+    <html lang="ja">
+    <html>
+    <head>
+    <meta charset="UTF-8" />
+    <link rel = "stylesheet" href="../css/application.css">
+    <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script>
+        $(function() {
+            $("#footer").load("../footer/footer.html");
+        });
+    </script>
+    </head>
+
+    <body>
+        <div id="footer"></div>
+
+        <div class="center">
+            <div class="right">
+                <button id="button" onclick="location.href='./pass_edit.html'">パスワード変更</button>
+            </div>
+
+            <h2>ユーザ名</h2>
+            <input type="text" size="40" placeholder="Userx">
+            <h2>メールアドレス</h2>
+            <input type="text" size="40" placeholder="xxxxxxx@xxx.com"><br>
+            
+
+            <button id="button" onclick="location.href='./ok.html'">登録</button>
+            <button id="button" onclick="location.href='../mypage/mypage.html'">戻る</button>
+        </div>
+    </body>
+</html>

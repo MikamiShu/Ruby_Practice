@@ -1,0 +1,39 @@
+<DOCUTYPE html>
+    <html lang="ja">
+    <html>
+    <head>
+    <meta charset="UTF-8" />
+    <link rel = "stylesheet" href="../css/application.css">
+    <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script>
+        $(function() {
+            $("#footer").load("../footer/footer.html");
+        });
+    </script>
+    </head>
+
+    <body>
+        <div id="footer"></div>
+        <div class="center">
+            <div class="left">
+                <h1>マイページ</h1>
+            </div>
+            <div class="right">
+                <button id="button" onclick="location.href='../logout/logout.html'">ログアウト</button>
+                <button id="button" onclick="location.href='../delete_user/delete_user.html'">ユーザ削除</button>
+            </div>
+            <div class="field">
+                <div class="box">
+                    <h2>ユーザ名</h2>
+                    test<br>
+                </div>
+                <div class="box">
+                    <h2>メールアドレス</h2>
+                    test<br>
+                </div>
+            </div>
+            <button class="button5" onclick="location.href='../edit_user/edit_user.html'">登録情報編集</button>
+            <button class="button5" onclick="location.href='../add_user/top_page.html'">戻る</button>
+        </div>
+    </body>
+</html>

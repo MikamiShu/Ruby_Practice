@@ -1,0 +1,105 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin-left: auto;
+    margin-right: auto;
+    
+    width: 920px;
+  }
+  
+  
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 30%;
+    margin-top: 30px;
+  }
+
+  /*top_page.html*/
+  .field {
+    justify-content: space-around;
+    display: flex;
+    margin-bottom: 100px;
+    margin-top: 100px;
+  }
+
+  .center {
+    text-align: center;
+  }
+  
+  .skima {
+    border-bottom: 2px solid #000;
+  }
+
+  .table {
+    border: 8px #b02525e6 solid;
+    margin-top: 50px;
+    margin-bottom: 150px;
+  }
+
+  .left {
+    text-align: left;
+  }
+
+  #button2 {
+    width: 100px;
+    height: 40px;
+  }
+  .button5 {
+    width: 100px;
+    height: 40px;
+    justify-content: center;
+  }
+  .right {
+    text-align: right;
+  }
+
+  /*adduser.html*/
+  #button {
+    display: flexbox;
+    width: 4cm;
+    height: 1cm;
+    text-align: center;
+    margin: auto;
+    margin-top: 40px;
+  }
+
+  /*addmusic.html*/
+  .center_addmusic {
+    text-align: center;
+    margin-top: 200px;
+  }
+
+  /*music_table*/
+  .field_music_table {
+    justify-content: space-between;
+    display: flex;
+    margin-bottom: 150px;
+  }
+  .button3 {
+    width: 3cm;
+    height: 1.5cm;
+  }
+
+
+
+  .red {
+    color: red;
+  }

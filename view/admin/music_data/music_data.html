@@ -1,0 +1,83 @@
+<DOCUTYPE html>
+    <html lang="ja">
+    <html>
+    <head>
+    <meta charset="UTF-8" />
+    <link rel = "stylesheet" href="../css/application.css">
+    </head>
+
+    <body>
+        <div class="center">
+            <div class="left"><h1>Userx楽曲データベース</h1></div>
+            <div class="field">
+                <div class ="text">
+                    <label for="test1"><h2>曲名</h2></label>
+                    <input type="text" id="test1" name="test1" size="40">
+                </div>
+                <div class="text">
+                    <label for="test2"><h2>作曲者</h2></label>
+                    <input type="text" id="test2" name="test2" size="40">
+                </div>
+                <div class="pull-down">
+                    <label for="test3"><h2>グレード</h2></label>
+                    <select>
+                        <option value="grade1">1</option>
+                        <option value="grade2">2</option>
+                        <option value="grade2">3</option>
+                        <option value="grade2">4</option>
+                        <option value="grade2">5</option>
+                    </select>
+                </div>
+                <div class="pull-down">
+                    <label for="test4"><h2>使用楽器</h2></label>
+                    <select>
+                        <option value="trampet">トランペット</option>
+                        <option value="trombone">トロンボーン</option>
+                        <option value="flute">フルート</option>
+                        <option value="crarinet">クラリネット</option>
+                        <option value="oboe">オーボエ</option>
+                        <option value="tuba">チューバ</option>
+                        <option value="euphoniam">ユーフォニアム</option>
+                        <option value="horn">ホルン</option>
+                    </select>
+                </div>
+            </div>
+            <div class="table">
+                <table width="900">
+                    <tr>
+                        <th class="skima">曲名↑↓</th>
+                        <th class="skima">作曲者↑↓</th>
+                        <th class="skima">編曲者↑↓</th>
+                        <th class="skima">難易度↑↓</th>
+                        <th class="skima">演奏時間↑↓</th>
+                        <th class="skima">使用楽器↑↓</th>
+                    </tr>
+                    <tr>
+                        <th><a href="../music_table/music_table.html">おジャ魔女どれみ</a></th>
+                        <th></th>
+                        <th></th>
+                        <th>2</th>
+                        <th>4:30</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <th>test1</th>
+                        <th>test1</th>
+                        <th>test1</th>
+                        <th>test1</th>
+                        <th>test1</th>
+                        <th>test1</th>
+                    </tr>
+                    <tr>
+                        <th>test2</th>
+                        <th>test2</th>
+                        <th>test2</th>
+                        <th>test2</th>
+                        <th>test2</th>
+                        <th>test2</th>
+                    </tr>
+                </table>
+            </div>
+            <button id="button" onclick="location.href='../conduct/user.html'">戻る</button>
+        </div>
+    </body>

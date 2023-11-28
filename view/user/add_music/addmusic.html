@@ -1,0 +1,68 @@
+<DOCUTYPE html>
+    <html lang="ja">
+    <html>
+    <head>
+    <meta charset="UTF-8" />
+    <link rel = "stylesheet" href="../css/application.css">
+    <script src="//code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script>
+        $(function() {
+            $("#footer").load("../footer/footer.html");
+        });
+    </script>
+    </head>
+
+    <body>
+        <div id="footer"></div>
+        <div class="center_addmusic">
+            <h3>※使用楽器の複数選択はshiftキーor Commandキーを押しながらクリックするとできます．</h3>
+            <div class="field">
+                <div class ="text">
+                    <label for="test1"><h2>曲名</h2></label>
+                    <input type="text" id="test1" name="test1" size="40">
+                    <div class="red">使用できない文字が含まれています．</div>
+                </div>
+                <div class="text">
+                    <label for="test2"><h2>作曲者</h2></label>
+                    <input type="text" id="test2" name="test2" size="40">
+                </div>
+                <div class="text">
+                    <label for="test3"><h2>編曲者</h2></label>
+                    <input type="text" id="test3" name="test3" size="40">
+                </div>
+            </div>
+            <div class="field">
+                <div class="pull-down">
+                    <label for="test4"><h2>グレード</h2></label>
+                    <select>
+                        <option value="grade1">1</option>
+                        <option value="grade2">2</option>
+                        <option value="grade2">3</option>
+                        <option value="grade2">4</option>
+                        <option value="grade2">5</option>
+                    </select>
+                </div>
+                <div class="munutes">
+                    <label for="test5"><h2>演奏時間</h2></label>
+                    <input type="text" id="test5" name="test5" size="20">
+                </div>
+                <div class="pull-down">
+                    <label for="test4"><h2>使用楽器</h2></label>
+                    <select multiple>
+                        <option value="trampet">トランペット</option>
+                        <option value="trombone">トロンボーン</option>
+                        <option value="flute">フルート</option>
+                        <option value="crarinet">クラリネット</option>
+                        <option value="oboe">オーボエ</option>
+                        <option value="tuba">チューバ</option>
+                        <option value="euphoniam">ユーフォニアム</option>
+                        <option value="horn">ホルン</option>
+                    </select>
+                </div>
+            </div>
+            <button id="button" onclick="location.href='./table.html'">確認</button>
+            <button id="button" onclick="location.href='../add_user/top_page.html'">戻る</button>
+        </div>
+    </body>
+
+</html>
