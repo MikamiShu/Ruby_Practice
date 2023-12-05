@@ -1,19 +1,19 @@
-current directory: /Users/mikami/Git/Ruby_Practice/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/racc-1.7.3/ext/racc/cparse
+current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/racc-1.7.3/ext/racc/cparse
 /Users/mikami/.rbenv/versions/3.2.2/bin/ruby extconf.rb
 creating Makefile
 
-current directory: /Users/mikami/Git/Ruby_Practice/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/racc-1.7.3/ext/racc/cparse
-make DESTDIR\= sitearchdir\=./.gem.20231127-51582-4v044g sitelibdir\=./.gem.20231127-51582-4v044g clean
+current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/racc-1.7.3/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20231204-80711-r7ijb0 sitelibdir\=./.gem.20231204-80711-r7ijb0 clean
 
-current directory: /Users/mikami/Git/Ruby_Practice/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/racc-1.7.3/ext/racc/cparse
-make DESTDIR\= sitearchdir\=./.gem.20231127-51582-4v044g sitelibdir\=./.gem.20231127-51582-4v044g
+current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/racc-1.7.3/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20231204-80711-r7ijb0 sitelibdir\=./.gem.20231204-80711-r7ijb0
 compiling cparse.c
 linking shared-object racc/cparse.bundle
 ld: warning: ignoring duplicate libraries: '-lruby.3.2'
 
-current directory: /Users/mikami/Git/Ruby_Practice/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/racc-1.7.3/ext/racc/cparse
-make DESTDIR\= sitearchdir\=./.gem.20231127-51582-4v044g sitelibdir\=./.gem.20231127-51582-4v044g install
-/usr/bin/install -c -m 0755 cparse.bundle ./.gem.20231127-51582-4v044g/racc
+current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/racc-1.7.3/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20231204-80711-r7ijb0 sitelibdir\=./.gem.20231204-80711-r7ijb0 install
+/usr/bin/install -c -m 0755 cparse.bundle ./.gem.20231204-80711-r7ijb0/racc
 
-current directory: /Users/mikami/Git/Ruby_Practice/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/racc-1.7.3/ext/racc/cparse
-make DESTDIR\= sitearchdir\=./.gem.20231127-51582-4v044g sitelibdir\=./.gem.20231127-51582-4v044g clean
+current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/racc-1.7.3/ext/racc/cparse
+make DESTDIR\= sitearchdir\=./.gem.20231204-80711-r7ijb0 sitelibdir\=./.gem.20231204-80711-r7ijb0 clean

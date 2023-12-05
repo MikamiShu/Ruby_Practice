@@ -1,4 +1,4 @@
-current directory: /Users/mikami/Git/Ruby_Practice/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/nio4r-2.6.1/ext/nio4r
+current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/nio4r-2.6.1/ext/nio4r
 /Users/mikami/.rbenv/versions/3.2.2/bin/ruby extconf.rb
 checking for unistd.h... yes
 checking for rb_io_descriptor()... yes
@@ -13,11 +13,11 @@ checking for port_event_t in port.h... no
 checking for sys/resource.h... yes
 creating Makefile
 
-current directory: /Users/mikami/Git/Ruby_Practice/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/nio4r-2.6.1/ext/nio4r
-make DESTDIR\= sitearchdir\=./.gem.20231127-51582-mvrqys sitelibdir\=./.gem.20231127-51582-mvrqys clean
+current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/nio4r-2.6.1/ext/nio4r
+make DESTDIR\= sitearchdir\=./.gem.20231204-80711-dticoa sitelibdir\=./.gem.20231204-80711-dticoa clean
 
-current directory: /Users/mikami/Git/Ruby_Practice/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/nio4r-2.6.1/ext/nio4r
-make DESTDIR\= sitearchdir\=./.gem.20231127-51582-mvrqys sitelibdir\=./.gem.20231127-51582-mvrqys
+current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/nio4r-2.6.1/ext/nio4r
+make DESTDIR\= sitearchdir\=./.gem.20231204-80711-dticoa sitelibdir\=./.gem.20231204-80711-dticoa
 compiling bytebuffer.c
 compiling monitor.c
 compiling nio4r_ext.c
@@ -360,9 +360,9 @@ compiling selector.c
 linking shared-object nio4r_ext.bundle
 ld: warning: ignoring duplicate libraries: '-lruby.3.2'
 
-current directory: /Users/mikami/Git/Ruby_Practice/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/nio4r-2.6.1/ext/nio4r
-make DESTDIR\= sitearchdir\=./.gem.20231127-51582-mvrqys sitelibdir\=./.gem.20231127-51582-mvrqys install
-/usr/bin/install -c -m 0755 nio4r_ext.bundle ./.gem.20231127-51582-mvrqys
+current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/nio4r-2.6.1/ext/nio4r
+make DESTDIR\= sitearchdir\=./.gem.20231204-80711-dticoa sitelibdir\=./.gem.20231204-80711-dticoa install
+/usr/bin/install -c -m 0755 nio4r_ext.bundle ./.gem.20231204-80711-dticoa
 
-current directory: /Users/mikami/Git/Ruby_Practice/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/nio4r-2.6.1/ext/nio4r
-make DESTDIR\= sitearchdir\=./.gem.20231127-51582-mvrqys sitelibdir\=./.gem.20231127-51582-mvrqys clean
+current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/nio4r-2.6.1/ext/nio4r
+make DESTDIR\= sitearchdir\=./.gem.20231204-80711-dticoa sitelibdir\=./.gem.20231204-80711-dticoa clean

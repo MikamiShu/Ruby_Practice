@@ -1,12 +1,12 @@
-current directory: /Users/mikami/Git/Ruby_Practice/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/bootsnap-1.17.0/ext/bootsnap
+current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/bootsnap-1.17.0/ext/bootsnap
 /Users/mikami/.rbenv/versions/3.2.2/bin/ruby extconf.rb
 creating Makefile
 
-current directory: /Users/mikami/Git/Ruby_Practice/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/bootsnap-1.17.0/ext/bootsnap
-make DESTDIR\= sitearchdir\=./.gem.20231127-51582-dsycw4 sitelibdir\=./.gem.20231127-51582-dsycw4 clean
+current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/bootsnap-1.17.0/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20231204-80711-4aiglh sitelibdir\=./.gem.20231204-80711-4aiglh clean
 
-current directory: /Users/mikami/Git/Ruby_Practice/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/bootsnap-1.17.0/ext/bootsnap
-make DESTDIR\= sitearchdir\=./.gem.20231127-51582-dsycw4 sitelibdir\=./.gem.20231127-51582-dsycw4
+current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/bootsnap-1.17.0/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20231204-80711-4aiglh sitelibdir\=./.gem.20231204-80711-4aiglh
 compiling bootsnap.c
 bootsnap.c:822:10: warning: unused variable 'contents' [-Wunused-variable]
   char * contents = NULL;
@@ -15,9 +15,9 @@ bootsnap.c:822:10: warning: unused variable 'contents' [-Wunused-variable]
 linking shared-object bootsnap/bootsnap.bundle
 ld: warning: ignoring duplicate libraries: '-lruby.3.2'
 
-current directory: /Users/mikami/Git/Ruby_Practice/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/bootsnap-1.17.0/ext/bootsnap
-make DESTDIR\= sitearchdir\=./.gem.20231127-51582-dsycw4 sitelibdir\=./.gem.20231127-51582-dsycw4 install
-/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20231127-51582-dsycw4/bootsnap
+current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/bootsnap-1.17.0/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20231204-80711-4aiglh sitelibdir\=./.gem.20231204-80711-4aiglh install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20231204-80711-4aiglh/bootsnap
 
-current directory: /Users/mikami/Git/Ruby_Practice/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/bootsnap-1.17.0/ext/bootsnap
-make DESTDIR\= sitearchdir\=./.gem.20231127-51582-dsycw4 sitelibdir\=./.gem.20231127-51582-dsycw4 clean
+current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/bootsnap-1.17.0/ext/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20231204-80711-4aiglh sitelibdir\=./.gem.20231204-80711-4aiglh clean

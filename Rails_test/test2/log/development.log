@@ -2371,3 +2371,11 @@ Processing by PostsController#index as HTML
 Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.0ms | Allocations: 15174)
 
 
+Started GET "/" for ::1 at 2023-12-05 16:48:10 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/mikami/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/mikami/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.4ms | Allocations: 374)
+Completed 200 OK in 8ms (Views: 2.8ms | ActiveRecord: 0.0ms | Allocations: 4333)
+
+
