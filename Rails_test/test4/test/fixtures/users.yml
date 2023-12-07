@@ -1,11 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  seach_word: MyString
   text_content: MyString
   sort_word: MyString
 
 two:
-  seach_word: MyString
   text_content: MyString
   sort_word: MyString

@@ -1,12 +1,14 @@
 <h1>Test</h1>
 
-<%= form_with model: @user do |form| %> 
+<%= form_with(scope: :search, method: :get, local: true) do |form| %> 
     <div>
-        <%= form.label :search_word %>
-        <%= form.text_field :search_word, value: @search_params[:search_word] %>
+        <%= form.label :text_content %>
+        <%= form.text_field :text_content, value: @search_params[:text_content] %>
     </div>
     <%= button_to "検索", user_path(form)%>
-    <%= link_to "新しい投稿", new_user_path%>
+    <%= link_to "新しい投稿", new_user_path%><br>
+    <%= @search_params%><br>
+    <%= params %>
 <% end %>
 
 <ul>

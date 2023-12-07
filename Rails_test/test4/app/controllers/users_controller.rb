@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
     def index 
-        @users = User.all
+        @search_params = user_search_params
+        @users = User.search(@search_params)
     end
 
     def new 
@@ -29,7 +30,11 @@ class UsersController < ApplicationController
     @private
 
     def user_params 
-        params.require(:user).permit(:text_content, :sort_word, :search_word)
+        params.require(:user).permit(:text_content, :sort_word, :text_content)
+    end
+
+    def user_search_params
+        params.fetch(:search, {}).permit(:text_content)
     end
 
 
