@@ -1,1 +1,7 @@
-<h1>test_new</h1>
+<h1>new_test</h1>
+
+<%= form_with model: @user do |form| %> 
+    <div><%= form.label :text_content %> <%= form.text_field :text_content %></div>
+    <div><%= form.label :sort_word %> <%= form.text_area :sort_word %></div>
+    <div><%= form.submit "投稿", class: "link-button" %></div>
+<% end %>
