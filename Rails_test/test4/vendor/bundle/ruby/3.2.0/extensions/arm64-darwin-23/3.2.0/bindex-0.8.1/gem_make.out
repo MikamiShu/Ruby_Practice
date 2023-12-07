@@ -3,17 +3,17 @@ current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendo
 creating Makefile
 
 current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/bindex-0.8.1/ext/skiptrace
-make DESTDIR\= sitearchdir\=./.gem.20231204-80711-861nn7 sitelibdir\=./.gem.20231204-80711-861nn7 clean
+make DESTDIR\= sitearchdir\=./.gem.20231206-708-i8b5sg sitelibdir\=./.gem.20231206-708-i8b5sg clean
 
 current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/bindex-0.8.1/ext/skiptrace
-make DESTDIR\= sitearchdir\=./.gem.20231204-80711-861nn7 sitelibdir\=./.gem.20231204-80711-861nn7
+make DESTDIR\= sitearchdir\=./.gem.20231206-708-i8b5sg sitelibdir\=./.gem.20231206-708-i8b5sg
 compiling cruby.c
 linking shared-object skiptrace/internal/cruby.bundle
 ld: warning: ignoring duplicate libraries: '-lruby.3.2'
 
 current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/bindex-0.8.1/ext/skiptrace
-make DESTDIR\= sitearchdir\=./.gem.20231204-80711-861nn7 sitelibdir\=./.gem.20231204-80711-861nn7 install
-/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20231204-80711-861nn7/skiptrace/internal
+make DESTDIR\= sitearchdir\=./.gem.20231206-708-i8b5sg sitelibdir\=./.gem.20231206-708-i8b5sg install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20231206-708-i8b5sg/skiptrace/internal
 
 current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/bindex-0.8.1/ext/skiptrace
-make DESTDIR\= sitearchdir\=./.gem.20231204-80711-861nn7 sitelibdir\=./.gem.20231204-80711-861nn7 clean
+make DESTDIR\= sitearchdir\=./.gem.20231206-708-i8b5sg sitelibdir\=./.gem.20231206-708-i8b5sg clean

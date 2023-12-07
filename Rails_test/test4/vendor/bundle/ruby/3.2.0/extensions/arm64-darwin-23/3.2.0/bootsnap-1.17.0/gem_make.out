@@ -3,10 +3,10 @@ current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendo
 creating Makefile
 
 current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/bootsnap-1.17.0/ext/bootsnap
-make DESTDIR\= sitearchdir\=./.gem.20231204-80711-4aiglh sitelibdir\=./.gem.20231204-80711-4aiglh clean
+make DESTDIR\= sitearchdir\=./.gem.20231206-708-h7wlxi sitelibdir\=./.gem.20231206-708-h7wlxi clean
 
 current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/bootsnap-1.17.0/ext/bootsnap
-make DESTDIR\= sitearchdir\=./.gem.20231204-80711-4aiglh sitelibdir\=./.gem.20231204-80711-4aiglh
+make DESTDIR\= sitearchdir\=./.gem.20231206-708-h7wlxi sitelibdir\=./.gem.20231206-708-h7wlxi
 compiling bootsnap.c
 bootsnap.c:822:10: warning: unused variable 'contents' [-Wunused-variable]
   char * contents = NULL;
@@ -16,8 +16,8 @@ linking shared-object bootsnap/bootsnap.bundle
 ld: warning: ignoring duplicate libraries: '-lruby.3.2'
 
 current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/bootsnap-1.17.0/ext/bootsnap
-make DESTDIR\= sitearchdir\=./.gem.20231204-80711-4aiglh sitelibdir\=./.gem.20231204-80711-4aiglh install
-/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20231204-80711-4aiglh/bootsnap
+make DESTDIR\= sitearchdir\=./.gem.20231206-708-h7wlxi sitelibdir\=./.gem.20231206-708-h7wlxi install
+/usr/bin/install -c -m 0755 bootsnap.bundle ./.gem.20231206-708-h7wlxi/bootsnap
 
 current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/bootsnap-1.17.0/ext/bootsnap
-make DESTDIR\= sitearchdir\=./.gem.20231204-80711-4aiglh sitelibdir\=./.gem.20231204-80711-4aiglh clean
+make DESTDIR\= sitearchdir\=./.gem.20231206-708-h7wlxi sitelibdir\=./.gem.20231206-708-h7wlxi clean

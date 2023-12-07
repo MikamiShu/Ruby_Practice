@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sort_word: MyString
+  text_content: MyString
+
+two:
+  sort_word: MyString
+  text_content: MyString

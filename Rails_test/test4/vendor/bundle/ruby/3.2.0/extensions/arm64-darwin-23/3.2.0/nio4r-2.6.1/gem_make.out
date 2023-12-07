@@ -14,10 +14,10 @@ checking for sys/resource.h... yes
 creating Makefile
 
 current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/nio4r-2.6.1/ext/nio4r
-make DESTDIR\= sitearchdir\=./.gem.20231204-80711-dticoa sitelibdir\=./.gem.20231204-80711-dticoa clean
+make DESTDIR\= sitearchdir\=./.gem.20231206-708-vp07ls sitelibdir\=./.gem.20231206-708-vp07ls clean
 
 current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/nio4r-2.6.1/ext/nio4r
-make DESTDIR\= sitearchdir\=./.gem.20231204-80711-dticoa sitelibdir\=./.gem.20231204-80711-dticoa
+make DESTDIR\= sitearchdir\=./.gem.20231206-708-vp07ls sitelibdir\=./.gem.20231206-708-vp07ls
 compiling bytebuffer.c
 compiling monitor.c
 compiling nio4r_ext.c
@@ -361,8 +361,8 @@ linking shared-object nio4r_ext.bundle
 ld: warning: ignoring duplicate libraries: '-lruby.3.2'
 
 current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/nio4r-2.6.1/ext/nio4r
-make DESTDIR\= sitearchdir\=./.gem.20231204-80711-dticoa sitelibdir\=./.gem.20231204-80711-dticoa install
-/usr/bin/install -c -m 0755 nio4r_ext.bundle ./.gem.20231204-80711-dticoa
+make DESTDIR\= sitearchdir\=./.gem.20231206-708-vp07ls sitelibdir\=./.gem.20231206-708-vp07ls install
+/usr/bin/install -c -m 0755 nio4r_ext.bundle ./.gem.20231206-708-vp07ls
 
 current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/nio4r-2.6.1/ext/nio4r
-make DESTDIR\= sitearchdir\=./.gem.20231204-80711-dticoa sitelibdir\=./.gem.20231204-80711-dticoa clean
+make DESTDIR\= sitearchdir\=./.gem.20231206-708-vp07ls sitelibdir\=./.gem.20231206-708-vp07ls clean
