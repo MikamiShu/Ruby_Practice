@@ -10,15 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_06_233011) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_07_054607) do
   create_table "posts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "sort_word"
+    t.string "seach_word"
     t.string "text_content"
+    t.string "sort_word"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

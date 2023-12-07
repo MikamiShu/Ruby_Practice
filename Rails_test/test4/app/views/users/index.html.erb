@@ -1,8 +1,13 @@
 <h1>Test</h1>
 
-<div class="center">
-     <%= link_to "新しい投稿", new_user_path, class: "link-button"%>
-</div>
+<%= form_with model: @user do |form| %> 
+    <div>
+        <%= form.label :search_word %>
+        <%= form.text_field :search_word, value: @search_params[:search_word] %>
+    </div>
+    <%= button_to "検索", user_path(form)%>
+    <%= link_to "新しい投稿", new_user_path%>
+<% end %>
 
 <ul>
     <% @users.each do |user| %>

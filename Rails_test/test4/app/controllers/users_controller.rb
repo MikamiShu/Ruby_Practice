@@ -17,6 +17,9 @@ class UsersController < ApplicationController
         end
     end
 
+    def edit 
+    end
+
     def destroy 
         @user = User.find(params[:id])
         @user.destroy
@@ -26,7 +29,7 @@ class UsersController < ApplicationController
     @private
 
     def user_params 
-        params.require(:user).permit(:text_content, :sort_word)
+        params.require(:user).permit(:text_content, :sort_word, :search_word)
     end
 
 
