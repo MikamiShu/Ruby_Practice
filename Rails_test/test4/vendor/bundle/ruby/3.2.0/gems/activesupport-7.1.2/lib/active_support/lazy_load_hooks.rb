@@ -35,7 +35,7 @@ module ActiveSupport
   #
   #   initializer "action_text.renderer" do
   #     ActiveSupport.on_load(:action_controller_base) do
-  #       ActiveSupport.on_load(:action_text_content) do
+  #       ActiveSupport.on_load(:action_title) do
   #         self.default_renderer = Class.new(ActionController::Base).renderer
   #       end
   #     end

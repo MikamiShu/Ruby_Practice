@@ -2,20 +2,21 @@
 
 <%= form_with(scope: :search, method: :get, local: true) do |form| %> 
     <div>
-        <%= form.label :text_content %>
-        <%= form.text_field :text_content, value: @search_params[:text_content] %>
+        <%= form.label :title, "検索ワード" %>
+        <%= form.text_field :title, value: @search_params[:title] %><br>
+        <%= form.label :text_content, "内容検索"%>
+        <%= form.text_field :text_content, value: @search_params[:text_content]%>
     </div>
     <%= button_to "検索", user_path(form)%>
     <%= link_to "新しい投稿", new_user_path%><br>
     <%= @search_params%><br>
-    <%= params %>
 <% end %>
 
 <ul>
     <% @users.each do |user| %>
         <li>
-            <h2><%= user.text_content%></h2>
-            <p><%= user.sort_word%></p>
+            <h2><%= user.title%></h2>
+            <p><%= user.text_content%></p>
             <span>
                 <small><%= user.created_at %></small>       
             </span>

@@ -30,12 +30,13 @@ class UsersController < ApplicationController
     @private
 
     def user_params 
-        params.require(:user).permit(:text_content, :sort_word, :text_content)
+        params.require(:user).permit(:title, :text_content)
     end
 
     def user_search_params
-        params.fetch(:search, {}).permit(:text_content)
+        params.fetch(:search, {}).permit(:title, :text_content)
     end
+    
 
 
     

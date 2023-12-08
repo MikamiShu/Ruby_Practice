@@ -9,12 +9,12 @@ module ActionText
     mattr_accessor(:allowed_attributes)
     mattr_accessor(:scrubber)
 
-    def render_action_text_content(content)
+    def render_action_title(content)
       self.prefix_partial_path_with_controller_namespace = false
-      sanitize_action_text_content(render_action_text_attachments(content))
+      sanitize_action_title(render_action_text_attachments(content))
     end
 
-    def sanitize_action_text_content(content)
+    def sanitize_action_title(content)
       sanitizer.sanitize(
         content.to_html,
         tags: sanitizer_allowed_tags,
