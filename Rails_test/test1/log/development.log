@@ -2401,3 +2401,276 @@ Processing by PostsController#index as TURBO_STREAM
 Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.1ms | Allocations: 3347)
 
 
+Started GET "/users" for ::1 at 2023-12-07 13:21:35 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/" for ::1 at 2023-12-07 13:21:35 +0900
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/mikami/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/mikami/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.3ms | Allocations: 269)
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 1895)
+
+
+Started GET "/posts" for ::1 at 2023-12-07 13:21:36 +0900
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:8
+  Rendered posts/index.html.erb within layouts/application (Duration: 12.3ms | Allocations: 10880)
+  Rendered layout layouts/application.html.erb (Duration: 46.3ms | Allocations: 44472)
+Completed 200 OK in 64ms (Views: 47.9ms | ActiveRecord: 0.4ms | Allocations: 51183)
+
+
+Started DELETE "/posts/10" for ::1 at 2023-12-07 13:21:38 +0900
+Processing by PostsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"10"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:45:in `set_post'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:33:in `destroy'
+  [1m[36mPost Destroy (0.8ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 10]]
+  ↳ app/controllers/posts_controller.rb:33:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:33:in `destroy'
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 8ms (ActiveRecord: 1.1ms | Allocations: 4231)
+
+
+Started GET "/posts" for ::1 at 2023-12-07 13:21:38 +0900
+Processing by PostsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:8
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1075)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 2997)
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.1ms | Allocations: 3306)
+
+
+Started DELETE "/posts/11" for ::1 at 2023-12-07 13:21:39 +0900
+Processing by PostsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"11"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:45:in `set_post'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:33:in `destroy'
+  [1m[36mPost Destroy (1.6ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 11]]
+  ↳ app/controllers/posts_controller.rb:33:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:33:in `destroy'
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 9ms (ActiveRecord: 2.0ms | Allocations: 1977)
+
+
+Started GET "/posts" for ::1 at 2023-12-07 13:21:39 +0900
+Processing by PostsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:8
+  Rendered posts/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 921)
+  Rendered layout layouts/application.html.erb (Duration: 7.9ms | Allocations: 2844)
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.2ms | Allocations: 3108)
+
+
+Started DELETE "/posts/12" for ::1 at 2023-12-07 13:21:40 +0900
+Processing by PostsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"12"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:45:in `set_post'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:33:in `destroy'
+  [1m[36mPost Destroy (1.4ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 12]]
+  ↳ app/controllers/posts_controller.rb:33:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:33:in `destroy'
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 8ms (ActiveRecord: 1.8ms | Allocations: 1974)
+
+
+Started GET "/posts" for ::1 at 2023-12-07 13:21:40 +0900
+Processing by PostsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:8
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 406)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 2637)
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 0.1ms | Allocations: 2900)
+
+
+Started GET "/posts/new" for ::1 at 2023-12-07 13:21:41 +0900
+Processing by PostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 8.1ms | Allocations: 1689)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 3611)
+Completed 200 OK in 15ms (Views: 12.0ms | ActiveRecord: 0.0ms | Allocations: 3967)
+
+
+Started GET "/users" for ::1 at 2023-12-08 16:59:54 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/" for ::1 at 2023-12-08 16:59:57 +0900
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/mikami/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/mikami/.rbenv/versions/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.8ms | Allocations: 269)
+Completed 200 OK in 7ms (Views: 1.9ms | ActiveRecord: 0.0ms | Allocations: 1895)
+
+
+Started GET "/posts/new" for ::1 at 2023-12-08 16:59:58 +0900
+Processing by PostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1859)
+  Rendered layout layouts/application.html.erb (Duration: 43.8ms | Allocations: 35094)
+Completed 200 OK in 69ms (Views: 45.5ms | ActiveRecord: 0.5ms | Allocations: 49664)
+
+
+Started GET "/posts" for ::1 at 2023-12-08 16:59:58 +0900
+Processing by PostsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:8
+  Rendered posts/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 841)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 3071)
+Completed 200 OK in 14ms (Views: 6.2ms | ActiveRecord: 0.2ms | Allocations: 4398)
+
+
+Started GET "/posts/new" for ::1 at 2023-12-08 17:00:01 +0900
+Processing by PostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 764)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 2686)
+Completed 200 OK in 9ms (Views: 8.0ms | ActiveRecord: 0.0ms | Allocations: 2954)
+
+
+Started POST "/posts" for ::1 at 2023-12-08 17:02:33 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"test", "content"=>"aaaaa"}, "commit"=>"投稿"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:14:in `create'
+  [1m[36mPost Create (1.6ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["title", "test"], ["content", "aaaaa"], ["created_at", "2023-12-08 08:02:33.471546"], ["updated_at", "2023-12-08 08:02:33.471546"]]
+  ↳ app/controllers/posts_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:14:in `create'
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 31ms (ActiveRecord: 1.9ms | Allocations: 19133)
+
+
+Started GET "/posts" for ::1 at 2023-12-08 17:02:33 +0900
+Processing by PostsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:8
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1623)
+  Rendered layout layouts/application.html.erb (Duration: 23.4ms | Allocations: 35016)
+Completed 200 OK in 31ms (Views: 25.4ms | ActiveRecord: 0.1ms | Allocations: 39272)
+
+
+Started GET "/posts/13/edit" for ::1 at 2023-12-08 17:03:21 +0900
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:45:in `set_post'
+  Rendering layout layouts/application.html.erb
+  Rendering posts/edit.html.erb within layouts/application
+  Rendered posts/edit.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1785)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 3703)
+Completed 200 OK in 29ms (Views: 8.1ms | ActiveRecord: 0.2ms | Allocations: 14227)
+
+
+Started DELETE "/posts/13" for ::1 at 2023-12-08 17:03:26 +0900
+Processing by PostsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"13"}
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:45:in `set_post'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:33:in `destroy'
+  [1m[36mPost Destroy (1.1ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 13]]
+  ↳ app/controllers/posts_controller.rb:33:in `destroy'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:33:in `destroy'
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 9ms (ActiveRecord: 2.6ms | Allocations: 2054)
+
+
+Started GET "/posts" for ::1 at 2023-12-08 17:03:26 +0900
+Processing by PostsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:8
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 406)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 2617)
+Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 0.1ms | Allocations: 2881)
+
+
+Started GET "/posts/new" for ::1 at 2023-12-08 17:04:38 +0900
+Processing by PostsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 989)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 2911)
+Completed 200 OK in 11ms (Views: 8.8ms | ActiveRecord: 0.0ms | Allocations: 3236)
+
+
+Started POST "/posts" for ::1 at 2023-12-08 17:04:41 +0900
+Processing by PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"title"=>"aaaa", "content"=>"aaaa"}, "commit"=>"投稿"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:14:in `create'
+  [1m[36mPost Create (1.5ms)[0m  [1m[32mINSERT INTO "posts" ("title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?) RETURNING "id"[0m  [["title", "aaaa"], ["content", "aaaa"], ["created_at", "2023-12-08 08:04:41.627387"], ["updated_at", "2023-12-08 08:04:41.627387"]]
+  ↳ app/controllers/posts_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:14:in `create'
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 7ms (ActiveRecord: 2.1ms | Allocations: 1933)
+
+
+Started GET "/posts" for ::1 at 2023-12-08 17:04:41 +0900
+Processing by PostsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:8
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 883)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 2805)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.1ms | Allocations: 3069)
+
+
+Started DELETE "/posts/14" for ::1 at 2023-12-08 17:05:34 +0900
+Processing by PostsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"14"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT ?[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:45:in `set_post'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:33:in `destroy'
+  [1m[36mPost Destroy (1.1ms)[0m  [1m[31mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 14]]
+  ↳ app/controllers/posts_controller.rb:33:in `destroy'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:33:in `destroy'
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 19ms (ActiveRecord: 2.2ms | Allocations: 1956)
+
+
+Started GET "/posts" for ::1 at 2023-12-08 17:05:34 +0900
+Processing by PostsController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:8
+  Rendered posts/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 406)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 2617)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.0ms | Allocations: 2880)
+
+
