@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Capybara.add_selector(:button, locator_type: [String, Symbol]) do
-  xpath(:value, :title, :type, :name) do |locator, **options|
+  xpath(:value, :name, :type, :name) do |locator, **options|
     input_btn_xpath = XPath.descendant(:input)[XPath.attr(:type).one_of('submit', 'reset', 'image', 'button')]
     btn_xpath = XPath.descendant(:button)
     aria_btn_xpath = XPath.descendant[XPath.attr(:role).equals('button')]
@@ -27,7 +27,7 @@ Capybara.add_selector(:button, locator_type: [String, Symbol]) do
     btn_xpaths = [input_btn_xpath, btn_xpath, image_btn_xpath, label_contains_xpath].compact
     btn_xpaths << aria_btn_xpath if enable_aria_role
 
-    %i[value title type].inject(btn_xpaths.inject(&:union)) do |memo, ef|
+    %i[value name type].inject(btn_xpaths.inject(&:union)) do |memo, ef|
       memo.where(find_by_attr(ef, options[ef]))
     end
   end
@@ -55,7 +55,7 @@ Capybara.add_selector(:button, locator_type: [String, Symbol]) do
       XPath.attr(:id).equals(locator),
       XPath.attr(:name).equals(locator),
       XPath.attr(:value).is(locator),
-      XPath.attr(:title).is(locator),
+      XPath.attr(:name).is(locator),
       (XPath.attr(:id) == XPath.anywhere(:label)[XPath.string.n.is(locator)].attr(:for)),
       (XPath.attr(:'aria-label').is(locator) if config.enable_aria_label),
       (XPath.attr(config.test_id) == locator if config.test_id)

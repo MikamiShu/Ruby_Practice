@@ -478,17 +478,17 @@ module ActiveRecord
     #   # Update all customers with the given attributes
     #   Customer.update_all wants_email: true
     #
-    #   # Update all books with 'Rails' in their title
-    #   Book.where('title LIKE ?', '%Rails%').update_all(author: 'David')
+    #   # Update all books with 'Rails' in their name
+    #   Book.where('name LIKE ?', '%Rails%').update_all(author: 'David')
     #
     #   # Update all books that match conditions, but limit it to 5 ordered by date
-    #   Book.where('title LIKE ?', '%Rails%').order(:created_at).limit(5).update_all(author: 'David')
+    #   Book.where('name LIKE ?', '%Rails%').order(:created_at).limit(5).update_all(author: 'David')
     #
     #   # Update all invoices and set the number column to its id value.
     #   Invoice.update_all('number = id')
     #
-    #   # Update all books with 'Rails' in their title
-    #   Book.where('title LIKE ?', '%Rails%').update_all(title: Arel.sql("title + ' - volume 1'"))
+    #   # Update all books with 'Rails' in their name
+    #   Book.where('name LIKE ?', '%Rails%').update_all(name: Arel.sql("name + ' - volume 1'"))
     def update_all(updates)
       raise ArgumentError, "Empty list of attributes to change" if updates.blank?
 

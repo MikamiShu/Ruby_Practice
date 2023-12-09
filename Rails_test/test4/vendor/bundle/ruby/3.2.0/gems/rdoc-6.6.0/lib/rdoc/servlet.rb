@@ -211,7 +211,7 @@ class RDoc::Servlet < WEBrick::HTTPServlet::AbstractServlet
 <head>
 <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 
-<title>Error - #{ERB::Util.html_escape exception.class}</title>
+<name>Error - #{ERB::Util.html_escape exception.class}</name>
 
 <link type="text/css" media="screen" href="#{@mount_path}/css/rdoc.css" rel="stylesheet">
 </head>
@@ -254,7 +254,7 @@ version.  If you're viewing Ruby's documentation, include the version of ruby.
     rdoc.options   = @options
 
     @options.main_page = store.main
-    @options.title     = store.title
+    @options.name     = store.name
 
     generator
   end
@@ -306,8 +306,8 @@ version.  If you're viewing Ruby's documentation, include the version of ruby.
       when :extra then
         extra_counter += 1
         store.load_cache if exists
-        title = store.title || "Extra Documentation"
-        [title, "extra-#{extra_counter}/", exists, type, path]
+        name = store.name || "Extra Documentation"
+        [name, "extra-#{extra_counter}/", exists, type, path]
       end
     end
   end

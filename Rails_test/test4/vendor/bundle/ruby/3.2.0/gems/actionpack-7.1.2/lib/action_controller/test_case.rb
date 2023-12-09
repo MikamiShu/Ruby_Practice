@@ -261,21 +261,21 @@ module ActionController
   #   class BooksControllerTest < ActionController::TestCase
   #     def test_create
   #       # Simulate a POST response with the given HTTP parameters.
-  #       post(:create, params: { book: { title: "Love Hina" }})
+  #       post(:create, params: { book: { name: "Love Hina" }})
   #
   #       # Asserts that the controller tried to redirect us to
   #       # the created book's URI.
   #       assert_response :found
   #
   #       # Asserts that the controller really put the book in the database.
-  #       assert_not_nil Book.find_by(title: "Love Hina")
+  #       assert_not_nil Book.find_by(name: "Love Hina")
   #     end
   #   end
   #
   # You can also send a real document in the simulated HTTP request.
   #
   #   def test_create
-  #     json = {book: { title: "Love Hina" }}.to_json
+  #     json = {book: { name: "Love Hina" }}.to_json
   #     post :create, body: json
   #   end
   #
@@ -341,7 +341,7 @@ module ActionController
   #
   # If you're using named routes, they can be easily tested using the original named routes' methods straight in the test case.
   #
-  #  assert_redirected_to page_url(title: 'foo')
+  #  assert_redirected_to page_url(name: 'foo')
   class TestCase < ActiveSupport::TestCase
     singleton_class.attr_accessor :executor_around_each_request
 

@@ -58,11 +58,11 @@ module ActiveRecord
   #    - parent:
   #        id:         1
   #        parent_id:  NULL
-  #        title:      Parent
+  #        name:      Parent
   #    - child:
   #        id:         2
   #        parent_id:  1
-  #        title:      Child
+  #        name:      Child
   #
   # == Using Fixtures in Test Cases
   #
@@ -470,7 +470,7 @@ module ActiveRecord
   #   # books.yml
   #   alices_adventure_in_wonderland:
   #     author_id: <%= ActiveRecord::FixtureSet.identify(:lewis_carroll) %>
-  #     title: "Alice's Adventures in Wonderland"
+  #     name: "Alice's Adventures in Wonderland"
   #
   # However, in order to support composite primary key relationships,
   # you must use the `composite_identify` method:

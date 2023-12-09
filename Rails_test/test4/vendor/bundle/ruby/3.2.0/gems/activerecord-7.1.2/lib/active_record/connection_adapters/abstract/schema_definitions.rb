@@ -446,8 +446,8 @@ module ActiveRecord
       #     t.column :shop_id,     :integer
       #     t.column :creator_id,  :integer
       #     t.column :item_number, :string
-      #     t.column :name,        :string, default: "Untitled"
-      #     t.column :value,       :string, default: "Untitled"
+      #     t.column :name,        :string, default: "Unnamed"
+      #     t.column :value,       :string, default: "Unnamed"
       #     t.column :created_at,  :datetime
       #     t.column :updated_at,  :datetime
       #   end
@@ -458,7 +458,7 @@ module ActiveRecord
       #   create_table :products do |t|
       #     t.integer :shop_id, :creator_id
       #     t.string  :item_number, index: true
-      #     t.string  :name, :value, default: "Untitled"
+      #     t.string  :name, :value, default: "Unnamed"
       #     t.timestamps null: false
       #   end
       #

@@ -182,15 +182,15 @@ Capybara::SpecHelper.spec 'node' do
 
     it 'should see disabled options as disabled' do
       @session.visit('/form')
-      expect(@session.find('//select[@id="form_title"]/option[1]')).not_to be_disabled
-      expect(@session.find('//select[@id="form_title"]/option[@disabled]')).to be_disabled
+      expect(@session.find('//select[@id="form_name"]/option[1]')).not_to be_disabled
+      expect(@session.find('//select[@id="form_name"]/option[@disabled]')).to be_disabled
     end
 
     it 'should see enabled options in disabled select as disabled' do
       @session.visit('/form')
       expect(@session.find('//select[@id="form_disabled_select"]/option')).to be_disabled
       expect(@session.find('//select[@id="form_disabled_select"]/optgroup/option')).to be_disabled
-      expect(@session.find('//select[@id="form_title"]/option[1]')).not_to be_disabled
+      expect(@session.find('//select[@id="form_name"]/option[1]')).not_to be_disabled
     end
 
     it 'should see enabled options in disabled optgroup as disabled' do
@@ -228,7 +228,7 @@ Capybara::SpecHelper.spec 'node' do
       @session.visit('/form')
       expect(@session.find('//select[@id="form_disabled_select"]/option').disabled?).to be true
       expect(@session.find('//select[@id="form_disabled_select2"]/option').disabled?).to be true
-      expect(@session.find('//select[@id="form_title"]/option[1]').disabled?).to be false
+      expect(@session.find('//select[@id="form_name"]/option[1]').disabled?).to be false
     end
 
     it 'should be disabled for all elements that are CSS :disabled' do

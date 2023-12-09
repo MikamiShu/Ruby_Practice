@@ -2346,7 +2346,7 @@ Promoted 0.2.10.
 === 0.2.10
 General
 
-* Added title to Rake's rdocs
+* Added name to Rake's rdocs
 * Contrib packages are no longer included in the documentation.
 
 RDoc Issues
@@ -2354,7 +2354,7 @@ RDoc Issues
 * Removed default for the '--main' option
 * Fixed rendering of the rdoc options
 * Fixed clean/clobber confusion with rerdoc
-* 'title' attribute added
+* 'name' attribute added
 
 Package Task Library Issues
 

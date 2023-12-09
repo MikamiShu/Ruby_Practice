@@ -37,12 +37,12 @@ module ActiveRecord
     # change your call if you switch engines.
     #
     #   # A simple SQL query spanning multiple tables
-    #   Post.find_by_sql "SELECT p.title, c.author FROM posts p, comments c WHERE p.id = c.post_id"
-    #   # => [#<Post:0x36bff9c @attributes={"title"=>"Ruby Meetup", "author"=>"Quentin"}>, ...]
+    #   Post.find_by_sql "SELECT p.name, c.author FROM posts p, comments c WHERE p.id = c.post_id"
+    #   # => [#<Post:0x36bff9c @attributes={"name"=>"Ruby Meetup", "author"=>"Quentin"}>, ...]
     #
     # You can use the same string replacement techniques as you can with ActiveRecord::QueryMethods#where :
     #
-    #   Post.find_by_sql ["SELECT title FROM posts WHERE author = ? AND created > ?", author_id, start_date]
+    #   Post.find_by_sql ["SELECT name FROM posts WHERE author = ? AND created > ?", author_id, start_date]
     #   Post.find_by_sql ["SELECT body FROM comments WHERE author = :user_id OR approved_by = :user_id", { :user_id => user_id }]
     #
     # Note that building your own SQL query string from user input may expose your application to

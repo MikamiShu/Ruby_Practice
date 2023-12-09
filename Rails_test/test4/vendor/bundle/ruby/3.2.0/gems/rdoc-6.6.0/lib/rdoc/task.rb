@@ -117,7 +117,7 @@ class RDoc::Task < Rake::TaskLib
   ##
   # Title of RDoc documentation. (defaults to rdoc's default)
 
-  attr_accessor :title
+  attr_accessor :name
 
   ##
   # Name of file to be used as the main, top level file of the RDoc. (default
@@ -197,7 +197,7 @@ class RDoc::Task < Rake::TaskLib
     @rdoc_files = Rake::FileList.new
     @rdoc_dir = 'html'
     @main = nil
-    @title = nil
+    @name = nil
     @template = nil
     @generator = nil
     @options = []
@@ -274,7 +274,7 @@ class RDoc::Task < Rake::TaskLib
     result << "-o"       << @rdoc_dir
     result << "--main"   << main      if main
     result << "--markup" << markup    if markup
-    result << "--title"  << title     if title
+    result << "--name"  << name     if name
     result << "-T"       << template  if template
     result << '-f'       << generator if generator
     result

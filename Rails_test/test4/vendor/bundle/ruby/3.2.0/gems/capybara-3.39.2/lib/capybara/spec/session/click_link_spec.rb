@@ -43,9 +43,9 @@ Capybara::SpecHelper.spec '#click_link' do
     end
   end
 
-  context 'with title given' do
+  context 'with name given' do
     it 'should take user to the linked page' do
-      @session.click_link('awesome title')
+      @session.click_link('awesome name')
       expect(@session).to have_content('Bar')
     end
 

@@ -116,16 +116,16 @@ module ActiveRecord
     #
     #   params = { member: {
     #     name: 'joe', posts_attributes: [
-    #       { title: 'Kari, the awesome Ruby documentation browser!' },
-    #       { title: 'The egalitarian assumption of the modern citizen' },
-    #       { title: '', _destroy: '1' } # this will be ignored
+    #       { name: 'Kari, the awesome Ruby documentation browser!' },
+    #       { name: 'The egalitarian assumption of the modern citizen' },
+    #       { name: '', _destroy: '1' } # this will be ignored
     #     ]
     #   }}
     #
     #   member = Member.create(params[:member])
     #   member.posts.length # => 2
-    #   member.posts.first.title # => 'Kari, the awesome Ruby documentation browser!'
-    #   member.posts.second.title # => 'The egalitarian assumption of the modern citizen'
+    #   member.posts.first.name # => 'Kari, the awesome Ruby documentation browser!'
+    #   member.posts.second.name # => 'The egalitarian assumption of the modern citizen'
     #
     # You may also set a +:reject_if+ proc to silently ignore any new record
     # hashes if they fail to pass your criteria. For example, the previous
@@ -133,21 +133,21 @@ module ActiveRecord
     #
     #   class Member < ActiveRecord::Base
     #     has_many :posts
-    #     accepts_nested_attributes_for :posts, reject_if: proc { |attributes| attributes['title'].blank? }
+    #     accepts_nested_attributes_for :posts, reject_if: proc { |attributes| attributes['name'].blank? }
     #   end
     #
     #   params = { member: {
     #     name: 'joe', posts_attributes: [
-    #       { title: 'Kari, the awesome Ruby documentation browser!' },
-    #       { title: 'The egalitarian assumption of the modern citizen' },
-    #       { title: '' } # this will be ignored because of the :reject_if proc
+    #       { name: 'Kari, the awesome Ruby documentation browser!' },
+    #       { name: 'The egalitarian assumption of the modern citizen' },
+    #       { name: '' } # this will be ignored because of the :reject_if proc
     #     ]
     #   }}
     #
     #   member = Member.create(params[:member])
     #   member.posts.length # => 2
-    #   member.posts.first.title # => 'Kari, the awesome Ruby documentation browser!'
-    #   member.posts.second.title # => 'The egalitarian assumption of the modern citizen'
+    #   member.posts.first.name # => 'Kari, the awesome Ruby documentation browser!'
+    #   member.posts.second.name # => 'The egalitarian assumption of the modern citizen'
     #
     # Alternatively, +:reject_if+ also accepts a symbol for using methods:
     #
@@ -161,7 +161,7 @@ module ActiveRecord
     #     accepts_nested_attributes_for :posts, reject_if: :reject_posts
     #
     #     def reject_posts(attributes)
-    #       attributes['title'].blank?
+    #       attributes['name'].blank?
     #     end
     #   end
     #
@@ -171,13 +171,13 @@ module ActiveRecord
     #   member.attributes = {
     #     name: 'Joe',
     #     posts_attributes: [
-    #       { id: 1, title: '[UPDATED] An, as of yet, undisclosed awesome Ruby documentation browser!' },
-    #       { id: 2, title: '[UPDATED] other post' }
+    #       { id: 1, name: '[UPDATED] An, as of yet, undisclosed awesome Ruby documentation browser!' },
+    #       { id: 2, name: '[UPDATED] other post' }
     #     ]
     #   }
     #
-    #   member.posts.first.title # => '[UPDATED] An, as of yet, undisclosed awesome Ruby documentation browser!'
-    #   member.posts.second.title # => '[UPDATED] other post'
+    #   member.posts.first.name # => '[UPDATED] An, as of yet, undisclosed awesome Ruby documentation browser!'
+    #   member.posts.second.name # => '[UPDATED] other post'
     #
     # However, the above applies if the parent model is being updated as well.
     # For example, if you wanted to create a +member+ named _joe_ and wanted to
@@ -211,8 +211,8 @@ module ActiveRecord
     #   Member.create(
     #     name: 'joe',
     #     posts_attributes: {
-    #       first:  { title: 'Foo' },
-    #       second: { title: 'Bar' }
+    #       first:  { name: 'Foo' },
+    #       second: { name: 'Bar' }
     #     }
     #   )
     #
@@ -221,8 +221,8 @@ module ActiveRecord
     #   Member.create(
     #     name: 'joe',
     #     posts_attributes: [
-    #       { title: 'Foo' },
-    #       { title: 'Bar' }
+    #       { name: 'Foo' },
+    #       { name: 'Bar' }
     #     ]
     #   )
     #
@@ -293,8 +293,8 @@ module ActiveRecord
     #     member: {
     #       name: 'joe',
     #       posts_attributes: {
-    #         '0' => { title: 'Foo' },
-    #         '1' => { title: 'Bar' }
+    #         '0' => { name: 'Foo' },
+    #         '1' => { name: 'Bar' }
     #       }
     #     }
     #   }

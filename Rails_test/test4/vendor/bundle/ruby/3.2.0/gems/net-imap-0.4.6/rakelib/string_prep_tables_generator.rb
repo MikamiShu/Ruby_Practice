@@ -36,8 +36,8 @@ class StringPrepTablesGenerator
       .then {|data| File.write json_filename, data }
   end
 
-  def tables;  @tables  ||= load_tables_and_titles_from_json!.first end
-  def titles;  @titles  ||= load_tables_and_titles_from_json!.last end
+  def tables;  @tables  ||= load_tables_and_names_from_json!.first end
+  def names;  @names  ||= load_tables_and_names_from_json!.last end
   def ranges;  @ranges  ||= tables.transform_values(&method(:to_ranges)) end
   def arrays;  @arrays  ||= ranges.transform_values{|t| t.flat_map(&:to_a) } end
   def sets;    @sets    ||= arrays.transform_values(&:to_set) end
@@ -131,7 +131,7 @@ class StringPrepTablesGenerator
 
           # Names of each codepoint table in the RFC-3454 appendices
           TITLES = {
-            #{table_titles_rb}
+            #{table_names_rb}
           }.freeze
 
           # Regexps matching each codepoint table in the RFC-3454 appendices
@@ -150,8 +150,8 @@ class StringPrepTablesGenerator
     RUBY
   end
 
-  def table_titles_rb(indent = 3)
-    titles
+  def table_names_rb(indent = 3)
+    names
       .map{|t| "%p => %p," % t }
       .join("\n#{"  "*indent}")
   end
@@ -267,14 +267,14 @@ class StringPrepTablesGenerator
   private
 
   def parse_rfc_text(rfc3454_text)
-    titles = {}
+    names = {}
     tables, = rfc3454_text
       .lines
       .each_with_object([]) {|line, acc|
         current, table = acc.last
         case line
         when /^([A-D]\.[1-9](?:\.[1-9])?) (.*)/
-          titles[$1] = $2
+          names[$1] = $2
         when /^ {3}-{5} Start Table (\S*)/
           acc << [$1, []]
         when /^ {3}-{5} End Table /
@@ -289,17 +289,17 @@ class StringPrepTablesGenerator
       }
       .to_h.compact
       .transform_values {|t| t.first.size == 2 ? t.to_h : t }
-    tables["titles"] = titles
+    tables["names"] = names
     tables
   end
 
-  def load_tables_and_titles_from_json!
+  def load_tables_and_names_from_json!
     require "json"
     @tables = json_filename
       .then(&File.method(:read))
       .then(&JSON.method(:parse))
-    @titles = @tables.delete "titles"
-    [@tables, @titles]
+    @names = @tables.delete "names"
+    [@tables, @names]
   end
 
   def to_ranges(table)
@@ -394,7 +394,7 @@ class StringPrepTablesGenerator
 
   def regexp_const_desc(name, negate: false)
     if negate then "Matches the negation of the %s table" % [name]
-    else %q{%s \\StringPrep\\[\\"%s\\"]} % [titles.fetch(name), name]
+    else %q{%s \\StringPrep\\[\\"%s\\"]} % [names.fetch(name), name]
     end
   end
 

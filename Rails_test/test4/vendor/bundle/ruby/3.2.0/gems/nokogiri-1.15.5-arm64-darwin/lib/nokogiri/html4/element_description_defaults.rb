@@ -196,7 +196,7 @@ module Nokogiri
       HTML_PCDATA = PCDATA
       HTML_CDATA = HTML_PCDATA
 
-      COREATTRS = ["id", "class", "style", "title"]
+      COREATTRS = ["id", "class", "style", "name"]
       I18N = ["lang", "dir"]
       EVENTS = [
         "onclick",
@@ -340,7 +340,7 @@ module Nokogiri
       FRAMESET_CONTENTS = ["frameset", "frame", "noframes"]
       HEAD_ATTRS = [I18N, "profile"]
       HEAD_CONTENTS = [
-        "title",
+        "name",
         "isindex",
         "base",
         "script",
@@ -494,7 +494,7 @@ module Nokogiri
         "onblur",
         "onchange",
       ]
-      STYLE_ATTRS = [I18N, "media", "title"]
+      STYLE_ATTRS = [I18N, "media", "name"]
       TABLE_ATTRS = [
         ATTRS,
         "summary",
@@ -1926,7 +1926,7 @@ module Nokogiri
           [],
         ],
         [
-          "title",
+          "name",
           false,
           false,
           false,
@@ -1934,7 +1934,7 @@ module Nokogiri
           false,
           :any,
           false,
-          "document title ",
+          "document name ",
           HTML_PCDATA,
           nil,
           I18N_ATTRS,

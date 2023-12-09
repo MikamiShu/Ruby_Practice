@@ -20,7 +20,7 @@ module Rack
     DIR_FILE = "<tr><td class='name'><a href='%s'>%s</a></td><td class='size'>%s</td><td class='type'>%s</td><td class='mtime'>%s</td></tr>\n"
     DIR_PAGE_HEADER = <<-PAGE
 <html><head>
-  <title>%s</title>
+  <name>%s</name>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
   <style type='text/css'>
 table { width:100%%; }

@@ -73,11 +73,11 @@ To merge existing hash or array to current context:
 ``` ruby
 hash = { author: { name: "David" } }
 json.post do
-  json.title "Merge HOWTO"
+  json.name "Merge HOWTO"
   json.merge! hash
 end
 
-# => "post": { "title": "Merge HOWTO", "author": { "name": "David" } }
+# => "post": { "name": "Merge HOWTO", "author": { "name": "David" } }
 ```
 
 Top level arrays can be handled directly.  Useful for index and other collection actions.
@@ -243,7 +243,7 @@ json.partial! 'sub_template', user: user
 You can explicitly make Jbuilder object return null if you want:
 
 ``` ruby
-json.extract! @post, :id, :title, :content, :published_at
+json.extract! @post, :id, :name, :content, :published_at
 json.author do
   if @post.anonymous?
     json.null! # or json.nil!

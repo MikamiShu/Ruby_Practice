@@ -50,18 +50,18 @@ require 'capybara/selector/definition'
 #       * :disabled (Boolean) - Match disabled fieldset?
 #
 # * **:link** - Find links (`<a>` elements with an href attribute)
-#   * Locator: Matches the id, {Capybara.configure test_id}, or title attributes, or the string content of the link,
+#   * Locator: Matches the id, {Capybara.configure test_id}, or name attributes, or the string content of the link,
 #     or the alt attribute of a contained img element. By default this selector requires a link to have an href attribute.
 #   * Filters:
-#       * :title (String) - Matches the title attribute
+#       * :name (String) - Matches the name attribute
 #       * :alt (String) - Matches the alt attribute of a contained img element
 #       * :href (String, Regexp, nil, false) - Matches the normalized href of the link, if nil will find `<a>` elements with no href attribute, if false ignores href presence
 #
 # * **:button** - Find buttons ( input [of type submit, reset, image, button] or button elements )
-#   * Locator: Matches the id, {Capybara.configure test_id} attribute, name, value, or title attributes, string content of a button, or the alt attribute of an image type button or of a descendant image of a button
+#   * Locator: Matches the id, {Capybara.configure test_id} attribute, name, value, or name attributes, string content of a button, or the alt attribute of an image type button or of a descendant image of a button
 #   * Filters:
 #       * :name (String, Regexp) - Matches the name attribute
-#       * :title (String) - Matches the title attribute
+#       * :name (String) - Matches the name attribute
 #       * :value (String) - Matches the value of an input button
 #       * :type (String) - Matches the type attribute
 #       * :disabled (Boolean, :all) - Match disabled buttons (Default: false)

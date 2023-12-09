@@ -9,7 +9,7 @@ Description:
 
     Attributes are field arguments specifying the model's attributes. You can
     optionally pass the type and an index to each field. For instance:
-    'title body:text tracking_id:integer:uniq' will generate a title field of
+    'name body:text tracking_id:integer:uniq' will generate a name field of
     string type, a body with text type and a tracking_id as an integer with an
     unique index. "index" could also be given instead of "uniq" if one desires
     a non unique index.
@@ -25,7 +25,7 @@ Description:
     You don't have to think up every attribute up front, but it helps to
     sketch out a few so you can start working with the resource immediately.
 
-    For example, 'scaffold post title body:text published:boolean' gives
+    For example, 'scaffold post name body:text published:boolean' gives
     you a model with those three attributes, a controller that handles
     the create/show/update/destroy, forms to create and edit your posts, and
     an index that lists them all, as well as a resources :posts declaration
@@ -36,6 +36,6 @@ Description:
 
 Examples:
     `bin/rails generate scaffold post`
-    `bin/rails generate scaffold post title:string body:text published:boolean`
+    `bin/rails generate scaffold post name:string body:text published:boolean`
     `bin/rails generate scaffold purchase amount:decimal tracking_id:integer:uniq`
     `bin/rails generate scaffold user email:uniq password:digest`

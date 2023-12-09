@@ -17,7 +17,7 @@ module Capybara
     #
     #      bar.value
     #      bar.text
-    #      bar[:title]
+    #      bar[:name]
     #
     # @see Capybara::Node
     #
@@ -65,7 +65,7 @@ module Capybara
       #
       # Retrieve the given attribute.
       #
-      #     element[:title] # => HTML title attribute
+      #     element[:name] # => HTML name attribute
       #
       # @param  [Symbol] attribute     The attribute to retrieve
       # @return [String]               The value of the attribute

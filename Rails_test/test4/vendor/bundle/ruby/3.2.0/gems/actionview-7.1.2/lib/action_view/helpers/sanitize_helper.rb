@@ -80,7 +80,7 @@ module ActionView
       #
       #   # In config/application.rb
       #   config.action_view.sanitized_allowed_tags = ['strong', 'em', 'a']
-      #   config.action_view.sanitized_allowed_attributes = ['href', 'title']
+      #   config.action_view.sanitized_allowed_attributes = ['href', 'name']
       #
       # The default, starting in \Rails 7.1, is to use an HTML5 parser for sanitization (if it is
       # available, see NOTE below). If you wish to revert back to the previous HTML4 behavior, you

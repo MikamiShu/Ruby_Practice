@@ -422,7 +422,7 @@ class Regexp::Parser
     when :cased_letter;           node << UP::Letter::Cased.new(token, active_opts)
     when :uppercase_letter;       node << UP::Letter::Uppercase.new(token, active_opts)
     when :lowercase_letter;       node << UP::Letter::Lowercase.new(token, active_opts)
-    when :titlecase_letter;       node << UP::Letter::Titlecase.new(token, active_opts)
+    when :namecase_letter;       node << UP::Letter::Titlecase.new(token, active_opts)
     when :modifier_letter;        node << UP::Letter::Modifier.new(token, active_opts)
     when :other_letter;           node << UP::Letter::Other.new(token, active_opts)
 

@@ -177,19 +177,19 @@ module ActiveSupport
     end
 
     # Capitalizes all the words and replaces some characters in the string to
-    # create a nicer looking title. +titleize+ is meant for creating pretty
+    # create a nicer looking name. +nameize+ is meant for creating pretty
     # output. It is not used in the \Rails internals.
     #
     # The trailing '_id','Id'.. can be kept and capitalized by setting the
     # optional parameter +keep_id_suffix+ to true.
     # By default, this parameter is false.
     #
-    #   titleize('man from the boondocks')                       # => "Man From The Boondocks"
-    #   titleize('x-men: the last stand')                        # => "X Men: The Last Stand"
-    #   titleize('TheManWithoutAPast')                           # => "The Man Without A Past"
-    #   titleize('raiders_of_the_lost_ark')                      # => "Raiders Of The Lost Ark"
-    #   titleize('string_ending_with_id', keep_id_suffix: true)  # => "String Ending With Id"
-    def titleize(word, keep_id_suffix: false)
+    #   nameize('man from the boondocks')                       # => "Man From The Boondocks"
+    #   nameize('x-men: the last stand')                        # => "X Men: The Last Stand"
+    #   nameize('TheManWithoutAPast')                           # => "The Man Without A Past"
+    #   nameize('raiders_of_the_lost_ark')                      # => "Raiders Of The Lost Ark"
+    #   nameize('string_ending_with_id', keep_id_suffix: true)  # => "String Ending With Id"
+    def nameize(word, keep_id_suffix: false)
       humanize(underscore(word), keep_id_suffix: keep_id_suffix).gsub(/\b(?<!\w['’`()])[a-z]/) do |match|
         match.capitalize
       end

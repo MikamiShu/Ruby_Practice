@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.files = ["CHANGES".freeze, "MIT-LICENSE".freeze, "README.md".freeze, "Rakefile".freeze, "builder.blurb".freeze, "builder.gemspec".freeze, "doc/releases/builder-1.2.4.rdoc".freeze, "doc/releases/builder-2.0.0.rdoc".freeze, "doc/releases/builder-2.1.1.rdoc".freeze]
   s.homepage = "http://onestepback.org".freeze
   s.licenses = ["MIT".freeze]
-  s.rdoc_options = ["--title".freeze, "Builder -- Easy XML Building".freeze, "--main".freeze, "README.rdoc".freeze, "--line-numbers".freeze]
+  s.rdoc_options = ["--name".freeze, "Builder -- Easy XML Building".freeze, "--main".freeze, "README.rdoc".freeze, "--line-numbers".freeze]
   s.rubygems_version = "3.4.21".freeze
   s.summary = "Builders for MarkUp.".freeze
 

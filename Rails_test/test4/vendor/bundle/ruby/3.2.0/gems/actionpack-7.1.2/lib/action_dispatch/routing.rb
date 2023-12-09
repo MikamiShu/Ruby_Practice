@@ -123,7 +123,7 @@ module ActionDispatch
   #   end
   #
   #   # provides named routes for show, delete, and edit
-  #   link_to @article.title, blog_show_path(id: @article.id)
+  #   link_to @article.name, blog_show_path(id: @article.id)
   #
   # == Pretty URLs
   #

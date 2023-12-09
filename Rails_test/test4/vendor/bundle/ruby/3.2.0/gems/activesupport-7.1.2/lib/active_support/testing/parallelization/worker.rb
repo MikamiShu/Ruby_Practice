@@ -13,7 +13,7 @@ module ActiveSupport
 
         def start
           fork do
-            set_process_title("(starting)")
+            set_process_name("(starting)")
 
             DRb.stop_service
 
@@ -26,7 +26,7 @@ module ActiveSupport
 
             work_from_queue
           ensure
-            set_process_title("(stopping)")
+            set_process_name("(stopping)")
 
             run_cleanup
             @queue.stop_worker(@id)
@@ -44,7 +44,7 @@ module ActiveSupport
           method   = job[1]
           reporter = job[2]
 
-          set_process_title("#{klass}##{method}")
+          set_process_name("#{klass}##{method}")
 
           result = klass.with_info_handler reporter do
             Minitest.run_one_method(klass, method)
@@ -74,7 +74,7 @@ module ActiveSupport
             raise
           end
 
-          set_process_title("(idle)")
+          set_process_name("(idle)")
         end
 
         def after_fork
@@ -94,8 +94,8 @@ module ActiveSupport
             result.failures.prepend Minitest::UnexpectedError.new(@setup_exception)
           end
 
-          def set_process_title(status)
-            Process.setproctitle("Rails test worker #{@number} - #{status}")
+          def set_process_name(status)
+            Process.setprocname("Rails test worker #{@number} - #{status}")
           end
       end
     end

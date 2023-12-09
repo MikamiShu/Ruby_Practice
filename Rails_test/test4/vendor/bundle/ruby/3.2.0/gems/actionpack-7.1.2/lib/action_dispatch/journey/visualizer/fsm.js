@@ -11,7 +11,7 @@ var svg_nodes = {};
 
 graph.selectAll("g.edge").each(function() {
   var node  = d3.select(this);
-  var index = node.select("title").text().split("->");
+  var index = node.select("name").text().split("->");
   var left  = parseInt(index[0]);
   var right = parseInt(index[1]);
 
@@ -21,7 +21,7 @@ graph.selectAll("g.edge").each(function() {
 
 graph.selectAll("g.node").each(function() {
   var node  = d3.select(this);
-  var index = parseInt(node.select("title").text());
+  var index = parseInt(node.select("name").text());
   svg_nodes[index] = node;
 });
 

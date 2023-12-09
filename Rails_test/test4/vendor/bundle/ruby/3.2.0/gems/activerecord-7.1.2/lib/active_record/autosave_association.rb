@@ -45,15 +45,15 @@ module ActiveRecord
   # automatically _and_ atomically:
   #
   #   post = Post.find(1)
-  #   post.title       # => "The current global position of migrating ducks"
+  #   post.name       # => "The current global position of migrating ducks"
   #   post.author.name # => "alloy"
   #
-  #   post.title = "On the migration of ducks"
+  #   post.name = "On the migration of ducks"
   #   post.author.name = "Eloy Duran"
   #
   #   post.save
   #   post.reload
-  #   post.title       # => "On the migration of ducks"
+  #   post.name       # => "On the migration of ducks"
   #   post.author.name # => "Eloy Duran"
   #
   # Destroying an associated model, as part of the parent's save action, is as
@@ -82,15 +82,15 @@ module ActiveRecord
   #     has_many :comments # :autosave option is not declared
   #   end
   #
-  #   post = Post.new(title: 'ruby rocks')
+  #   post = Post.new(name: 'ruby rocks')
   #   post.comments.build(body: 'hello world')
   #   post.save # => saves both post and comment
   #
-  #   post = Post.create(title: 'ruby rocks')
+  #   post = Post.create(name: 'ruby rocks')
   #   post.comments.build(body: 'hello world')
   #   post.save # => saves both post and comment
   #
-  #   post = Post.create(title: 'ruby rocks')
+  #   post = Post.create(name: 'ruby rocks')
   #   comment = post.comments.create(body: 'hello world')
   #   comment.body = 'hi everyone'
   #   post.save # => saves post, but not comment
@@ -102,7 +102,7 @@ module ActiveRecord
   #     has_many :comments, autosave: true
   #   end
   #
-  #   post = Post.create(title: 'ruby rocks')
+  #   post = Post.create(name: 'ruby rocks')
   #   comment = post.comments.create(body: 'hello world')
   #   comment.body = 'hi everyone'
   #   post.comments.build(body: "good morning.")

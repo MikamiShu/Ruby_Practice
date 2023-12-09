@@ -19,7 +19,7 @@
 
 <p class="para" id="first" data-random="abc\def" style="line-height: 25px;">
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-  tempor incididunt ut <a href="/with_simple_html" title="awesome title" class="simple" tabindex="1" target="_self">labore</a>
+  tempor incididunt ut <a href="/with_simple_html" name="awesome name" class="simple" tabindex="1" target="_self">labore</a>
   et dolore magna aliqua. Ut enim ad minim veniam,
   quis nostrud exercitation <a href="/foo" id="foo" data-test-id="test-foo">ullamco</a> laboris nisi
   ut aliquip ex ea commodo consequat.
@@ -45,10 +45,10 @@ banana</textarea>
 banana</textarea>
   <textarea readonly="readonly">textarea should not change</textarea>
   <a href="/redirect_back">BackToMyself</a>
-  <a title="twas a fine link" href="/redirect">A link came first</a>
-  <a title="a fine link" href="/with_simple_html">A link</a>
-  <a title="a fine link with data method" data-method="delete" href="/delete">A link with data-method</a>
-  <a title="a fine link with capitalized data method" data-method="DELETE" href="/delete">A link with capitalized data-method</a>
+  <a name="twas a fine link" href="/redirect">A link came first</a>
+  <a name="a fine link" href="/with_simple_html">A link</a>
+  <a name="a fine link with data method" data-method="delete" href="/delete">A link with data-method</a>
+  <a name="a fine link with capitalized data method" data-method="DELETE" href="/delete">A link with capitalized data-method</a>
   <a>No Href</a>
   <a href="">Blank Href</a>
   <a href="#">Blank Anchor</a>
@@ -71,7 +71,7 @@ banana</textarea>
 
 <div id="hidden" style="display: none;">
   <div id="hidden_via_ancestor">Inside element with hidden ancestor</div>
-  <a href="/with_simple_html" title="hidden link" class="simple">hidden link</a>
+  <a href="/with_simple_html" name="hidden link" class="simple">hidden link</a>
 </div>
 
 <div id="hidden_attr" hidden="hidden">

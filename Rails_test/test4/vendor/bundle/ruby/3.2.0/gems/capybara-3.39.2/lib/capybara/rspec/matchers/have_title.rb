@@ -7,20 +7,20 @@ module Capybara
     module Matchers
       class HaveTitle < WrappedElementMatcher
         def element_matches?(el)
-          el.assert_title(*@args, **@kw_args)
+          el.assert_name(*@args, **@kw_args)
         end
 
         def element_does_not_match?(el)
-          el.assert_no_title(*@args, **@kw_args)
+          el.assert_no_name(*@args, **@kw_args)
         end
 
         def description
-          "have title #{title.inspect}"
+          "have name #{name.inspect}"
         end
 
       private
 
-        def title
+        def name
           @args.first
         end
       end

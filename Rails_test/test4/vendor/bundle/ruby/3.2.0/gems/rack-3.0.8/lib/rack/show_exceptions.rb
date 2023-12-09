@@ -130,7 +130,7 @@ module Rack
       <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta name="robots" content="NONE,NOARCHIVE" />
-        <title><%=h exception.class %> at <%=h path %></title>
+        <name><%=h exception.class %> at <%=h path %></name>
         <style type="text/css">
           html * { padding:0; margin:0; }
           body * { padding:10px 20px; }

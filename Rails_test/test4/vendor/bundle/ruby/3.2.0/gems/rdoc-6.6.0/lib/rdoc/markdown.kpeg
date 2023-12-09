@@ -145,7 +145,7 @@
 #
 # ## Limitations
 #
-# * Link titles are not used
+# * Link names are not used
 # * Footnotes are collapsed into a single paragraph
 #
 # ## Author
@@ -1031,7 +1031,7 @@ AutoLinkEmail = "<" ("mailto:")? < /[\w+.\/!%~$-]+/i "@" ( !@Newline !">" . )+ >
 
 Reference = @NonindentSpace !"[]"
               Label:label ":" Spnl RefSrc:link RefTitle @BlankLine+
-            { # TODO use title
+            { # TODO use name
               reference label, link
               nil
             }

@@ -715,7 +715,7 @@ tiff        image/tiff                                                          
 psd         image/vnd.adobe.photoshop                                                 base64          
 uvg         image/vnd.dece.graphic                                                    base64          
 djvu        image/vnd.djvu                                                            base64          
-sub         image/vnd.dvb.subtitle                                                    base64          
+sub         image/vnd.dvb.subname                                                    base64          
 dwg         image/vnd.dwg                                                             base64          
 dxf         image/vnd.dxf                                                             base64          
 fbs         image/vnd.fastbidsheet                                                    base64          

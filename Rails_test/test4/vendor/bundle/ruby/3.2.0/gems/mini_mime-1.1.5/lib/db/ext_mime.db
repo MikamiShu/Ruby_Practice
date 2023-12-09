@@ -930,7 +930,7 @@ stm         application/vnd.sealedmedia.softseal.html                           
 stml        application/vnd.sealedmedia.softseal.html                                 base64          
 str         application/vnd.pg.format                                                 base64          
 stw         application/vnd.sun.xml.writer.template                                   base64          
-sub         image/vnd.dvb.subtitle                                                    base64          
+sub         image/vnd.dvb.subname                                                    base64          
 sus         application/vnd.sus-calendar                                              base64          
 susp        application/vnd.sus-calendar                                              base64          
 sv4cpio     application/x-sv4cpio                                                     base64          

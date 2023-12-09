@@ -12,7 +12,7 @@ module Regexp::Syntax
 
       module Category
         Letter        = %i[letter uppercase_letter lowercase_letter
-                           titlecase_letter modifier_letter other_letter]
+                           namecase_letter modifier_letter other_letter]
 
         Mark          = %i[mark nonspacing_mark spacing_mark
                            enclosing_mark]
@@ -70,7 +70,7 @@ module Regexp::Syntax
         changes_when_casefolded
         changes_when_casemapped
         changes_when_lowercased
-        changes_when_titlecased
+        changes_when_namecased
         changes_when_uppercased
         case_ignorable
         bidi_control

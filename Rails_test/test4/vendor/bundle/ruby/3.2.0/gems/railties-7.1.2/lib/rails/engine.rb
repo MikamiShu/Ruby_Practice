@@ -246,7 +246,7 @@ module Rails
   #   # => "articles_path" # not "my_engine_articles_path"
   #
   #   form_for(MyEngine::Article.new) do
-  #     text_field :title # => <input type="text" name="article[title]" id="article_title" />
+  #     text_field :name # => <input type="text" name="article[name]" id="article_name" />
   #   end
   #
   # Additionally, an isolated engine will set its own name according to its

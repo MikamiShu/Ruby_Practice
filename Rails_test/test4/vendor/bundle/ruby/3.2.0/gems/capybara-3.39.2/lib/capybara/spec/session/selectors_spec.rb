@@ -11,11 +11,11 @@ Capybara::SpecHelper.spec Capybara::Selector do
     end
 
     it 'finds a label by for attribute string' do
-      expect(@session.find(:label, for: 'form_other_title')['for']).to eq 'form_other_title'
+      expect(@session.find(:label, for: 'form_other_name')['for']).to eq 'form_other_name'
     end
 
     it 'finds a label for for attribute regex' do
-      expect(@session.find(:label, for: /_other_title/)['for']).to eq 'form_other_title'
+      expect(@session.find(:label, for: /_other_name/)['for']).to eq 'form_other_name'
     end
 
     it 'finds a label from nested input using :for filter with id string' do
@@ -37,8 +37,8 @@ Capybara::SpecHelper.spec Capybara::Selector do
     end
 
     it 'finds the label for an non-nested element when using :for filter' do
-      select = @session.find(:id, 'form_other_title')
-      expect(@session.find(:label, for: select)['for']).to eq 'form_other_title'
+      select = @session.find(:id, 'form_other_name')
+      expect(@session.find(:label, for: select)['for']).to eq 'form_other_name'
     end
 
     context 'with exact option' do
@@ -68,11 +68,11 @@ Capybara::SpecHelper.spec Capybara::Selector do
     end
 
     it 'can find specifically by name string' do
-      expect(@session.find(:field, name: 'form[other_title]')['id']).to eq 'form_other_title'
+      expect(@session.find(:field, name: 'form[other_name]')['id']).to eq 'form_other_name'
     end
 
     it 'can find specifically by name regex' do
-      expect(@session.find(:field, name: /form\[other_.*\]/)['id']).to eq 'form_other_title'
+      expect(@session.find(:field, name: /form\[other_.*\]/)['id']).to eq 'form_other_name'
     end
 
     it 'can find specifically by placeholder string' do

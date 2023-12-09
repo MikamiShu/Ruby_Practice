@@ -105,7 +105,7 @@ module ActionView
         # ==== Examples
         #
         #   test "renders HTML" do
-        #     article = Article.create!(title: "Hello, world")
+        #     article = Article.create!(name: "Hello, world")
         #
         #     render partial: "articles/article", locals: { article: article }
         #
@@ -113,11 +113,11 @@ module ActionView
         #   end
         #
         #   test "renders JSON" do
-        #     article = Article.create!(title: "Hello, world")
+        #     article = Article.create!(name: "Hello, world")
         #
         #     render formats: :json, partial: "articles/article", locals: { article: article }
         #
-        #     assert_pattern { rendered.json => { title: "Hello, world" } }
+        #     assert_pattern { rendered.json => { name: "Hello, world" } }
         #   end
         #
         # To parse the rendered content into RSS, register a call to +RSS::Parser.parse+:
@@ -125,11 +125,11 @@ module ActionView
         #   register_parser :rss, -> rendered { RSS::Parser.parse(rendered) }
         #
         #   test "renders RSS" do
-        #     article = Article.create!(title: "Hello, world")
+        #     article = Article.create!(name: "Hello, world")
         #
         #     render formats: :rss, partial: article
         #
-        #     assert_equal "Hello, world", rendered.rss.items.last.title
+        #     assert_equal "Hello, world", rendered.rss.items.last.name
         #   end
         #
         # To parse the rendered content into a +Capybara::Simple::Node+,
@@ -138,7 +138,7 @@ module ActionView
         #   register_parser :html, -> rendered { Capybara.string(rendered) }
         #
         #   test "renders HTML" do
-        #     article = Article.create!(title: "Hello, world")
+        #     article = Article.create!(name: "Hello, world")
         #
         #     render partial: article
         #
@@ -258,7 +258,7 @@ module ActionView
       # a <tt>Nokogiri::XML::Node</tt>.
       #
       #   test "renders HTML" do
-      #     article = Article.create!(title: "Hello, world")
+      #     article = Article.create!(name: "Hello, world")
       #
       #     render partial: "articles/article", locals: { article: article }
       #
@@ -272,7 +272,7 @@ module ActionView
       #   register_parser :html, -> rendered { Capybara.string(rendered) }
       #
       #   test "renders HTML" do
-      #     article = Article.create!(title: "Hello, world")
+      #     article = Article.create!(name: "Hello, world")
       #
       #     render partial: article
       #
@@ -285,11 +285,11 @@ module ActionView
       # a <tt>ActiveSupport::HashWithIndifferentAccess</tt>.
       #
       #   test "renders JSON" do
-      #     article = Article.create!(title: "Hello, world")
+      #     article = Article.create!(name: "Hello, world")
       #
       #     render formats: :json, partial: "articles/article", locals: { article: article }
       #
-      #     assert_pattern { rendered.json => { title: "Hello, world" } }
+      #     assert_pattern { rendered.json => { name: "Hello, world" } }
       #   end
       def rendered
         @_rendered ||= self.class.content_class.new(@rendered)

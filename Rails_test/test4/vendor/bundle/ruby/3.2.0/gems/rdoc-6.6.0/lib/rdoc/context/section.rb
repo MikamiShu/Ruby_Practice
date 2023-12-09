@@ -4,7 +4,7 @@ require 'cgi/util'
 ##
 # A section of documentation like:
 #
-#   # :section: The title
+#   # :section: The name
 #   # The body
 #
 # Sections can be referenced multiple times and will be collapsed into a
@@ -32,16 +32,16 @@ class RDoc::Context::Section
   attr_reader :parent
 
   ##
-  # Section title
+  # Section name
 
-  attr_reader :title
+  attr_reader :name
 
   ##
-  # Creates a new section with +title+ and +comment+
+  # Creates a new section with +name+ and +comment+
 
-  def initialize parent, title, comment
+  def initialize parent, name, comment
     @parent = parent
-    @title = title ? title.strip : title
+    @name = name ? name.strip : name
 
     @comments = []
 
@@ -49,10 +49,10 @@ class RDoc::Context::Section
   end
 
   ##
-  # Sections are equal when they have the same #title
+  # Sections are equal when they have the same #name
 
   def == other
-    self.class === other and @title == other.title
+    self.class === other and @name == other.name
   end
 
   alias eql? ==
@@ -81,9 +81,9 @@ class RDoc::Context::Section
   # Anchor reference for linking to this section
 
   def aref
-    title = @title || '[untitled]'
+    name = @name || '[unnamed]'
 
-    CGI.escape(title).gsub('%', '-').sub(/^-/, '')
+    CGI.escape(name).gsub('%', '-').sub(/^-/, '')
   end
 
   ##
@@ -92,7 +92,7 @@ class RDoc::Context::Section
   # Otherwise remove lines up to the line containing :section:, and look
   # for those lines again at the end and remove them. This lets us write
   #
-  #   # :section: The title
+  #   # :section: The name
   #   # The body
 
   def extract_comment comment
@@ -124,11 +124,11 @@ class RDoc::Context::Section
   end
 
   def inspect # :nodoc:
-    "#<%s:0x%x %p>" % [self.class, object_id, title]
+    "#<%s:0x%x %p>" % [self.class, object_id, name]
   end
 
   def hash # :nodoc:
-    @title.hash
+    @name.hash
   end
 
   ##
@@ -152,13 +152,13 @@ class RDoc::Context::Section
   end
 
   ##
-  # Serializes this Section.  The title and parsed comment are saved, but not
+  # Serializes this Section.  The name and parsed comment are saved, but not
   # the section parent which must be restored manually.
 
   def marshal_dump
     [
       MARSHAL_VERSION,
-      @title,
+      @name,
       parse,
     ]
   end
@@ -169,7 +169,7 @@ class RDoc::Context::Section
   def marshal_load array
     @parent  = nil
 
-    @title    = array[1]
+    @name    = array[1]
     @comments = array[2]
   end
 
@@ -201,12 +201,12 @@ class RDoc::Context::Section
   end
 
   ##
-  # The section's title, or 'Top Section' if the title is nil.
+  # The section's name, or 'Top Section' if the name is nil.
   #
   # This is used by the table of contents template so the name is silly.
 
   def plain_html
-    @title || 'Top Section'
+    @name || 'Top Section'
   end
 
   ##

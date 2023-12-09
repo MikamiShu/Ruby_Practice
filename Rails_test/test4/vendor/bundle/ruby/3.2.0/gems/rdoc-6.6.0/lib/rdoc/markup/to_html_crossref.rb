@@ -158,7 +158,7 @@ class RDoc::Markup::ToHtmlCrossref < RDoc::Markup::ToHtml
       if path =~ /#/ then
         path << "-label-#{label}"
       elsif ref.sections and
-            ref.sections.any? { |section| label == section.title } then
+            ref.sections.any? { |section| label == section.name } then
         path << "##{label}"
       else
         if ref.respond_to?(:aref)

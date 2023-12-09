@@ -1,7 +1,7 @@
-<h1>new_test</h1>
+<h1>UsersController#new</h1>
 
 <%= form_with model: @user do |form| %> 
-    <div><%= form.label :title %> <%= form.text_field :title %></div>
-    <div><%= form.label :text_content %> <%= form.text_area :text_content %></div>
+    <div><%= form.label :name %> <%= form.text_field :name %></div>
+    <div><%= form.label :email %> <%= form.text_area :email %></div>
     <div><%= form.submit "投稿" %></div>
 <% end %>

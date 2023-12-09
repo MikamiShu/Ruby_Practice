@@ -8,30 +8,30 @@ module ActiveRecord
   # {#exec_query}[rdoc-ref:ConnectionAdapters::DatabaseStatements#exec_query]
   # on any database connection adapter. For example:
   #
-  #   result = ActiveRecord::Base.connection.exec_query('SELECT id, title, body FROM posts')
+  #   result = ActiveRecord::Base.connection.exec_query('SELECT id, name, body FROM posts')
   #   result # => #<ActiveRecord::Result:0xdeadbeef>
   #
   #   # Get the column names of the result:
   #   result.columns
-  #   # => ["id", "title", "body"]
+  #   # => ["id", "name", "body"]
   #
   #   # Get the record values of the result:
   #   result.rows
-  #   # => [[1, "title_1", "body_1"],
-  #         [2, "title_2", "body_2"],
+  #   # => [[1, "name_1", "body_1"],
+  #         [2, "name_2", "body_2"],
   #         ...
   #        ]
   #
   #   # Get an array of hashes representing the result (column => value):
   #   result.to_a
-  #   # => [{"id" => 1, "title" => "title_1", "body" => "body_1"},
-  #         {"id" => 2, "title" => "title_2", "body" => "body_2"},
+  #   # => [{"id" => 1, "name" => "name_1", "body" => "body_1"},
+  #         {"id" => 2, "name" => "name_2", "body" => "body_2"},
   #         ...
   #        ]
   #
   #   # ActiveRecord::Result also includes Enumerable.
   #   result.each do |row|
-  #     puts row['title'] + " " + row['body']
+  #     puts row['name'] + " " + row['body']
   #   end
   class Result
     include Enumerable

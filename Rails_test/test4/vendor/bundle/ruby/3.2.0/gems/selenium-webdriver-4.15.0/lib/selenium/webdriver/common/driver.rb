@@ -146,13 +146,13 @@ module Selenium
       end
 
       #
-      # Get the title of the current page
+      # Get the name of the current page
       #
       # @return [String]
       #
 
-      def title
-        bridge.title
+      def name
+        bridge.name
       end
 
       #

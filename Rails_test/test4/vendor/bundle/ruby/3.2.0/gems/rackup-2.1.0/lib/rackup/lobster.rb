@@ -30,7 +30,7 @@ module Rackup
         href = "?flip"
       end
 
-      content = ["<title>Lobstericious!</title>",
+      content = ["<name>Lobstericious!</name>",
                  "<pre>", lobster, "</pre>",
                  "<a href='#{href}'>flip!</a>"]
       length = content.inject(0) { |a, e| a + e.size }.to_s
@@ -57,7 +57,7 @@ module Rackup
       end
 
       res = Response.new
-      res.write "<title>Lobstericious!</title>"
+      res.write "<name>Lobstericious!</name>"
       res.write "<pre>"
       res.write lobster
       res.write "</pre>"

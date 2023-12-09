@@ -23,7 +23,7 @@ module ActiveSupport
       attr_writer :original_filename, :content_type
 
       def original_filename
-        @original_filename || "untitled"
+        @original_filename || "unnamed"
       end
 
       def content_type

@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.files = ["CHANGES.md".freeze, "LICENSE".freeze, "README.md".freeze]
   s.homepage = "https://tzinfo.github.io".freeze
   s.licenses = ["MIT".freeze]
-  s.rdoc_options = ["--title".freeze, "TZInfo".freeze, "--main".freeze, "README.md".freeze]
+  s.rdoc_options = ["--name".freeze, "TZInfo".freeze, "--main".freeze, "README.md".freeze]
   s.required_ruby_version = Gem::Requirement.new(">= 1.9.3".freeze)
   s.rubygems_version = "3.4.21".freeze
   s.summary = "Time Zone Library".freeze

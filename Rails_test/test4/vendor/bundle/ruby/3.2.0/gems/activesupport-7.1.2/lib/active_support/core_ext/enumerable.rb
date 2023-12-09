@@ -62,10 +62,10 @@ module Enumerable
   # Convert an enumerable to a hash, using the element as the key and the block
   # result as the value.
   #
-  #   post = Post.new(title: "hey there", body: "what's up?")
+  #   post = Post.new(name: "hey there", body: "what's up?")
   #
-  #   %i( title body ).index_with { |attr_name| post.public_send(attr_name) }
-  #   # => { title: "hey there", body: "what's up?" }
+  #   %i( name body ).index_with { |attr_name| post.public_send(attr_name) }
+  #   # => { name: "hey there", body: "what's up?" }
   #
   # If an argument is passed instead of a block, it will be used as the value
   # for all elements:

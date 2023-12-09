@@ -5,7 +5,7 @@ module Nokogiri
     class Node
       ###
       # Save options for serializing nodes.
-      # See the method group entitled Node@Serialization+and+Generating+Output for usage.
+      # See the method group ennamed Node@Serialization+and+Generating+Output for usage.
       class SaveOptions
         # Format serialized xml
         FORMAT          = 1

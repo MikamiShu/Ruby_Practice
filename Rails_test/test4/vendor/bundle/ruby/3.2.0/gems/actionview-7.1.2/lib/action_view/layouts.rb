@@ -38,12 +38,12 @@ module ActionView
   # Layouts have access to variables specified in the content pages and vice versa. This allows you to have layouts with
   # references that won't materialize before rendering time:
   #
-  #   <h1><%= @page_title %></h1>
+  #   <h1><%= @page_name %></h1>
   #   <%= yield %>
   #
   # ...and content pages that fulfill these references _at_ rendering time:
   #
-  #    <% @page_title = "Welcome" %>
+  #    <% @page_name = "Welcome" %>
   #    Off-world colonies offers you a chance to start a new life
   #
   # The result after rendering is:

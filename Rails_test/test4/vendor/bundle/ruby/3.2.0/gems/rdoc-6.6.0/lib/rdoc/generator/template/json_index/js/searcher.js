@@ -137,7 +137,7 @@ Searcher.prototype = new function() {
   function highlightRegexp(info, queries, regexps, highlighters) {
     var result = createResult(info);
     for (var i=0, l = regexps.length; i < l; i++) {
-      result.title = result.title.replace(regexps[i], highlighters[i]);
+      result.name = result.name.replace(regexps[i], highlighters[i]);
       result.namespace = result.namespace.replace(regexps[i], highlighters[i]);
     };
     return result;
@@ -150,16 +150,16 @@ Searcher.prototype = new function() {
   function highlightQuery(info, queries, regexps, highlighters) {
     var result = createResult(info);
     var pos = 0;
-    var lcTitle = result.title.toLowerCase();
+    var lcTitle = result.name.toLowerCase();
 
     pos = lcTitle.indexOf(queries[0]);
     if (pos != -1) {
-      result.title = hltSubstring(result.title, pos, queries[0].length);
+      result.name = hltSubstring(result.name, pos, queries[0].length);
     }
 
     result.namespace = result.namespace.replace(regexps[0], highlighters[0]);
     for (var i=1, l = regexps.length; i < l; i++) {
-      result.title = result.title.replace(regexps[i], highlighters[i]);
+      result.name = result.name.replace(regexps[i], highlighters[i]);
       result.namespace = result.namespace.replace(regexps[i], highlighters[i]);
     };
     return result;
@@ -167,7 +167,7 @@ Searcher.prototype = new function() {
 
   function createResult(info) {
     var result = {};
-    result.title = info[0];
+    result.name = info[0];
     result.namespace = info[1];
     result.path = info[2];
     result.params = info[3];

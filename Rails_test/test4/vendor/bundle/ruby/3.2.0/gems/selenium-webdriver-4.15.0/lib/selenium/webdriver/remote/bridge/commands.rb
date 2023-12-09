@@ -45,7 +45,7 @@ module Selenium
           back: [:post, 'session/:session_id/back'],
           forward: [:post, 'session/:session_id/forward'],
           refresh: [:post, 'session/:session_id/refresh'],
-          get_title: [:get, 'session/:session_id/title'],
+          get_name: [:get, 'session/:session_id/name'],
 
           #
           # window and Frame handling

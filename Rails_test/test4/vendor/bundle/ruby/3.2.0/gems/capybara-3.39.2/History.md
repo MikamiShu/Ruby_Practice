@@ -878,12 +878,12 @@ Release date: 2018-03-23
 * Drivers are expected to close extra windows when resetting the session
 * Selenium driver supports Date/Time when filling in date/time/datetime-local inputs
 * `current_url` returns the url for the top level browsing context
-* `title` returns the title for the top level browsing context
+* `name` returns the name for the top level browsing context
 
 ### Added
 
 * `Driver#frame_url` returns the url for the current frame
-* `Driver#frame_title` returns the title for the current frame
+* `Driver#frame_name` returns the name for the current frame
 
 # Version 3.0.0.rc1
 Release date: 2018-03-02
@@ -1094,7 +1094,7 @@ Release date: 2017-01-22
 * Session#within_frame now accepts a selector type (defaults to :frame) and locator [Thomas Walpole]
 * Session#execute_script and Session#evaluate_script now accept optional arguments that will be passed to the JS function.  This may not be supported
   by all drivers, and the types of arguments that may be passed is limited.  If drivers opt to support this feature they should support passing page elements. [Thomas Walpole]
-* :exact option for text and title matchers - Issue #1256 [Thomas Walpole]
+* :exact option for text and name matchers - Issue #1256 [Thomas Walpole]
 * :exact_text option for selector finders/minders - Issue #1256 [Thomas Walpole]
 * Capybara.exact_text setting that affects the text matchers and :text options passed to selector finders/matchers. Issue #1256 [Thomas Walpole]
 * :make_visible option for #attach_file that allows for convenient changing of the CSS style of a file input element before attaching the file to it.  Requires driver
@@ -1307,7 +1307,7 @@ Release date: 2015-08-25
 ### Fixed
 
 * Error message now raised correctly when invalid options passed to 'have_text'/'have_content' [Thomas Walpole]
-* Rack-test driver correctly gets document title when elements on the page have nested title elements (SVG) [Thomas Walpole]
+* Rack-test driver correctly gets document name when elements on the page have nested name elements (SVG) [Thomas Walpole]
 * 'save_page' no longer errors when using Capybara.asset_host if the page has no \<head> element [Travis Grathwell]
 * rack-test driver will ignore clicks on links with href starting with '#' or 'javascript:'
 
@@ -1368,8 +1368,8 @@ Release date: 2014-07-03
 
 ### Added
 
-* 'assert_text', 'assert_no_text', 'assert_title', 'assert_no_title' methods added [Andrey Botalov]
-* have_title matcher now supports :wait option [Andrey Botalov]
+* 'assert_text', 'assert_no_text', 'assert_name', 'assert_no_name' methods added [Andrey Botalov]
+* have_name matcher now supports :wait option [Andrey Botalov]
 * More descriptive have_text error messages [Andrey Botalov]
 * New modal API ('accept_alert', 'accept_confirm', 'dismiss_confirm', 'accept_prompt', 'dismiss_prompt') - [Mike Pack, Thomas Walpole]
 * Warning when attempting to set contents of a readonly element
@@ -1514,8 +1514,8 @@ Release date: 2013-04-09
   [Thomas Walpole]
 * RackTest driver now support `form` attribute on form elements.
   [Thomas Walpole]
-* `page.title` returns the page title. [Terry Progetto]
-* `has_title?` matcher to assert on page title. [Jonas Nicklas]
+* `page.name` returns the page name. [Terry Progetto]
+* `has_name?` matcher to assert on page name. [Jonas Nicklas]
 * The gem is now signed with a certicficate. The public key is available in the
   repo. [Jonas Nicklas]
 * `:select` and `:textarea` are valid options for the `:type` filter on `find_field`
@@ -1782,7 +1782,7 @@ Release date: 2011-06-14
 * Added Session#text [Jonas Nicklas and Scott Cytacki]
 * Added Session#html as an alias for Session#body [Jo Liss]
 * Added Session#current_host method [Jonas Nicklas]
-* Buttons can now be clicked by title [Javier Martin]
+* Buttons can now be clicked by name [Javier Martin]
 * :headers option for RackTest driver to set custom HTTP headers [Jonas Nicklas]
 
 ### Removed

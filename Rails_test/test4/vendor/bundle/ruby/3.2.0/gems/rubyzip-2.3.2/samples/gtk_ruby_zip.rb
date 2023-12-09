@@ -11,7 +11,7 @@ class MainApp < Gtk::Window
   def initialize
     super()
     set_usize(400, 256)
-    set_title('rubyzip')
+    set_name('rubyzip')
     signal_connect(Gtk::Window::SIGNAL_DESTROY) { Gtk.main_quit }
 
     box = Gtk::VBox.new(false, 0)

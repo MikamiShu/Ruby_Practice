@@ -169,7 +169,7 @@ class RDoc::RubygemsHook
 
     Dir.chdir @spec.full_gem_path do
       options = ::RDoc::Options.new
-      options.default_title = "#{@spec.full_name} Documentation"
+      options.default_name = "#{@spec.full_name} Documentation"
       options.parse args
     end
 
@@ -182,7 +182,7 @@ class RDoc::RubygemsHook
     store.encoding = options.encoding
     store.dry_run  = options.dry_run
     store.main     = options.main_page
-    store.title    = options.title
+    store.name    = options.name
 
     @rdoc.store = store
 

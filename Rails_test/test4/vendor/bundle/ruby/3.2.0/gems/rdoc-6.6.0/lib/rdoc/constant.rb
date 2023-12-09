@@ -121,7 +121,7 @@ class RDoc::Constant < RDoc::CodeObject
       @file.relative_name,
       parent.name,
       parent.class,
-      section.title,
+      section.name,
     ]
   end
 
@@ -142,7 +142,7 @@ class RDoc::Constant < RDoc::CodeObject
     #                      6 handled below
     @parent_name   = array[7]
     @parent_class  = array[8]
-    @section_title = array[9]
+    @section_name = array[9]
 
     @file = RDoc::TopLevel.new array[6]
   end

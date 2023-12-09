@@ -465,7 +465,7 @@ module ActiveRecord
   #   relation.loaded? # => true
   #
   #   # Methods which try to mutate a loaded relation fail.
-  #   relation.where!(title: 'TODO')  # => ActiveRecord::ImmutableRelation
+  #   relation.where!(name: 'TODO')  # => ActiveRecord::ImmutableRelation
   #   relation.limit!(5)              # => ActiveRecord::ImmutableRelation
   class ImmutableRelation < ActiveRecordError
   end
@@ -565,12 +565,12 @@ module ActiveRecord
   #
   # For example, the following code would raise this exception:
   #
-  #   Post.order("REPLACE(title, 'misc', 'zzzz') asc").pluck(:id)
+  #   Post.order("REPLACE(name, 'misc', 'zzzz') asc").pluck(:id)
   #
   # The desired result can be accomplished by wrapping the known-safe string
   # in Arel.sql:
   #
-  #   Post.order(Arel.sql("REPLACE(title, 'misc', 'zzzz') asc")).pluck(:id)
+  #   Post.order(Arel.sql("REPLACE(name, 'misc', 'zzzz') asc")).pluck(:id)
   #
   # Again, such a workaround should *not* be used when passing user-provided
   # values, such as request parameters or model attributes to query methods.

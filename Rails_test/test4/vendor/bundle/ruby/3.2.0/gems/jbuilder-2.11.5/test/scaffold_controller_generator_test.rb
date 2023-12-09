@@ -4,7 +4,7 @@ require 'generators/rails/scaffold_controller_generator'
 
 class ScaffoldControllerGeneratorTest < Rails::Generators::TestCase
   tests Rails::Generators::ScaffoldControllerGenerator
-  arguments %w(Post title body:text images:attachments)
+  arguments %w(Post name body:text images:attachments)
   destination File.expand_path('../tmp', __FILE__)
   setup :prepare_destination
 
@@ -52,9 +52,9 @@ class ScaffoldControllerGeneratorTest < Rails::Generators::TestCase
 
       assert_match %r{def post_params}, content
       if Rails::VERSION::MAJOR >= 6
-        assert_match %r{params\.require\(:post\)\.permit\(:title, :body, images: \[\]\)}, content
+        assert_match %r{params\.require\(:post\)\.permit\(:name, :body, images: \[\]\)}, content
       else
-        assert_match %r{params\.require\(:post\)\.permit\(:title, :body, :images\)}, content
+        assert_match %r{params\.require\(:post\)\.permit\(:name, :body, :images\)}, content
       end
     end
   end

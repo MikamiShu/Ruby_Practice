@@ -33,27 +33,27 @@ class MinitestSpecTest < Minitest::Spec
     _(page).wont_have_current_path('/form2')
   end
 
-  it 'supports title expectations' do
-    visit('/with_title')
-    _(page).must_have_title('Test Title')
-    _(page).wont_have_title('Not the title')
+  it 'supports name expectations' do
+    visit('/with_name')
+    _(page).must_have_name('Test Title')
+    _(page).wont_have_name('Not the name')
   end
 
   it 'supports xpath expectations' do
     _(page).must_have_xpath('.//input[@id="customer_email"]')
-    _(page).wont_have_xpath('.//select[@id="not_form_title"]')
+    _(page).wont_have_xpath('.//select[@id="not_form_name"]')
     _(page).wont_have_xpath('.//input[@id="customer_email"]') { |el| el[:id] == 'not_customer_email' }
-    select = find(:select, 'form_title')
-    _(select).must_have_xpath('.//option[@class="title"]')
-    _(select).must_have_xpath('.//option', count: 1) { |option| option[:class] != 'title' && !option.disabled? }
+    select = find(:select, 'form_name')
+    _(select).must_have_xpath('.//option[@class="name"]')
+    _(select).must_have_xpath('.//option', count: 1) { |option| option[:class] != 'name' && !option.disabled? }
     _(select).wont_have_xpath('.//input[@id="customer_email"]')
   end
 
   it 'support css expectations' do
     _(page).must_have_css('input#customer_email')
-    _(page).wont_have_css('select#not_form_title')
-    el = find(:select, 'form_title')
-    _(el).must_have_css('option.title')
+    _(page).wont_have_css('select#not_form_name')
+    el = find(:select, 'form_name')
+    _(el).must_have_css('option.name')
     _(el).wont_have_css('input#customer_email')
   end
 
@@ -74,8 +74,8 @@ class MinitestSpecTest < Minitest::Spec
   end
 
   it 'supports select expectations' do
-    _(page).must_have_select('form_title')
-    _(page).wont_have_select('not_form_title')
+    _(page).must_have_select('form_name')
+    _(page).wont_have_select('not_form_name')
   end
 
   it 'supports checked_field expectations' do
@@ -95,7 +95,7 @@ class MinitestSpecTest < Minitest::Spec
   end
 
   it 'supports all_of_selectors expectations' do
-    _(page).must_have_all_of_selectors(:css, 'select#form_other_title', 'input#form_last_name')
+    _(page).must_have_all_of_selectors(:css, 'select#form_other_name', 'input#form_last_name')
   end
 
   it 'supports none_of_selectors expectations' do
@@ -103,26 +103,26 @@ class MinitestSpecTest < Minitest::Spec
   end
 
   it 'supports any_of_selectors expectations' do
-    _(page).must_have_any_of_selectors(:css, 'select#form_other_title', 'input#not_on_page')
+    _(page).must_have_any_of_selectors(:css, 'select#form_other_name', 'input#not_on_page')
   end
 
   it 'supports match_selector expectations' do
     _(find(:field, 'customer_email')).must_match_selector(:field, 'customer_email')
-    _(find(:select, 'form_title')).wont_match_selector(:field, 'customer_email')
+    _(find(:select, 'form_name')).wont_match_selector(:field, 'customer_email')
   end
 
   it 'supports match_css expectations' do
-    _(find(:select, 'form_title')).must_match_css('select#form_title')
-    _(find(:select, 'form_title')).wont_match_css('select#form_other_title')
+    _(find(:select, 'form_name')).must_match_css('select#form_name')
+    _(find(:select, 'form_name')).wont_match_css('select#form_other_name')
   end
 
   it 'supports match_xpath expectations' do
-    _(find(:select, 'form_title')).must_match_xpath('.//select[@id="form_title"]')
-    _(find(:select, 'form_title')).wont_match_xpath('.//select[@id="not_on_page"]')
+    _(find(:select, 'form_name')).must_match_xpath('.//select[@id="form_name"]')
+    _(find(:select, 'form_name')).wont_match_xpath('.//select[@id="not_on_page"]')
   end
 
   it 'handles failures' do
-    _(page).must_have_select('non_existing_form_title')
+    _(page).must_have_select('non_existing_form_name')
   end
 
   it 'supports style expectations' do
@@ -138,7 +138,7 @@ class MinitestSpecTest < Minitest::Spec
   end
 
   it 'supports sibling expectations' do
-    option = find(:css, '#form_title').find(:option, 'Mrs')
+    option = find(:css, '#form_name').find(:option, 'Mrs')
     _(option).must_have_sibling(:option, 'Mr')
   end
 end
@@ -161,6 +161,6 @@ RSpec.describe 'capybara/minitest/spec' do
     reporter.report
     expect(output.string).to include('22 runs, 44 assertions, 1 failures, 0 errors, 1 skips')
     # Make sure error messages are displayed
-    expect(output.string).to match(/expected to find select box "non_existing_form_title" .*but there were no matches/)
+    expect(output.string).to match(/expected to find select box "non_existing_form_name" .*but there were no matches/)
   end
 end

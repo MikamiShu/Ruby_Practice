@@ -329,7 +329,7 @@ module ActiveRecord
         end
       end
 
-      # Returns a string like 'Post(id:integer, title:string, body:text)'
+      # Returns a string like 'Post(id:integer, name:string, body:text)'
       def inspect # :nodoc:
         if self == Base
           super
@@ -442,13 +442,13 @@ module ActiveRecord
     #   class Post < ActiveRecord::Base
     #   end
     #
-    #   old_post = Post.new(title: "hello world")
+    #   old_post = Post.new(name: "hello world")
     #   coder = {}
     #   old_post.encode_with(coder)
     #
     #   post = Post.allocate
     #   post.init_with(coder)
-    #   post.title # => 'hello world'
+    #   post.name # => 'hello world'
     def init_with(coder, &block)
       coder = LegacyYamlAdapter.convert(coder)
       attributes = self.class.yaml_encoder.decode(coder)

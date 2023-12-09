@@ -206,8 +206,8 @@ module ActionController
       #     # wraps parameters by determining the wrapper key from Person class
       #     # (+person+, in this case) and the list of attribute names
       #
-      #   wrap_parameters include: [:username, :title]
-      #     # wraps only +:username+ and +:title+ attributes from parameters.
+      #   wrap_parameters include: [:username, :name]
+      #     # wraps only +:username+ and +:name+ attributes from parameters.
       #
       #   wrap_parameters false
       #     # disables parameters wrapping for this controller altogether.

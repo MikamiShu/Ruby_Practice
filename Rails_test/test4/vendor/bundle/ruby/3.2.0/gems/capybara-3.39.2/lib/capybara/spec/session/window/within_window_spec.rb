@@ -23,7 +23,7 @@ Capybara::SpecHelper.spec '#within_window', requires: [:windows] do
     it 'should not invoke driver#switch_to_window when given current window' do
       allow(@session.driver).to receive(:switch_to_window).and_call_original
       @session.within_window @window do
-        expect(@session.title).to eq('With Windows')
+        expect(@session.name).to eq('With Windows')
       end
       expect(@session.driver).not_to have_received(:switch_to_window)
     end
@@ -31,9 +31,9 @@ Capybara::SpecHelper.spec '#within_window', requires: [:windows] do
     it 'should be able to switch to another window' do
       window = (@session.windows - [@window]).first
       @session.within_window window do
-        expect(@session).to have_title(/Title of the first popup|Title of popup two/)
+        expect(@session).to have_name(/Title of the first popup|Title of popup two/)
       end
-      expect(@session.title).to eq('With Windows')
+      expect(@session.name).to eq('With Windows')
     end
 
     it 'returns value from the block' do
@@ -88,25 +88,25 @@ Capybara::SpecHelper.spec '#within_window', requires: [:windows] do
 
   context 'with lambda' do
     it 'should find the div in another window' do
-      @session.within_window(-> { @session.title == 'Title of the first popup' }) do
+      @session.within_window(-> { @session.name == 'Title of the first popup' }) do
         expect(@session).to have_css('#divInPopupOne')
       end
     end
 
     it 'should find divs in both windows' do
-      @session.within_window(-> { @session.title == 'Title of popup two' }) do
+      @session.within_window(-> { @session.name == 'Title of popup two' }) do
         expect(@session).to have_css('#divInPopupTwo')
       end
-      @session.within_window(-> { @session.title == 'Title of the first popup' }) do
+      @session.within_window(-> { @session.name == 'Title of the first popup' }) do
         expect(@session).to have_css('#divInPopupOne')
       end
-      expect(@session.title).to eq('With Windows')
+      expect(@session.name).to eq('With Windows')
     end
 
     it 'should be able to nest within_window' do
-      @session.within_window(-> { @session.title == 'Title of popup two' }) do
+      @session.within_window(-> { @session.name == 'Title of popup two' }) do
         expect(@session).to have_css('#divInPopupTwo')
-        @session.within_window(-> { @session.title == 'Title of the first popup' }) do
+        @session.within_window(-> { @session.name == 'Title of the first popup' }) do
           expect(@session).to have_css('#divInPopupOne')
         end
         expect(@session).to have_css('#divInPopupTwo')
@@ -114,13 +114,13 @@ Capybara::SpecHelper.spec '#within_window', requires: [:windows] do
       end
       expect(@session).not_to have_css('#divInPopupTwo')
       expect(@session).not_to have_css('divInPopupOne')
-      expect(@session.title).to eq('With Windows')
+      expect(@session.name).to eq('With Windows')
     end
 
     it 'should work inside a normal scope' do
       expect(@session).to have_css('#openWindow')
       @session.within(:css, '#scope') do
-        @session.within_window(-> { @session.title == 'Title of the first popup' }) do
+        @session.within_window(-> { @session.name == 'Title of the first popup' }) do
           expect(@session).to have_css('#divInPopupOne')
         end
         expect(@session).to have_content('My scoped content')
@@ -130,7 +130,7 @@ Capybara::SpecHelper.spec '#within_window', requires: [:windows] do
 
     it "should raise error if window wasn't found" do
       expect do
-        @session.within_window(-> { @session.title == 'Invalid title' }) do
+        @session.within_window(-> { @session.name == 'Invalid name' }) do
           expect(@session).to have_css('#divInPopupOne')
         end
       end.to raise_error(Capybara::WindowError, 'Could not find a window matching block/lambda')
@@ -140,13 +140,13 @@ Capybara::SpecHelper.spec '#within_window', requires: [:windows] do
     end
 
     it 'returns value from the block' do
-      value = @session.within_window(-> { @session.title == 'Title of popup two' }) { 42 }
+      value = @session.within_window(-> { @session.name == 'Title of popup two' }) { 42 }
       expect(value).to eq(42)
     end
 
     it 'should switch back if exception was raised inside block' do
       expect do
-        @session.within_window(-> { @session.title == 'Title of popup two' }) do
+        @session.within_window(-> { @session.name == 'Title of popup two' }) do
           raise 'some error'
         end
       end.to raise_error(StandardError, 'some error')

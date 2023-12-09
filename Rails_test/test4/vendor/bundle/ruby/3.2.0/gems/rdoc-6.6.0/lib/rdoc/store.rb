@@ -142,7 +142,7 @@ class RDoc::Store
       :main                        => nil,
       :modules                     => [],
       :pages                       => [],
-      :title                       => nil,
+      :name                       => nil,
     }
 
     @classes_hash = {}
@@ -937,18 +937,18 @@ class RDoc::Store
   end
 
   ##
-  # Gets the title for this RDoc store.  This is used as the title in each
+  # Gets the name for this RDoc store.  This is used as the name in each
   # page on the RDoc server
 
-  def title
-    @cache[:title]
+  def name
+    @cache[:name]
   end
 
   ##
-  # Sets the title page for this RDoc store.
+  # Sets the name page for this RDoc store.
 
-  def title= title
-    @cache[:title] = title
+  def name= name
+    @cache[:name] = name
   end
 
   ##

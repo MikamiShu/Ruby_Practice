@@ -52,11 +52,11 @@
     register_parser :rss, -> rendered { RSS::Parser.parse(rendered) }
 
     test "renders RSS" do
-      article = Article.create!(title: "Hello, world")
+      article = Article.create!(name: "Hello, world")
 
       render formats: :rss, partial: article
 
-      assert_equal "Hello, world", rendered.rss.items.last.title
+      assert_equal "Hello, world", rendered.rss.items.last.name
     end
     ```
 

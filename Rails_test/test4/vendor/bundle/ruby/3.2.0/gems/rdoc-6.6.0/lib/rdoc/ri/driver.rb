@@ -903,13 +903,13 @@ or the PAGER environment variable.
   def display_page_list store, pages = store.cache[:pages], search = nil
     out = RDoc::Markup::Document.new
 
-    title = if search then
+    name = if search then
               "#{search} pages"
             else
               'Pages'
             end
 
-    out << RDoc::Markup::Heading.new(1, "#{title} in #{store.friendly_path}")
+    out << RDoc::Markup::Heading.new(1, "#{name} in #{store.friendly_path}")
     out << RDoc::Markup::BlankLine.new
 
     list = RDoc::Markup::List.new(:BULLET)

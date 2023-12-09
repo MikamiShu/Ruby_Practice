@@ -23,7 +23,7 @@ Same as 0.10.0, but with the version number bumped because the last version-numb
 * Bugfix for `&AElig;` entities (rgrove)
 * Fix `CDATA` handling; `CDATA` sections now generate a `GUMBO_NODE_CDATA` node rather
 than plain text.
-* Fix `get_title example` to handle whitespace nodes (gsnedders)
+* Fix `get_name example` to handle whitespace nodes (gsnedders)
 * Visual Studio compilation fixes (fishioon)
 * Take the namespace into account when determining whether a node matches a
 certain tag (aroben)

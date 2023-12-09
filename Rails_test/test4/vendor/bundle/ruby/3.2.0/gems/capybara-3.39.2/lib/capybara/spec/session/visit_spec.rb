@@ -30,9 +30,9 @@ Capybara::SpecHelper.spec '#visit' do
 
   it 'should fetch a response when sequentially visiting same destination with a target' do
     @session.visit('/form')
-    expect(@session).to have_css('#form_title')
-    @session.visit('/form#form_title')
-    expect(@session).to have_css('#form_title')
+    expect(@session).to have_css('#form_name')
+    @session.visit('/form#form_name')
+    expect(@session).to have_css('#form_name')
   end
 
   it 'raises any errors caught inside the server', requires: [:server] do
@@ -206,7 +206,7 @@ Capybara::SpecHelper.spec '#visit' do
     it 'should use base href with relative links' do
       @session.visit('/base/with_base')
       @session.click_link('Title page')
-      expect(@session).to have_current_path('/with_title')
+      expect(@session).to have_current_path('/with_name')
     end
 
     it 'should use base href with bare queries' do

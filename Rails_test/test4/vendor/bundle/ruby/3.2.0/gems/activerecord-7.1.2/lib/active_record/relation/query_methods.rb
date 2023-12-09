@@ -469,10 +469,10 @@ module ActiveRecord
 
     # Allows you to change a previously set select statement.
     #
-    #   Post.select(:title, :body)
-    #   # SELECT `posts`.`title`, `posts`.`body` FROM `posts`
+    #   Post.select(:name, :body)
+    #   # SELECT `posts`.`name`, `posts`.`body` FROM `posts`
     #
-    #   Post.select(:title, :body).reselect(:created_at)
+    #   Post.select(:name, :body).reselect(:created_at)
     #   # SELECT `posts`.`created_at` FROM `posts`
     #
     # This is short-hand for <tt>unscope(:select).select(fields)</tt>.
@@ -521,11 +521,11 @@ module ActiveRecord
 
     # Allows you to change a previously set group statement.
     #
-    #   Post.group(:title, :body)
-    #   # SELECT `posts`.`*` FROM `posts` GROUP BY `posts`.`title`, `posts`.`body`
+    #   Post.group(:name, :body)
+    #   # SELECT `posts`.`*` FROM `posts` GROUP BY `posts`.`name`, `posts`.`body`
     #
-    #   Post.group(:title, :body).regroup(:title)
-    #   # SELECT `posts`.`*` FROM `posts` GROUP BY `posts`.`title`
+    #   Post.group(:name, :body).regroup(:name)
+    #   # SELECT `posts`.`*` FROM `posts` GROUP BY `posts`.`name`
     #
     # This is short-hand for <tt>unscope(:group).group(fields)</tt>.
     # Note that we're unscoping the entire group statement.
@@ -1259,23 +1259,23 @@ module ActiveRecord
 
     # Specifies the table from which the records will be fetched. For example:
     #
-    #   Topic.select('title').from('posts')
-    #   # SELECT title FROM posts
+    #   Topic.select('name').from('posts')
+    #   # SELECT name FROM posts
     #
     # Can accept other relation objects. For example:
     #
-    #   Topic.select('title').from(Topic.approved)
-    #   # SELECT title FROM (SELECT * FROM topics WHERE approved = 't') subquery
+    #   Topic.select('name').from(Topic.approved)
+    #   # SELECT name FROM (SELECT * FROM topics WHERE approved = 't') subquery
     #
     # Passing a second argument (string or symbol), creates the alias for the SQL from clause. Otherwise the alias "subquery" is used:
     #
-    #   Topic.select('a.title').from(Topic.approved, :a)
-    #   # SELECT a.title FROM (SELECT * FROM topics WHERE approved = 't') a
+    #   Topic.select('a.name').from(Topic.approved, :a)
+    #   # SELECT a.name FROM (SELECT * FROM topics WHERE approved = 't') a
     #
     # It does not add multiple arguments to the SQL from clause. The last +from+ chained is the one used:
     #
-    #   Topic.select('title').from(Topic.approved).from(Topic.inactive)
-    #   # SELECT title FROM (SELECT topics.* FROM topics WHERE topics.active = 'f') subquery
+    #   Topic.select('name').from(Topic.approved).from(Topic.inactive)
+    #   # SELECT name FROM (SELECT topics.* FROM topics WHERE topics.active = 'f') subquery
     #
     # For multiple arguments for the SQL from clause, you can pass a string with the exact elements in the SQL from list:
     #

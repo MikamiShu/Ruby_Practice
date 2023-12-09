@@ -28,9 +28,9 @@ module Puma
       end
 
       def run
-        title  = "puma: cluster worker #{index}: #{master}"
-        title += " [#{@options[:tag]}]" if @options[:tag] && !@options[:tag].empty?
-        $0 = title
+        name  = "puma: cluster worker #{index}: #{master}"
+        name += " [#{@options[:tag]}]" if @options[:tag] && !@options[:tag].empty?
+        $0 = name
 
         Signal.trap "SIGINT", "IGNORE"
         Signal.trap "SIGCHLD", "DEFAULT"

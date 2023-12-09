@@ -7,7 +7,7 @@ Capybara::SpecHelper.spec '#has_link?' do
 
   it 'should be true if the given link is on the page' do
     expect(@session).to have_link('foo')
-    expect(@session).to have_link('awesome title')
+    expect(@session).to have_link('awesome name')
     expect(@session).to have_link('A link', href: '/with_simple_html')
     expect(@session).to have_link(:'A link', href: :'/with_simple_html')
     expect(@session).to have_link('A link', href: %r{/with_simple_html})
@@ -42,7 +42,7 @@ Capybara::SpecHelper.spec '#has_link?' do
   it 'should raise an error if an invalid option is passed' do
     expect do
       expect(@session).to have_link('labore', invalid: true)
-    end.to raise_error(ArgumentError, 'Invalid option(s) :invalid, should be one of :above, :below, :left_of, :right_of, :near, :count, :minimum, :maximum, :between, :text, :id, :class, :style, :visible, :obscured, :exact, :exact_text, :normalize_ws, :match, :wait, :filter_set, :focused, :href, :alt, :title, :target, :download')
+    end.to raise_error(ArgumentError, 'Invalid option(s) :invalid, should be one of :above, :below, :left_of, :right_of, :near, :count, :minimum, :maximum, :between, :text, :id, :class, :style, :visible, :obscured, :exact, :exact_text, :normalize_ws, :match, :wait, :filter_set, :focused, :href, :alt, :name, :target, :download')
   end
 end
 
@@ -53,7 +53,7 @@ Capybara::SpecHelper.spec '#has_no_link?' do
 
   it 'should be false if the given link is on the page' do
     expect(@session).not_to have_no_link('foo')
-    expect(@session).not_to have_no_link('awesome title')
+    expect(@session).not_to have_no_link('awesome name')
     expect(@session).not_to have_no_link('A link', href: '/with_simple_html')
     expect(@session).not_to have_no_link('labore', target: '_self')
   end

@@ -147,12 +147,12 @@ rb_xslt_stylesheet_serialize(VALUE self, VALUE xmlobj)
  *     <xsl:stylesheet version="1.0"
  *     xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
  *
- *     <xsl:param name="title"/>
+ *     <xsl:param name="name"/>
  *
  *     <xsl:template match="/">
  *       <html>
  *         <body>
- *           <h1><xsl:value-of select="$title"/></h1>
+ *           <h1><xsl:value-of select="$name"/></h1>
  *           <ol>
  *             <xsl:for-each select="staff/employee">
  *               <li><xsl:value-of select="employeeId"></li>
@@ -193,9 +193,9 @@ rb_xslt_stylesheet_serialize(VALUE self, VALUE xmlobj)
  *
  * *Example* of using an input parameter hash:
  *
- * ⚠ The title is populated, but note how we need to quote-escape the value.
+ * ⚠ The name is populated, but note how we need to quote-escape the value.
  *
- *   stylesheet.transform(doc, { "title" => "'Employee List'" }).to_xml
+ *   stylesheet.transform(doc, { "name" => "'Employee List'" }).to_xml
  *   # => "<html><body>\n" +
  *   #    "<h1>Employee List</h1>\n" +
  *   #    "<ol>\n" +
@@ -206,7 +206,7 @@ rb_xslt_stylesheet_serialize(VALUE self, VALUE xmlobj)
  *
  * *Example* using the XSLT.quote_params helper method to safely quote-escape strings:
  *
- *   stylesheet.transform(doc, Nokogiri::XSLT.quote_params({ "title" => "Aaron's List" })).to_xml
+ *   stylesheet.transform(doc, Nokogiri::XSLT.quote_params({ "name" => "Aaron's List" })).to_xml
  *   # => "<html><body>\n" +
  *   #    "<h1>Aaron's List</h1>\n" +
  *   #    "<ol>\n" +
@@ -219,7 +219,7 @@ rb_xslt_stylesheet_serialize(VALUE self, VALUE xmlobj)
  *
  * You can also use an array if you want to.
  *
- *   stylesheet.transform(doc, ["title", "'Employee List'"]).to_xml
+ *   stylesheet.transform(doc, ["name", "'Employee List'"]).to_xml
  *   # => "<html><body>\n" +
  *   #    "<h1>Employee List</h1>\n" +
  *   #    "<ol>\n" +
@@ -230,7 +230,7 @@ rb_xslt_stylesheet_serialize(VALUE self, VALUE xmlobj)
  *
  * Or pass an array to XSLT.quote_params:
  *
- *   stylesheet.transform(doc, Nokogiri::XSLT.quote_params(["title", "Aaron's List"])).to_xml
+ *   stylesheet.transform(doc, Nokogiri::XSLT.quote_params(["name", "Aaron's List"])).to_xml
  *   # => "<html><body>\n" +
  *   #    "<h1>Aaron's List</h1>\n" +
  *   #    "<ol>\n" +

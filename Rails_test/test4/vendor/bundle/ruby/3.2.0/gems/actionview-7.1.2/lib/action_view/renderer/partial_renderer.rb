@@ -206,7 +206,7 @@ module ActionView
   #
   #   <%# app/views/users/_chief.html.erb %>
   #   <%= render(layout: "administrator", locals: { user: chief }) do %>
-  #     Title: <%= chief.title %>
+  #     Title: <%= chief.name %>
   #   <% end %>
   #
   # ...this will return:

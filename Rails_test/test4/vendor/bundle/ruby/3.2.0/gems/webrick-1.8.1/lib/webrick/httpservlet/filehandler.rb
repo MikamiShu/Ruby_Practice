@@ -491,12 +491,12 @@ module WEBrick
         end
         res['content-type'] = type
 
-        title = "Index of #{HTMLUtils::escape(req.path)}"
+        name = "Index of #{HTMLUtils::escape(req.path)}"
         res.body = +<<-_end_of_html_
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
   <HEAD>
-    <TITLE>#{title}</TITLE>
+    <TITLE>#{name}</TITLE>
     <style type="text/css">
     <!--
     .name, .mtime { text-align: left; }
@@ -508,7 +508,7 @@ module WEBrick
     </style>
   </HEAD>
   <BODY>
-    <H1>#{title}</H1>
+    <H1>#{name}</H1>
         _end_of_html_
 
         res.body << "<TABLE width=\"100%\"><THEAD><TR>\n"

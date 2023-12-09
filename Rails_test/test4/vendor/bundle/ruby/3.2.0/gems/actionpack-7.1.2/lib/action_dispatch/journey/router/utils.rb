@@ -93,8 +93,8 @@ module ActionDispatch
 
         # Replaces any escaped sequences with their unescaped representations.
         #
-        #   uri = "/topics?title=Ruby%20on%20Rails"
-        #   unescape_uri(uri)  #=> "/topics?title=Ruby on Rails"
+        #   uri = "/topics?name=Ruby%20on%20Rails"
+        #   unescape_uri(uri)  #=> "/topics?name=Ruby on Rails"
         def self.unescape_uri(uri)
           ENCODER.unescape_uri(uri)
         end

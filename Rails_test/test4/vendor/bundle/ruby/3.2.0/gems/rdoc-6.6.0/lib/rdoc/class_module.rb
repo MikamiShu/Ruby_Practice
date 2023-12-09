@@ -411,7 +411,7 @@ class RDoc::ClassModule < RDoc::Context
     end if array[9] # Support Marshal version 1
 
     sections = (array[10] || []).map do |section|
-      [section.title, section]
+      [section.name, section]
     end
 
     @sections = Hash[*sections.flatten]
@@ -529,13 +529,13 @@ class RDoc::ClassModule < RDoc::Context
   # ClassModule +cm+.
 
   def merge_sections cm # :nodoc:
-    my_sections    =    sections.group_by { |section| section.title }
-    other_sections = cm.sections.group_by { |section| section.title }
+    my_sections    =    sections.group_by { |section| section.name }
+    other_sections = cm.sections.group_by { |section| section.name }
 
     other_files = cm.in_files
 
     remove_things my_sections, other_files do |_, section|
-      @sections.delete section.title
+      @sections.delete section.name
     end
 
     other_sections.each do |group, sections|

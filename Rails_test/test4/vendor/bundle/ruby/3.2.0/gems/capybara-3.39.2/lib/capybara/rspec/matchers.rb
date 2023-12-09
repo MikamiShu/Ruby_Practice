@@ -7,7 +7,7 @@ require 'capybara/rspec/matchers/match_selector'
 require 'capybara/rspec/matchers/have_current_path'
 require 'capybara/rspec/matchers/match_style'
 require 'capybara/rspec/matchers/have_text'
-require 'capybara/rspec/matchers/have_title'
+require 'capybara/rspec/matchers/have_name'
 require 'capybara/rspec/matchers/become_closed'
 
 module Capybara
@@ -132,8 +132,8 @@ module Capybara
     end
     alias_method :have_content, :have_text
 
-    def have_title(title, **options)
-      Matchers::HaveTitle.new(title, **options)
+    def have_name(name, **options)
+      Matchers::HaveTitle.new(name, **options)
     end
 
     # RSpec matcher for the current path.
@@ -159,7 +159,7 @@ module Capybara
       match_style(styles, **options)
     end
 
-    %w[selector css xpath text title current_path link button
+    %w[selector css xpath text name current_path link button
        field checked_field unchecked_field select table
        sibling ancestor].each do |matcher_type|
       define_method "have_no_#{matcher_type}" do |*args, **kw_args, &optional_filter_block|

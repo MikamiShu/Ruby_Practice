@@ -276,8 +276,8 @@ RSpec.shared_examples 'Capybara::Session' do |session, mode|
     describe '#evaluate_script' do
       it 'can return an element' do
         session.visit('/form')
-        element = session.evaluate_script("document.getElementById('form_title')")
-        expect(element).to eq session.find(:id, 'form_title')
+        element = session.evaluate_script("document.getElementById('form_name')")
+        expect(element).to eq session.find(:id, 'form_name')
       end
 
       it 'returns a shadow root' do
@@ -298,9 +298,9 @@ RSpec.shared_examples 'Capybara::Session' do |session, mode|
 
       it 'can return hashes with elements' do
         session.visit('/form')
-        result = session.evaluate_script("{ a: document.getElementById('form_title'), b: {c: document.querySelectorAll('#form_city option')}}")
+        result = session.evaluate_script("{ a: document.getElementById('form_name'), b: {c: document.querySelectorAll('#form_city option')}}")
         expect(result).to eq(
-          'a' => session.find(:id, 'form_title'),
+          'a' => session.find(:id, 'form_name'),
           'b' => {
             'c' => session.find(:css, '#form_city').all(:css, 'option').to_a
           }

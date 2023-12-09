@@ -111,16 +111,16 @@ class TestMarkup < Builder::Test
   end
 
   def test_attributes_with_newlines
-    @xml.abbr("W3C", :title=>"World\nWide\rWeb\r\nConsortium")
-    assert_equal %{<abbr title="World&#10;Wide&#13;Web&#13;&#10;Consortium">W3C</abbr>},
+    @xml.abbr("W3C", :name=>"World\nWide\rWeb\r\nConsortium")
+    assert_equal %{<abbr name="World&#10;Wide&#13;Web&#13;&#10;Consortium">W3C</abbr>},
       @xml.target!
   end
 
   def test_complex
     @xml.body(:bg=>"#ffffff") { |x|
-      x.title("T", :style=>"red")
+      x.name("T", :style=>"red")
     }
-    assert_equal %{<body bg="#ffffff"><title style="red">T</title></body>}, @xml.target!
+    assert_equal %{<body bg="#ffffff"><name style="red">T</name></body>}, @xml.target!
   end
 
   def test_funky_symbol
@@ -145,8 +145,8 @@ class TestMarkup < Builder::Test
   end
 
   def test_reference_methods
-    @xml.title { |x| x.a { x.b(_name) } }
-    assert_equal "<title><a><b>bob</b></a></title>", @xml.target!
+    @xml.name { |x| x.a { x.b(_name) } }
+    assert_equal "<name><a><b>bob</b></a></name>", @xml.target!
   end
 
   def test_append_text
@@ -218,33 +218,33 @@ class TestAttributeEscaping < Builder::Test
   end
 
   def test_element_gt
-    @xml.title('1<2')
-    assert_equal '<title>1&lt;2</title>', @xml.target!
+    @xml.name('1<2')
+    assert_equal '<name>1&lt;2</name>', @xml.target!
   end
 
   def test_element_amp
-    @xml.title('AT&T')
-    assert_equal '<title>AT&amp;T</title>', @xml.target!
+    @xml.name('AT&T')
+    assert_equal '<name>AT&amp;T</name>', @xml.target!
   end
 
   def test_element_amp2
-    @xml.title('&amp;')
-    assert_equal '<title>&amp;amp;</title>', @xml.target!
+    @xml.name('&amp;')
+    assert_equal '<name>&amp;amp;</name>', @xml.target!
   end
 
   def test_attr_less
-    @xml.a(:title => '2>1')
-    assert_equal '<a title="2&gt;1"/>', @xml.target!
+    @xml.a(:name => '2>1')
+    assert_equal '<a name="2&gt;1"/>', @xml.target!
   end
 
   def test_attr_amp
-    @xml.a(:title => 'AT&T')
-    assert_equal '<a title="AT&amp;T"/>', @xml.target!
+    @xml.a(:name => 'AT&T')
+    assert_equal '<a name="AT&amp;T"/>', @xml.target!
   end
 
   def test_attr_quot
-    @xml.a(:title => '"x"')
-    assert_equal '<a title="&quot;x&quot;"/>', @xml.target!
+    @xml.a(:name => '"x"')
+    assert_equal '<a name="&quot;x&quot;"/>', @xml.target!
   end
 
 end
@@ -329,27 +329,27 @@ class TestDeclarations < Builder::Test
   def test_nested_declarations
     @xml = Builder::XmlMarkup.new
     @xml.declare! :DOCTYPE, :chapter do |x|
-      x.declare! :ELEMENT, :chapter, "(title,para+)".intern
+      x.declare! :ELEMENT, :chapter, "(name,para+)".intern
     end
-    assert_equal "<!DOCTYPE chapter [<!ELEMENT chapter (title,para+)>]>", @xml.target!
+    assert_equal "<!DOCTYPE chapter [<!ELEMENT chapter (name,para+)>]>", @xml.target!
   end
 
   def test_nested_indented_declarations
     @xml.declare! :DOCTYPE, :chapter do |x|
-      x.declare! :ELEMENT, :chapter, "(title,para+)".intern
+      x.declare! :ELEMENT, :chapter, "(name,para+)".intern
     end
-    assert_equal "<!DOCTYPE chapter [\n  <!ELEMENT chapter (title,para+)>\n]>\n", @xml.target!
+    assert_equal "<!DOCTYPE chapter [\n  <!ELEMENT chapter (name,para+)>\n]>\n", @xml.target!
   end
 
   def test_complex_declaration
     @xml.declare! :DOCTYPE, :chapter do |x|
-      x.declare! :ELEMENT, :chapter, "(title,para+)".intern
-      x.declare! :ELEMENT, :title, "(#PCDATA)".intern
+      x.declare! :ELEMENT, :chapter, "(name,para+)".intern
+      x.declare! :ELEMENT, :name, "(#PCDATA)".intern
       x.declare! :ELEMENT, :para, "(#PCDATA)".intern
     end
     expected = %{<!DOCTYPE chapter [
-  <!ELEMENT chapter (title,para+)>
-  <!ELEMENT title (#PCDATA)>
+  <!ELEMENT chapter (name,para+)>
+  <!ELEMENT name (#PCDATA)>
   <!ELEMENT para (#PCDATA)>
 ]>
 }

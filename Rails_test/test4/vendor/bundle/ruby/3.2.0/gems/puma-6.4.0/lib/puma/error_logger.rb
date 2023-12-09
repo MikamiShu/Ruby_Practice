@@ -29,11 +29,11 @@ module Puma
     # +options+ hash with additional options:
     # - +error+ is an exception object
     # - +req+ the http request
-    # - +text+ (default nil) custom string to print in title
+    # - +text+ (default nil) custom string to print in name
     #   and before all remaining info.
     #
     def info(options={})
-      internal_write title(options)
+      internal_write name(options)
     end
 
     # Print occurred error details only if
@@ -41,7 +41,7 @@ module Puma
     # +options+ hash with additional options:
     # - +error+ is an exception object
     # - +req+ the http request
-    # - +text+ (default nil) custom string to print in title
+    # - +text+ (default nil) custom string to print in name
     #   and before all remaining info.
     #
     def debug(options={})
@@ -51,21 +51,21 @@ module Puma
       req = options[:req]
 
       string_block = []
-      string_block << title(options)
+      string_block << name(options)
       string_block << request_dump(req) if request_parsed?(req)
       string_block << error.backtrace if error
 
       internal_write string_block.join("\n")
     end
 
-    def title(options={})
+    def name(options={})
       text = options[:text]
       req = options[:req]
       error = options[:error]
 
       string_block = ["#{Time.now}"]
       string_block << " #{text}" if text
-      string_block << " (#{request_title(req)})" if request_parsed?(req)
+      string_block << " (#{request_name(req)})" if request_parsed?(req)
       string_block << ": #{error.inspect}" if error
       string_block.join('')
     end
@@ -75,7 +75,7 @@ module Puma
       "Body: #{req.body}"
     end
 
-    def request_title(req)
+    def request_name(req)
       env = req.env
 
       REQUEST_FORMAT % [

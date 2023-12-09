@@ -31,7 +31,7 @@ body, td, p {
   margin-bottom: 0.5em;
 }
 
-.sectiontitle {
+.sectionname {
   margin-top: 1em;
   margin-bottom: 1em;
   padding: 0.5em;
@@ -60,11 +60,11 @@ body, td, p {
   font-family: monospace;
 }
 
-.file-title-prefix {
+.file-name-prefix {
   font-size: large;
 }
 
-.file-title {
+.file-name {
   font-size: large;
   font-weight: bold;
   background: #005;
@@ -83,11 +83,11 @@ body, td, p {
   color: #FFF;
 }
 
-h1 a, h2 a, .sectiontitle a, .banner a {
+h1 a, h2 a, .sectionname a, .banner a {
   color: #FF0;
 }
 
-h1 a:hover, h2 a:hover, .sectiontitle a:hover, .banner a:hover {
+h1 a:hover, h2 a:hover, .sectionname a:hover, .banner a:hover {
   color: #FF7;
 }
 
@@ -122,7 +122,7 @@ h1 a:hover, h2 a:hover, .sectiontitle a:hover, .banner a:hover {
   background: #FFE;
 }
 
-.method .title {
+.method .name {
   font-family: monospace;
   font-size: large;
   border-bottom: 1px dashed black;
@@ -192,7 +192,7 @@ XHTML_PREAMBLE = %{<?xml version="1.0" encoding="%charset%"?>
 HEADER = XHTML_PREAMBLE + <<ENDHEADER
 <html>
   <head>
-    <title>%title%</title>
+    <name>%name%</name>
     <meta http-equiv="Content-Type" content="text/html; charset=%charset%" />
     <link rel="stylesheet" href="%style_url%" type="text/css" media="screen" />
 
@@ -244,7 +244,7 @@ FILE_PAGE = <<HTML
 <table border='0' cellpadding='0' cellspacing='0' width="100%" class='banner'>
   <tr><td>
     <table width="100%" border='0' cellpadding='0' cellspacing='0'><tr>
-      <td class="file-title" colspan="2"><span class="file-title-prefix">File</span><br />%short_name%</td>
+      <td class="file-name" colspan="2"><span class="file-name-prefix">File</span><br />%short_name%</td>
       <td align="right">
         <table border='0' cellspacing="0" cellpadding="2">
           <tr>
@@ -270,7 +270,7 @@ HTML
 
 CLASS_PAGE = <<HTML
 <table width="100%" border='0' cellpadding='0' cellspacing='0' class='banner'><tr>
-  <td class="file-title"><span class="file-title-prefix">%classmod%</span><br />%full_name%</td>
+  <td class="file-name"><span class="file-name-prefix">%classmod%</span><br />%full_name%</td>
   <td align="right">
     <table cellspacing=0 cellpadding=2>
       <tr valign="top">
@@ -319,7 +319,7 @@ IF:description
 ENDIF:description
 
 IF:requires
-  <div class="sectiontitle">Required Files</div>
+  <div class="sectionname">Required Files</div>
   <ul>
 START:requires
   <li>HREF:aref:name:</li>
@@ -328,7 +328,7 @@ END:requires
 ENDIF:requires
 
 IF:toc
-  <div class="sectiontitle">Contents</div>
+  <div class="sectionname">Contents</div>
   <ul>
 START:toc
   <li><a href="#%href%">%secname%</a></li>
@@ -337,7 +337,7 @@ END:toc
 ENDIF:toc
 
 IF:methods
-  <div class="sectiontitle">Methods</div>
+  <div class="sectionname">Methods</div>
   <ul>
 START:methods
   <li>HREF:aref:name:</li>
@@ -346,7 +346,7 @@ END:methods
 ENDIF:methods
 
 IF:includes
-<div class="sectiontitle">Included Modules</div>
+<div class="sectionname">Included Modules</div>
 <ul>
 START:includes
   <li>HREF:aref:name:</li>
@@ -355,22 +355,22 @@ END:includes
 ENDIF:includes
 
 START:sections
-IF:sectitle
-<div class="sectiontitle"><a nem="%secsequence%">%sectitle%</a></div>
+IF:secname
+<div class="sectionname"><a nem="%secsequence%">%secname%</a></div>
 IF:seccomment
 <div class="description">
 %seccomment%
 </div>
 ENDIF:seccomment
-ENDIF:sectitle
+ENDIF:secname
 
 IF:classlist
-  <div class="sectiontitle">Classes and Modules</div>
+  <div class="sectionname">Classes and Modules</div>
   %classlist%
 ENDIF:classlist
 
 IF:constants
-  <div class="sectiontitle">Constants</div>
+  <div class="sectionname">Constants</div>
   <table border='0' cellpadding='5'>
 START:constants
   <tr valign='top'>
@@ -389,7 +389,7 @@ END:constants
 ENDIF:constants
 
 IF:attributes
-  <div class="sectiontitle">Attributes</div>
+  <div class="sectionname">Attributes</div>
   <table border='0' cellpadding='5'>
 START:attributes
   <tr valign='top'>
@@ -408,10 +408,10 @@ ENDIF:attributes
 IF:method_list
 START:method_list
 IF:methods
-<div class="sectiontitle">%type% %category% methods</div>
+<div class="sectionname">%type% %category% methods</div>
 START:methods
 <div class="method">
-  <div class="title">
+  <div class="name">
 IF:callseq
     <a name="%aref%"></a><b>%callseq%</b>
 ENDIF:callseq
@@ -473,7 +473,7 @@ ENDBODY
 
 SRC_PAGE = XHTML_PREAMBLE + <<HTML
 <html>
-<head><title>%title%</title>
+<head><name>%name%</name>
 <meta http-equiv="Content-Type" content="text/html; charset=%charset%">
 <style>
 .ruby-comment    { color: green; font-style: italic }
@@ -541,7 +541,7 @@ FILE_INDEX = XHTML_PREAMBLE + <<HTML
 <base target="docwin">
 </head>
 <body>
-<div class="banner">%list_title%</div>
+<div class="banner">%list_name%</div>
 <div class="entries">
 START:entries
 <a href="%href%">%name%</a><br>
@@ -556,13 +556,13 @@ METHOD_INDEX = FILE_INDEX
 INDEX = XHTML_PREAMBLE + <<HTML
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>%title%</title>
+  <name>%name%</name>
   <meta http-equiv="Content-Type" content="text/html; charset=%charset%">
 </head>
 
 <frameset cols="20%,*">
     <frameset rows="15%,35%,50%">
-        <frame src="fr_file_index.html"   title="Files" name="Files" />
+        <frame src="fr_file_index.html"   name="Files" name="Files" />
         <frame src="fr_class_index.html"  name="Classes" />
         <frame src="fr_method_index.html" name="Methods" />
     </frameset>

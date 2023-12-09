@@ -66,11 +66,11 @@ Capybara::SpecHelper.spec '#select' do
   end
 
   it 'should obey from' do
-    @session.select('Miss', from: 'Other title')
+    @session.select('Miss', from: 'Other name')
     @session.click_button('awesome')
     results = extract_results(@session)
-    expect(results['other_title']).to eq('Miss')
-    expect(results['title']).not_to eq('Miss')
+    expect(results['other_name']).to eq('Miss')
+    expect(results['name']).not_to eq('Miss')
   end
 
   it 'show match labels with preceding or trailing whitespace' do
@@ -138,8 +138,8 @@ Capybara::SpecHelper.spec '#select' do
 
   context 'on a disabled option' do
     it 'should not select' do
-      @session.select('Other', from: 'form_title')
-      expect(@session.find_field('form_title').value).not_to eq 'Other'
+      @session.select('Other', from: 'form_name')
+      expect(@session.find_field('form_name').value).not_to eq 'Other'
     end
   end
 

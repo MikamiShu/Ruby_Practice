@@ -55,7 +55,7 @@ module Capybara
     ].freeze
     # @api private
     DOCUMENT_METHODS = %i[
-      title assert_title assert_no_title has_title? has_no_title?
+      name assert_name assert_no_name has_name? has_no_name?
     ].freeze
     SESSION_METHODS = %i[
       body html source current_url current_host current_path
@@ -497,7 +497,7 @@ module Capybara
     #   Switches to the first window for which given block returns a value other than false or nil.
     #   If window that matches block can't be found, the window will be switched back and {Capybara::WindowError} will be raised.
     #   @example
-    #     window = switch_to_window { title == 'Page title' }
+    #     window = switch_to_window { name == 'Page name' }
     #   @raise [Capybara::WindowError]     if no window matches given block
     # @overload switch_to_window(window)
     #   @param window [Capybara::Window]   window that should be switched to
@@ -535,7 +535,7 @@ module Capybara
     #   @param lambda [Proc]                  First window for which lambda
     #     returns a value other than false or nil will be switched to.
     #   @example
-    #     within_window(->{ page.title == 'Page title' }) { click_button 'Submit' }
+    #     within_window(->{ page.name == 'Page name' }) { click_button 'Submit' }
     #   @raise [Capybara::WindowError]         if no window matching lambda was found
     #
     # @raise [Capybara::ScopeError]        if this method is invoked inside {#within_frame} method

@@ -78,9 +78,9 @@ module ActiveModel
   #
   #   class Person
   #     include ActiveModel::Validations
-  #     attr_accessor :title
+  #     attr_accessor :name
   #
-  #     validates :title, presence: true, title: true
+  #     validates :name, presence: true, name: true
   #   end
   #
   # It can be useful to access the class that is using that validator when there are prerequisites such

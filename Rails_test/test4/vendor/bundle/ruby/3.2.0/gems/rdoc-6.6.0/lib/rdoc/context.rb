@@ -14,10 +14,10 @@ class RDoc::Context < RDoc::CodeObject
   TYPES = %w[class instance]
 
   ##
-  # If a context has these titles it will be sorted in this order.
+  # If a context has these names it will be sorted in this order.
 
   TOMDOC_TITLES = [nil, 'Public', 'Internal', 'Deprecated'] # :nodoc:
-  TOMDOC_TITLES_SORT = TOMDOC_TITLES.sort_by { |title| title.to_s } # :nodoc:
+  TOMDOC_TITLES_SORT = TOMDOC_TITLES.sort_by { |name| name.to_s } # :nodoc:
 
   ##
   # Class/module aliases
@@ -576,19 +576,19 @@ class RDoc::Context < RDoc::CodeObject
   end
 
   ##
-  # Returns a section with +title+, creating it if it doesn't already exist.
+  # Returns a section with +name+, creating it if it doesn't already exist.
   # +comment+ will be appended to the section's comment.
   #
-  # A section with a +title+ of +nil+ will return the default section.
+  # A section with a +name+ of +nil+ will return the default section.
   #
   # See also RDoc::Context::Section
 
-  def add_section title, comment = nil
-    if section = @sections[title] then
+  def add_section name, comment = nil
+    if section = @sections[name] then
       section.add_comment comment if comment
     else
-      section = Section.new self, title, comment
-      @sections[title] = section
+      section = Section.new self, name, comment
+      @sections[name] = section
     end
 
     section
@@ -758,7 +758,7 @@ class RDoc::Context < RDoc::CodeObject
   end
 
   ##
-  # Iterator for each section's contents sorted by title.  The +section+, the
+  # Iterator for each section's contents sorted by name.  The +section+, the
   # section's +constants+ and the sections +attributes+ are yielded.  The
   # +constants+ and +attributes+ collections are sorted.
   #
@@ -1162,7 +1162,7 @@ class RDoc::Context < RDoc::CodeObject
 
     # only the default section is used
     return [] if
-      sections.length == 1 and not sections.first.title
+      sections.length == 1 and not sections.first.name
 
     sections
   end
@@ -1179,10 +1179,10 @@ class RDoc::Context < RDoc::CodeObject
   end
 
   ##
-  # Sets the current section to a section with +title+.  See also #add_section
+  # Sets the current section to a section with +name+.  See also #add_section
 
-  def set_current_section title, comment
-    @current_section = add_section title, comment
+  def set_current_section name, comment
+    @current_section = add_section name, comment
   end
 
   ##
@@ -1211,15 +1211,15 @@ class RDoc::Context < RDoc::CodeObject
   # Public, Internal, Deprecated)
 
   def sort_sections
-    titles = @sections.map { |title, _| title }
+    names = @sections.map { |name, _| name }
 
-    if titles.length > 1 and
+    if names.length > 1 and
        TOMDOC_TITLES_SORT ==
-         (titles | TOMDOC_TITLES).sort_by { |title| title.to_s } then
+         (names | TOMDOC_TITLES).sort_by { |name| name.to_s } then
       @sections.values_at(*TOMDOC_TITLES).compact
     else
-      @sections.sort_by { |title, _|
-        title.to_s
+      @sections.sort_by { |name, _|
+        name.to_s
       }.map { |_, section|
         section
       }

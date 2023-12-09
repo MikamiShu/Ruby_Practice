@@ -161,17 +161,17 @@ class TestApp < Sinatra::Base
     erb :with_html, locals: { referrer: request.referrer }
   end
 
-  get '/with_title' do
+  get '/with_name' do
     <<-HTML
       <!DOCTYPE html>
       <html lang="en">
         <head>
           <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
-          <title>#{params[:title] || 'Test Title'}</title>
+          <name>#{params[:name] || 'Test Title'}</name>
         </head>
 
         <body>
-          <svg><title>abcdefg</title></svg>
+          <svg><name>abcdefg</name></svg>
         </body>
       </html>
     HTML
@@ -183,7 +183,7 @@ class TestApp < Sinatra::Base
       <html lang="en">
         <head>
           <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
-          <title>Test with Iframe</title>
+          <name>Test with Iframe</name>
         </head>
 
         <body>
@@ -199,10 +199,10 @@ class TestApp < Sinatra::Base
       <html>
         <head>
           <base href="/">
-          <title>Origin</title>
+          <name>Origin</name>
         </head>
         <body>
-          <a href="with_title">Title page</a>
+          <a href="with_name">Title page</a>
           <a href="?a=3">Bare query</a>
         </body>
       </html>
@@ -215,10 +215,10 @@ class TestApp < Sinatra::Base
       <html>
         <head>
           <base href="/base/">
-          <title>Origin</title>
+          <name>Origin</name>
         </head>
         <body>
-          <a href="with_title">Title page</a>
+          <a href="with_name">Title page</a>
           <a href="?a=3">Bare query</a>
         </body>
       </html>
@@ -232,7 +232,7 @@ class TestApp < Sinatra::Base
       <html lang="en">
         <head>
           <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
-          <title>CSP</title>
+          <name>CSP</name>
         </head>
 
         <body>

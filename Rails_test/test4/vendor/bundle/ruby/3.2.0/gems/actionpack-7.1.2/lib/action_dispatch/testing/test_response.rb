@@ -32,20 +32,20 @@ module ActionDispatch
     #   get "/posts.json"
     #   response.content_type         # => "application/json; charset=utf-8"
     #   response.parsed_body.class    # => Array
-    #   response.parsed_body          # => [{"id"=>42, "title"=>"Title"},...
+    #   response.parsed_body          # => [{"id"=>42, "name"=>"Title"},...
     #
     #   assert_pattern { response.parsed_body => [{ id: 42 }] }
     #
     #   get "/posts/42.json"
     #   response.content_type         # => "application/json; charset=utf-8"
     #   response.parsed_body.class    # => ActiveSupport::HashWithIndifferentAccess
-    #   response.parsed_body          # => {"id"=>42, "title"=>"Title"}
+    #   response.parsed_body          # => {"id"=>42, "name"=>"Title"}
     #
-    #   assert_pattern { response.parsed_body => [{ title: /title/i }] }
+    #   assert_pattern { response.parsed_body => [{ name: /name/i }] }
     #
-    #   response.parsed_body => {id:, title:}
+    #   response.parsed_body => {id:, name:}
     #   assert_equal 42, id
-    #   assert_equal "Title", title
+    #   assert_equal "Title", name
     def parsed_body
       @parsed_body ||= response_parser.call(body)
     end

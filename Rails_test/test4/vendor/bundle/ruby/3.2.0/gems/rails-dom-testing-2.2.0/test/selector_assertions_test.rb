@@ -369,13 +369,13 @@ class AssertSelectTest < ActiveSupport::TestCase
   end
 
   def test_assert_select_with_extra_argument
-    render_html "<html><head><title>Welcome</title></head><body><div></div></body></html>"
+    render_html "<html><head><name>Welcome</name></head><body><div></div></body></html>"
 
     assert_raises ArgumentError do
-      assert_select "title", "Welcome", count: 1
+      assert_select "name", "Welcome", count: 1
     end
 
-    assert_select "title", text: "Welcome", count: 1
+    assert_select "name", text: "Welcome", count: 1
   end
 
   def test_assert_select_on_blank_response

@@ -29,12 +29,12 @@ module Capybara
 
       ##
       #
-      # Finds a link by id, {Capybara.configure test_id} attribute, text or title and clicks it. Also looks at image
+      # Finds a link by id, {Capybara.configure test_id} attribute, text or name and clicks it. Also looks at image
       # alt text inside the link.
       #
       # @overload click_link([locator], **options)
       #   @macro waiting_behavior
-      #   @param [String] locator         text, id, {Capybara.configure test_id} attribute, title or nested image's alt attribute
+      #   @param [String] locator         text, id, {Capybara.configure test_id} attribute, name or nested image's alt attribute
       #   @param [Hash] options           See {Capybara::Node::Finders#find_link}
       #
       # @return [Capybara::Node::Element]  The element clicked
@@ -46,7 +46,7 @@ module Capybara
       #
       # Finds a button on the page and clicks it.
       # This can be any `<input>` element of type submit, reset, image, button or it can be a
-      # `<button>` element. All buttons can be found by their id, name, {Capybara.configure test_id} attribute, value, or title. `<button>` elements can also be found
+      # `<button>` element. All buttons can be found by their id, name, {Capybara.configure test_id} attribute, value, or name. `<button>` elements can also be found
       # by their text content, and image `<input>` elements by their alt attribute.
       #
       # @overload click_button([locator], **options)

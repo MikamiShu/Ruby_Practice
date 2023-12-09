@@ -315,7 +315,7 @@ class RDoc::Generator::Darkfish
 
     asset_rel_prefix = rel_prefix + @asset_rel_path
 
-    @title = @options.title
+    @name = @options.name
 
     render_template template_file, out_file do |io|
       here = binding
@@ -350,7 +350,7 @@ class RDoc::Generator::Darkfish
     asset_rel_prefix = rel_prefix + @asset_rel_path
     svninfo          = get_svninfo(current)
 
-    @title = "#{klass.type} #{klass.full_name} - #{@options.title}"
+    @name = "#{klass.type} #{klass.full_name} - #{@options.name}"
 
     debug_msg "  rendering #{out_file}"
     render_template template_file, out_file do |io|
@@ -431,15 +431,15 @@ class RDoc::Generator::Darkfish
         if file.text? then
           next unless page_file.exist?
           template_file = page_file
-          @title = file.page_name
+          @name = file.page_name
         else
           next unless fileinfo_file.exist?
           template_file = fileinfo_file
-          @title = "File: #{file.base_name}"
+          @name = "File: #{file.base_name}"
         end
       end
 
-      @title += " - #{@options.title}"
+      @name += " - #{@options.name}"
       template_file ||= filepage_file
 
       render_template template_file, out_file do |io|
@@ -475,7 +475,7 @@ class RDoc::Generator::Darkfish
     current          = file
     asset_rel_prefix = rel_prefix + @asset_rel_path
 
-    @title = "#{file.page_name} - #{@options.title}"
+    @name = "#{file.page_name} - #{@options.name}"
 
     debug_msg "  rendering #{out_file}"
     render_template template_file, out_file do |io|
@@ -504,7 +504,7 @@ class RDoc::Generator::Darkfish
 
     asset_rel_prefix = ''
 
-    @title = 'Not Found'
+    @name = 'Not Found'
 
     render_template template_file do |io|
       here = binding
@@ -536,7 +536,7 @@ class RDoc::Generator::Darkfish
     search_index_rel_prefix = asset_rel_prefix
     search_index_rel_prefix += @asset_rel_path if @file_output
 
-    @title = 'Local RDoc Documentation'
+    @name = 'Local RDoc Documentation'
 
     render_template template_file do |io| binding end
   rescue => e
@@ -565,7 +565,7 @@ class RDoc::Generator::Darkfish
 
     asset_rel_prefix = rel_prefix + @asset_rel_path
 
-    @title = "Table of Contents - #{@options.title}"
+    @name = "Table of Contents - #{@options.name}"
 
     render_template template_file, out_file do |io|
       here = binding

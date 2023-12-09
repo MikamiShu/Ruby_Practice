@@ -9,7 +9,7 @@ class RDoc::Attr < RDoc::MethodAttr
   # 3::
   #   RDoc 4
   #    Added parent name and class
-  #    Added section title
+  #    Added section name
 
   MARSHAL_VERSION = 3 # :nodoc:
 
@@ -110,7 +110,7 @@ class RDoc::Attr < RDoc::MethodAttr
       @file.relative_name,
       @parent.full_name,
       @parent.class,
-      @section.title
+      @section.name
     ]
   end
 
@@ -141,7 +141,7 @@ class RDoc::Attr < RDoc::MethodAttr
     #                      7 handled below
     @parent_name   = array[8]
     @parent_class  = array[9]
-    @section_title = array[10]
+    @section_name = array[10]
 
     @file = RDoc::TopLevel.new array[7] if version > 1
 

@@ -61,7 +61,7 @@ cham,cham
 changeswhencasefolded,changes_when_casefolded
 changeswhencasemapped,changes_when_casemapped
 changeswhenlowercased,changes_when_lowercased
-changeswhentitlecased,changes_when_titlecased
+changeswhennamecased,changes_when_namecased
 changeswhenuppercased,changes_when_uppercased
 cherokee,cherokee
 chorasmian,chorasmian
@@ -608,7 +608,7 @@ thai,thai
 tibetan,tibetan
 tifinagh,tifinagh
 tirhuta,tirhuta
-titlecaseletter,titlecase_letter
+namecaseletter,namecase_letter
 toto,toto
 ugaritic,ugaritic
 unassigned,unassigned

@@ -324,8 +324,8 @@ module Rails
 
       # Runs another generator.
       #
-      #   generate "scaffold", "Post title:string body:text"
-      #   generate "scaffold", "Post", "title:string", "body:text"
+      #   generate "scaffold", "Post name:string body:text"
+      #   generate "scaffold", "Post", "name:string", "body:text"
       #
       # The first argument is the generator name, and the remaining arguments
       # are joined together and passed to the generator.

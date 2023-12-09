@@ -25,15 +25,15 @@ module ActionView
       # be rendered as inline spans that:
       #
       # * Have a <tt>translation-missing</tt> class applied
-      # * Contain the missing key as the value of the +title+ attribute
-      # * Have a titleized version of the last key segment as text
+      # * Contain the missing key as the value of the +name+ attribute
+      # * Have a nameized version of the last key segment as text
       #
       # For example, the value returned for the missing translation key
-      # <tt>"blog.post.title"</tt> will be:
+      # <tt>"blog.post.name"</tt> will be:
       #
       #    <span
       #      class="translation_missing"
-      #      title="translation missing: en.blog.post.title">Title</span>
+      #      name="translation missing: en.blog.post.name">Title</span>
       #
       # This allows for views to display rather reasonable strings while still
       # giving developers a way to find missing translations.
@@ -64,7 +64,7 @@ module ActionView
       # translation key, <tt>translate</tt> accepts a block:
       #
       #     <%= translate(".relative_key") do |translation, resolved_key| %>
-      #       <span title="<%= resolved_key %>"><%= translation %></span>
+      #       <span name="<%= resolved_key %>"><%= translation %></span>
       #     <% end %>
       #
       # This enables annotate translated text to be aware of the scope it was
@@ -142,18 +142,18 @@ module ActionView
         def missing_translation(key, options)
           keys = I18n.normalize_keys(options[:locale] || I18n.locale, key, options[:scope])
 
-          title = +"translation missing: #{keys.join(".")}"
+          name = +"translation missing: #{keys.join(".")}"
 
           options.each do |name, value|
             unless name == :scope
-              title << ", " << name.to_s << ": " << ERB::Util.html_escape(value)
+              name << ", " << name.to_s << ": " << ERB::Util.html_escape(value)
             end
           end
 
           if ActionView::Base.debug_missing_translation
-            content_tag("span", keys.last.to_s.titleize, class: "translation_missing", title: title)
+            content_tag("span", keys.last.to_s.nameize, class: "translation_missing", name: name)
           else
-            title
+            name
           end
         end
     end

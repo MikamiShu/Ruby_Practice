@@ -310,9 +310,9 @@ class RDoc::Options
   attr_accessor :template_stylesheets
 
   ##
-  # Documentation title
+  # Documentation name
 
-  attr_accessor :title
+  attr_accessor :name
 
   ##
   # Should RDoc update the timestamps in the output dir?
@@ -382,7 +382,7 @@ class RDoc::Options
     @template = nil
     @template_dir = nil
     @template_stylesheets = []
-    @title = nil
+    @name = nil
     @update_output_dir = true
     @verbosity = 1
     @visibility = :protected
@@ -412,7 +412,7 @@ class RDoc::Options
     @show_hash      = map['show_hash']
     @tab_width      = map['tab_width']
     @template_dir   = map['template_dir']
-    @title          = map['title']
+    @name          = map['name']
     @visibility     = map['visibility']
     @webcvs         = map['webcvs']
 
@@ -444,7 +444,7 @@ class RDoc::Options
     @show_hash      = map['show_hash']      if map.has_key?('show_hash')
     @tab_width      = map['tab_width']      if map.has_key?('tab_width')
     @template_dir   = map['template_dir']   if map.has_key?('template_dir')
-    @title          = map['title']          if map.has_key?('title')
+    @name          = map['name']          if map.has_key?('name')
     @visibility     = map['visibility']     if map.has_key?('visibility')
     @webcvs         = map['webcvs']         if map.has_key?('webcvs')
 
@@ -472,7 +472,7 @@ class RDoc::Options
       @static_path    == other.static_path    and
       @tab_width      == other.tab_width      and
       @template       == other.template       and
-      @title          == other.title          and
+      @name          == other.name          and
       @visibility     == other.visibility     and
       @webcvs         == other.webcvs
   end
@@ -509,12 +509,12 @@ class RDoc::Options
   end
 
   ##
-  # Set the title, but only if not already set. Used to set the title
-  # from a source file, so that a title set from the command line
+  # Set the name, but only if not already set. Used to set the name
+  # from a source file, so that a name set from the command line
   # will have the priority.
 
-  def default_title=(string)
-    @title ||= string
+  def default_name=(string)
+    @name ||= string
   end
 
   ##
@@ -999,9 +999,9 @@ Usage: #{opt.program_name} [options] [names...]
 
       opt.separator nil
 
-      opt.on("--title=TITLE", "-t",
-             "Set TITLE as the title for HTML output.") do |value|
-        @title = value
+      opt.on("--name=TITLE", "-t",
+             "Set TITLE as the name for HTML output.") do |value|
+        @name = value
       end
 
       opt.separator nil

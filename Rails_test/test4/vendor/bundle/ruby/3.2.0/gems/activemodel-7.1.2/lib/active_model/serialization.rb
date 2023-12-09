@@ -104,14 +104,14 @@ module ActiveModel
     #
     #   class Note
     #     include ActiveModel::Serializers::JSON
-    #     attr_accessor :title, :text
+    #     attr_accessor :name, :text
     #     def attributes
-    #       {'title' => nil, 'text' => nil}
+    #       {'name' => nil, 'text' => nil}
     #     end
     #   end
     #
     #   note = Note.new
-    #   note.title = 'Battle of Austerlitz'
+    #   note.name = 'Battle of Austerlitz'
     #   note.text = 'Some text here'
     #
     #   user = User.new
@@ -120,8 +120,8 @@ module ActiveModel
     #
     #   user.serializable_hash
     #   # => {"name" => "Napoleon"}
-    #   user.serializable_hash(include: { notes: { only: 'title' }})
-    #   # => {"name" => "Napoleon", "notes" => [{"title"=>"Battle of Austerlitz"}]}
+    #   user.serializable_hash(include: { notes: { only: 'name' }})
+    #   # => {"name" => "Napoleon", "notes" => [{"name"=>"Battle of Austerlitz"}]}
     def serializable_hash(options = nil)
       attribute_names = attribute_names_for_serialization
 

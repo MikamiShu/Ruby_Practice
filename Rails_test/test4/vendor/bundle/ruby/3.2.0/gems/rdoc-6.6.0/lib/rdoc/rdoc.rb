@@ -470,7 +470,7 @@ The internal error was:
     @store.encoding = @options.encoding
     @store.dry_run  = @options.dry_run
     @store.main     = @options.main_page
-    @store.title    = @options.title
+    @store.name    = @options.name
     @store.path     = @options.op_dir
 
     @start_time = Time.now
@@ -479,7 +479,7 @@ The internal error was:
 
     file_info = parse_files @options.files
 
-    @options.default_title = "RDoc Documentation"
+    @options.default_name = "RDoc Documentation"
 
     @store.complete @options.visibility
 

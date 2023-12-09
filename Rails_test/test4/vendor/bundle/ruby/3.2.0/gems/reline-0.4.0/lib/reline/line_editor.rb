@@ -2074,7 +2074,7 @@ class Reline::LineEditor
   private def generate_searcher
     Fiber.new do |first_key|
       prev_search_key = first_key
-      title = String.new(encoding: @encoding)
+      name = String.new(encoding: @encoding)
       multibyte_buf = String.new(encoding: 'ASCII-8BIT')
       last_hit = nil
       case first_key
@@ -2084,17 +2084,17 @@ class Reline::LineEditor
         prompt_name = 'i-search'
       end
       loop do
-        key = Fiber.yield(title)
+        key = Fiber.yield(name)
         search_again = false
         case key
         when -1 # determined
-          Reline.last_incremental_search = title
+          Reline.last_incremental_search = name
           break
         when "\C-h".ord, "\C-?".ord
-          grapheme_clusters = title.grapheme_clusters
+          grapheme_clusters = name.grapheme_clusters
           if grapheme_clusters.size > 0
             grapheme_clusters.pop
-            title = grapheme_clusters.join
+            name = grapheme_clusters.join
           end
         when "\C-r".ord, "\C-s".ord
           search_again = true if prev_search_key == key
@@ -2102,18 +2102,18 @@ class Reline::LineEditor
         else
           multibyte_buf << key
           if multibyte_buf.dup.force_encoding(@encoding).valid_encoding?
-            title << multibyte_buf.dup.force_encoding(@encoding)
+            name << multibyte_buf.dup.force_encoding(@encoding)
             multibyte_buf.clear
           end
         end
         hit = nil
-        if not title.empty? and @line_backup_in_history&.include?(title)
+        if not name.empty? and @line_backup_in_history&.include?(name)
           @history_pointer = nil
           hit = @line_backup_in_history
         else
           if search_again
-            if title.empty? and Reline.last_incremental_search
-              title = Reline.last_incremental_search
+            if name.empty? and Reline.last_incremental_search
+              name = Reline.last_incremental_search
             end
             if @history_pointer
               case prev_search_key
@@ -2144,11 +2144,11 @@ class Reline::LineEditor
           case prev_search_key
           when "\C-r".ord
             hit_index = history.rindex { |item|
-              item.include?(title)
+              item.include?(name)
             }
           when "\C-s".ord
             hit_index = history.index { |item|
-              item.include?(title)
+              item.include?(name)
             }
           end
           if hit_index
@@ -2171,18 +2171,18 @@ class Reline::LineEditor
             @byte_pointer = @line.bytesize
             @cursor = @cursor_max = calculate_width(@line)
             @rerender_all = true
-            @searching_prompt = "(%s)`%s'" % [prompt_name, title]
+            @searching_prompt = "(%s)`%s'" % [prompt_name, name]
           else
             @line = hit
-            @searching_prompt = "(%s)`%s': %s" % [prompt_name, title, hit]
+            @searching_prompt = "(%s)`%s': %s" % [prompt_name, name, hit]
           end
           last_hit = hit
         else
           if @is_multiline
             @rerender_all = true
-            @searching_prompt = "(failed %s)`%s'" % [prompt_name, title]
+            @searching_prompt = "(failed %s)`%s'" % [prompt_name, name]
           else
-            @searching_prompt = "(failed %s)`%s': %s" % [prompt_name, title, last_hit]
+            @searching_prompt = "(failed %s)`%s': %s" % [prompt_name, name, last_hit]
           end
         end
       end

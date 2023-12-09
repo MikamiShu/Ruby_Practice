@@ -121,22 +121,22 @@ module ActiveRecord
   #
   #   class Entry < ApplicationRecord
   #     delegated_type :entryable, types: %w[ Message Comment ]
-  #     delegate :title, to: :entryable
+  #     delegate :name, to: :entryable
   #   end
   #
   #   class Message < ApplicationRecord
-  #     def title
+  #     def name
   #       subject
   #     end
   #   end
   #
   #   class Comment < ApplicationRecord
-  #     def title
+  #     def name
   #       content.truncate(20)
   #     end
   #   end
   #
-  # Now you can list a bunch of entries, call <tt>Entry#title</tt>, and polymorphism will provide you with the answer.
+  # Now you can list a bunch of entries, call <tt>Entry#name</tt>, and polymorphism will provide you with the answer.
   #
   # == Nested Attributes
   #

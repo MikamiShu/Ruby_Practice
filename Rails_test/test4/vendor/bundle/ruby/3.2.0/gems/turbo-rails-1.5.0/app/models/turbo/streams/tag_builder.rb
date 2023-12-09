@@ -55,7 +55,7 @@ class Turbo::Streams::TagBuilder
   #
   #   <%= turbo_stream.replace "clearance_5", "<div id='clearance_5'>Replace the dom target identified by clearance_5</div>" %>
   #   <%= turbo_stream.replace clearance %>
-  #   <%= turbo_stream.replace clearance, partial: "clearances/clearance", locals: { title: "Hello" } %>
+  #   <%= turbo_stream.replace clearance, partial: "clearances/clearance", locals: { name: "Hello" } %>
   #   <%= turbo_stream.replace "clearance_5" do %>
   #     <div id='clearance_5'>Replace the dom target identified by clearance_5</div>
   #   <% end %>
@@ -68,7 +68,7 @@ class Turbo::Streams::TagBuilder
   #
   #   <%= turbo_stream.replace_all ".clearance_item", "<div class='clearance_item'>Replace the dom target identified by the class clearance_item</div>" %>
   #   <%= turbo_stream.replace_all clearance %>
-  #   <%= turbo_stream.replace_all clearance, partial: "clearances/clearance", locals: { title: "Hello" } %>
+  #   <%= turbo_stream.replace_all clearance, partial: "clearances/clearance", locals: { name: "Hello" } %>
   #   <%= turbo_stream.replace_all ".clearance_item" do %>
   #     <div class='.clearance_item'>Replace the dom target identified by the class clearance_item</div>
   #   <% end %>
@@ -81,7 +81,7 @@ class Turbo::Streams::TagBuilder
   #
   #   <%= turbo_stream.before "clearance_5", "<div id='clearance_4'>Insert before the dom target identified by clearance_5</div>" %>
   #   <%= turbo_stream.before clearance %>
-  #   <%= turbo_stream.before clearance, partial: "clearances/clearance", locals: { title: "Hello" } %>
+  #   <%= turbo_stream.before clearance, partial: "clearances/clearance", locals: { name: "Hello" } %>
   #   <%= turbo_stream.before "clearance_5" do %>
   #     <div id='clearance_4'>Insert before the dom target identified by clearance_5</div>
   #   <% end %>
@@ -94,7 +94,7 @@ class Turbo::Streams::TagBuilder
   #
   #   <%= turbo_stream.before_all ".clearance_item", "<div class='clearance_item'>Insert before the dom target identified by the class clearance_item</div>" %>
   #   <%= turbo_stream.before_all clearance %>
-  #   <%= turbo_stream.before_all clearance, partial: "clearances/clearance", locals: { title: "Hello" } %>
+  #   <%= turbo_stream.before_all clearance, partial: "clearances/clearance", locals: { name: "Hello" } %>
   #   <%= turbo_stream.before_all ".clearance_item" do %>
   #     <div class='clearance_item'>Insert before the dom target identified by clearance_item</div>
   #   <% end %>
@@ -107,7 +107,7 @@ class Turbo::Streams::TagBuilder
   #
   #   <%= turbo_stream.after "clearance_5", "<div id='clearance_6'>Insert after the dom target identified by clearance_5</div>" %>
   #   <%= turbo_stream.after clearance %>
-  #   <%= turbo_stream.after clearance, partial: "clearances/clearance", locals: { title: "Hello" } %>
+  #   <%= turbo_stream.after clearance, partial: "clearances/clearance", locals: { name: "Hello" } %>
   #   <%= turbo_stream.after "clearance_5" do %>
   #     <div id='clearance_6'>Insert after the dom target identified by clearance_5</div>
   #   <% end %>
@@ -120,7 +120,7 @@ class Turbo::Streams::TagBuilder
   #
   #   <%= turbo_stream.after_all ".clearance_item", "<div class='clearance_item'>Insert after the dom target identified by the class clearance_item</div>" %>
   #   <%= turbo_stream.after_all clearance %>
-  #   <%= turbo_stream.after_all clearance, partial: "clearances/clearance", locals: { title: "Hello" } %>
+  #   <%= turbo_stream.after_all clearance, partial: "clearances/clearance", locals: { name: "Hello" } %>
   #   <%= turbo_stream.after_all "clearance_item" do %>
   #     <div class='clearance_item'>Insert after the dom target identified by the class clearance_item</div>
   #   <% end %>
@@ -133,7 +133,7 @@ class Turbo::Streams::TagBuilder
   #
   #   <%= turbo_stream.update "clearance_5", "Update the content of the dom target identified by clearance_5" %>
   #   <%= turbo_stream.update clearance %>
-  #   <%= turbo_stream.update clearance, partial: "clearances/unique_clearance", locals: { title: "Hello" } %>
+  #   <%= turbo_stream.update clearance, partial: "clearances/unique_clearance", locals: { name: "Hello" } %>
   #   <%= turbo_stream.update "clearance_5" do %>
   #     Update the content of the dom target identified by clearance_5
   #   <% end %>
@@ -146,7 +146,7 @@ class Turbo::Streams::TagBuilder
   #
   #   <%= turbo_stream.update_all "clearance_item", "Update the content of the dom target identified by the class clearance_item" %>
   #   <%= turbo_stream.update_all clearance %>
-  #   <%= turbo_stream.update_all clearance, partial: "clearances/new_clearance", locals: { title: "Hello" } %>
+  #   <%= turbo_stream.update_all clearance, partial: "clearances/new_clearance", locals: { name: "Hello" } %>
   #   <%= turbo_stream.update_all "clearance_item" do %>
   #     Update the content of the dom target identified by the class clearance_item
   #   <% end %>

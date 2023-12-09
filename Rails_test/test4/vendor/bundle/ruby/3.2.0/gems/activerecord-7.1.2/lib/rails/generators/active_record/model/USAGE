@@ -29,9 +29,9 @@ Available field types:
     Just after the field name you can specify a type like text or boolean.
     It will generate the column with the associated SQL type. For instance:
 
-        `bin/rails generate model post title:string body:text`
+        `bin/rails generate model post name:string body:text`
 
-    will generate a title column with a varchar type and a body column with a text
+    will generate a name column with a varchar type and a body column with a text
     type. If no type is specified the string type will be used by default.
     You can use the following types:
 
@@ -49,7 +49,7 @@ Available field types:
 
     You can also consider `references` as a kind of type. For instance, if you run:
 
-        `bin/rails generate model photo title:string album:references`
+        `bin/rails generate model photo name:string album:references`
 
     It will generate an `album_id` column. You should generate these kinds of fields when
     you will use a `belongs_to` association, for instance. `references` also supports
@@ -98,9 +98,9 @@ Examples:
             Fixtures:   test/fixtures/accounts.yml
             Migration:  db/migrate/XXX_create_accounts.rb
 
-    `bin/rails generate model post title:string body:text published:boolean`
+    `bin/rails generate model post name:string body:text published:boolean`
 
-        Creates a Post model with a string title, text body, and published flag.
+        Creates a Post model with a string name, text body, and published flag.
 
     `bin/rails generate model admin/account`
 

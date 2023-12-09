@@ -26,9 +26,9 @@ Capybara::SpecHelper.spec '#windows', requires: [:windows] do
 
   it 'should be able to switch to windows' do
     sleep 1 # give windows enough time to fully load
-    titles = @session.windows.map do |window|
-      @session.within_window(window) { @session.title }
+    names = @session.windows.map do |window|
+      @session.within_window(window) { @session.name }
     end
-    expect(titles).to match_array(['With Windows', 'Title of the first popup', 'Title of popup two']) # rubocop:disable RSpec/MatchArray
+    expect(names).to match_array(['With Windows', 'Title of the first popup', 'Title of popup two']) # rubocop:disable RSpec/MatchArray
   end
 end

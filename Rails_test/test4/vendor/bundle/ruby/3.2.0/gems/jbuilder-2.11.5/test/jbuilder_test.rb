@@ -80,11 +80,11 @@ class JbuilderTest < ActiveSupport::TestCase
 
   test 'multiple keys' do
     result = jbuild do |json|
-      json.title 'hello'
+      json.name 'hello'
       json.content 'world'
     end
 
-    assert_equal 'hello', result['title']
+    assert_equal 'hello', result['name']
     assert_equal 'world', result['content']
   end
 

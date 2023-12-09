@@ -4,7 +4,7 @@ require 'generators/rails/jbuilder_generator'
 
 class JbuilderGeneratorTest < Rails::Generators::TestCase
   tests Rails::Generators::JbuilderGenerator
-  arguments %w(Post title body:text password:digest)
+  arguments %w(Post name body:text password:digest)
   destination File.expand_path('../tmp', __FILE__)
   setup :prepare_destination
 
@@ -29,17 +29,17 @@ class JbuilderGeneratorTest < Rails::Generators::TestCase
     end
 
     assert_file 'app/views/posts/_post.json.jbuilder' do |content|
-      assert_match %r{json\.extract! post, :id, :title, :body}, content
+      assert_match %r{json\.extract! post, :id, :name, :body}, content
       assert_match %r{:created_at, :updated_at}, content
       assert_match %r{json\.url post_url\(post, format: :json\)}, content
     end
   end
 
   test 'timestamps are not generated in partial with --no-timestamps' do
-    run_generator %w(Post title body:text --no-timestamps)
+    run_generator %w(Post name body:text --no-timestamps)
 
     assert_file 'app/views/posts/_post.json.jbuilder' do |content|
-      assert_match %r{json\.extract! post, :id, :title, :body$}, content
+      assert_match %r{json\.extract! post, :id, :name, :body$}, content
       assert_no_match %r{:created_at, :updated_at}, content
     end
   end

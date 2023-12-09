@@ -1,11 +1,11 @@
-<h1>Test</h1>
+<h1>UsersController#index</h1>
 
 <%= form_with(scope: :search, method: :get, local: true) do |form| %> 
     <div>
-        <%= form.label :title, "検索ワード" %>
-        <%= form.text_field :title, value: @search_params[:title] %><br>
-        <%= form.label :text_content, "内容検索"%>
-        <%= form.text_field :text_content, value: @search_params[:text_content]%>
+        <%= form.label :name, "検索ワード" %>
+        <%= form.text_field :name, value: @search_params[:name] %><br>
+        <%= form.label :email, "内容検索"%>
+        <%= form.text_field :email, value: @search_params[:email]%>
     </div>
     <%= button_to "検索", user_path(form)%>
     <%= link_to "新しい投稿", new_user_path%><br>
@@ -14,16 +14,12 @@
 
 <ul>
     <% @users.each do |user| %>
-        <li>
-            <h2><%= user.title%></h2>
-            <p><%= user.text_content%></p>
-            <span>
-                <small><%= user.created_at %></small>       
-            </span>
-            <div class="button_test">
-                <%= button_to "削除", user_path(user), method: :delete %>
-            </div>
-        </li>
+        <div class="user_info">
+            ユーザ名：<%= user.name%>
+            メールアドレス：<%= user.email%>
+            作成日：<%= user.created_at %>
+            <!-- <%= button_to "削除", user_path(user), method: :delete %> -->
+        </div>
     <%end%>
 </ul>
 
