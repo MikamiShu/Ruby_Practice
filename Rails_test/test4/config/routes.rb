@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :users
-  get '/users', to: 'users#index'
+  resources :scores
+  
   get '/users/new', to: 'users#new'
+
+  root 'users#index'
 end

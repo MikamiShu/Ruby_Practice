@@ -2,8 +2,8 @@
 
 one:
   title: MyString
-  title: MyText
+  text_content: MyText
 
 two:
   title: MyString
-  title: MyText
+  text_content: MyText
