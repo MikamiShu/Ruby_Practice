@@ -2,8 +2,11 @@ class UsersController < ApplicationController
 
     def index 
         @search_params = user_search_params
+        #@sorted_params = user_sorted_params
         @users = User.search(@search_params)
+
     end
+
 
     def new 
         @user = User.new
@@ -36,6 +39,10 @@ class UsersController < ApplicationController
     def user_search_params
         params.fetch(:search, {}).permit(:name, :email)
     end
+
+    #def user_sorted_params 
+    #    params.fetch(:sorted, {}).permit(:name)
+    #end
     
 
 

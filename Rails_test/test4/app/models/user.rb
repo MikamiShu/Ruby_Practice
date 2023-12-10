@@ -9,4 +9,6 @@ class User < ApplicationRecord
 
     scope :name_like, -> (search_word) {where('name LIKE ?', "%#{search_word}%")}
     scope :email_like, -> (search_text) {where('email LIKE ?', "%#{search_text}%")}
+
+    scope :sorted, -> {order(name: :ASC)}
 end
