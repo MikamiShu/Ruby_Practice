@@ -16,10 +16,10 @@
 <ul>
     <% @users.each do |user| %>
         <div class="user_info">
-            ユーザ名：<%= user.name%>
-            メールアドレス：<%= user.email%>
+            ユーザ名：<%= user.name%><br>
+            メールアドレス：<%= user.email%><br>
             作成日：<%= user.created_at %>
-            <!-- <%= button_to "削除", user_path(user), method: :delete %> -->
+            <%= button_to "削除", user_path(user), method: :delete %>
         </div>
     <%end%>
 </ul>

@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     def index 
         @search_params = user_search_params
         #@sorted_params = user_sorted_params
-        @users = User.search(@search_params)
+        @users = User.search(@search_params).name_sort
 
     end
 
