@@ -86,11 +86,11 @@ class RDoc::Parser::ChangeLog < RDoc::Parser
     items.each do |item|
       item =~ /\A(.*?(?:\([^)]+\))?):\s*/
 
-      name = $1
+      title = $1
       body = $'
 
       paragraph = RDoc::Markup::Paragraph.new body
-      list_item = RDoc::Markup::ListItem.new name, paragraph
+      list_item = RDoc::Markup::ListItem.new title, paragraph
       list << list_item
     end
 
@@ -102,12 +102,12 @@ class RDoc::Parser::ChangeLog < RDoc::Parser
 
   def group_entries entries
     @time_cache ||= {}
-    entries.group_by do |name, _|
+    entries.group_by do |title, _|
       begin
-        time = @time_cache[name]
-        (time || parse_date(name)).strftime '%Y-%m-%d'
+        time = @time_cache[title]
+        (time || parse_date(title)).strftime '%Y-%m-%d'
       rescue NoMethodError, ArgumentError
-        time, = name.split '  ', 2
+        time, = title.split '  ', 2
         parse_date(time).strftime '%Y-%m-%d'
       end
     end
@@ -136,7 +136,7 @@ class RDoc::Parser::ChangeLog < RDoc::Parser
   #
   # Returns an Array of each ChangeLog entry in order of parsing.
   #
-  # A ChangeLog entry is an Array containing the ChangeLog name (date and
+  # A ChangeLog entry is an Array containing the ChangeLog title (date and
   # committer) and an Array of ChangeLog items (file and function changed with
   # description).
   #

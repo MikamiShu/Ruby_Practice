@@ -2498,7 +2498,7 @@ module Marcel
     ['audio/amr', [[0, "#!AMR\n"], [0, '#!AMR']]],
     ['image/vnd.zbrush.pcx', [[0, "\n", [[1, "\000"], [1, "\002"], [1, "\003"], [1, "\004"], [1, "\005"]]]]],
     ['message/rfc822', [[0..1000, "\nMessage-ID:"]]],
-    ['text/html', [[0..64, '<!DOCTYPE HTML'], [0..64, '<!DOCTYPE html'], [0..64, '<!doctype HTML'], [0..64, '<!doctype html'], [0..64, '<HEAD'], [0..64, '<head'], [0..64, '<TITLE'], [0..64, '<name'], [0..64, '<HTML'], [0, '<BODY'], [0, '<body'], [0, '<DIV'], [0, '<div'], [0, '<TITLE'], [0, '<name'], [0, '<h1'], [0, '<H1'], [0..128, '<html']]],
+    ['text/html', [[0..64, '<!DOCTYPE HTML'], [0..64, '<!DOCTYPE html'], [0..64, '<!doctype HTML'], [0..64, '<!doctype html'], [0..64, '<HEAD'], [0..64, '<head'], [0..64, '<TITLE'], [0..64, '<title'], [0..64, '<HTML'], [0, '<BODY'], [0, '<body'], [0, '<DIV'], [0, '<div'], [0, '<TITLE'], [0, '<title'], [0, '<h1'], [0, '<H1'], [0..128, '<html']]],
     ['text/vtt', [[0, "WEBVTT\r"], [0, "WEBVTT\n"], [0, '0xfeff', [[2, "WEBVTT\r"]]], [0, '0xfeff', [[2, "WEBVTT\n"]]], [0, "WEBVTT FILE\r"], [0, "WEBVTT FILE\n"]]],
     ['text/x-matlab', [[0, "function [a-zA-Z][A-Za-z0-9_]{0,62}[\\\\r\\\\n]"]]],
     ['text/x-matlab', [[0, "function [a-zA-Z][A-Za-z0-9_]{0,62}\\\\s*="]]],

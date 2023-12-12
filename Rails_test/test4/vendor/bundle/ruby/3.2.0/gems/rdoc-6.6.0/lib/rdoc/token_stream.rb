@@ -14,7 +14,7 @@ module RDoc::TokenStream
   # with the given class names. Other token types are not wrapped in spans.
 
   def self.to_html token_stream
-    starting_name = false
+    starting_title = false
 
     token_stream.map do |t|
       next unless t
@@ -52,13 +52,13 @@ module RDoc::TokenStream
         text = t[:text]
       end
 
-      if :on_ident == t[:kind] && starting_name
-        starting_name = false
-        style = 'ruby-identifier ruby-name'
+      if :on_ident == t[:kind] && starting_title
+        starting_title = false
+        style = 'ruby-identifier ruby-title'
       end
 
       if :on_kw == t[:kind] and 'def' == t[:text]
-        starting_name = true
+        starting_title = true
       end
 
       text = CGI.escapeHTML text

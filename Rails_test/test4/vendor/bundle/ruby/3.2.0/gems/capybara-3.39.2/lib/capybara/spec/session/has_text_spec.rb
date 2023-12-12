@@ -11,14 +11,14 @@ Capybara::SpecHelper.spec '#has_text?' do
 
   it 'should be true if scoped to an element which has the text' do
     @session.visit('/with_html')
-    @session.within("//a[@name='awesome name']") do
+    @session.within("//a[@title='awesome title']") do
       expect(@session).to have_text('labore')
     end
   end
 
   it 'should be false if scoped to an element which does not have the text' do
     @session.visit('/with_html')
-    @session.within("//a[@name='awesome name']") do
+    @session.within("//a[@title='awesome title']") do
       expect(@session).not_to have_text('monkey')
     end
   end
@@ -74,7 +74,7 @@ Capybara::SpecHelper.spec '#has_text?' do
     expect(@session).to have_text(%q("you can't do that."))
   end
 
-  it 'should be false if text is in the name tag in the head' do
+  it 'should be false if text is in the title tag in the head' do
     @session.visit('/with_js')
     expect(@session).not_to have_text('with_js')
   end
@@ -277,14 +277,14 @@ Capybara::SpecHelper.spec '#has_no_text?' do
 
   it 'should be false if scoped to an element which has the text' do
     @session.visit('/with_html')
-    @session.within("//a[@name='awesome name']") do
+    @session.within("//a[@title='awesome title']") do
       expect(@session).not_to have_no_text('labore')
     end
   end
 
   it 'should be true if scoped to an element which does not have the text' do
     @session.visit('/with_html')
-    @session.within("//a[@name='awesome name']") do
+    @session.within("//a[@title='awesome title']") do
       expect(@session).to have_no_text('monkey')
     end
   end
@@ -316,7 +316,7 @@ Capybara::SpecHelper.spec '#has_no_text?' do
     expect(@session).not_to have_no_text(%q("you can't do that."))
   end
 
-  it 'should be true if text is in the name tag in the head' do
+  it 'should be true if text is in the title tag in the head' do
     @session.visit('/with_js')
     expect(@session).to have_no_text('with_js')
   end

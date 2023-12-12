@@ -173,18 +173,18 @@ module ActiveRecord
       # It is also possible to limit the uniqueness constraint to a set of
       # records matching certain conditions. In this example archived articles
       # are not being taken into consideration when validating uniqueness
-      # of the name attribute:
+      # of the title attribute:
       #
       #   class Article < ActiveRecord::Base
-      #     validates_uniqueness_of :name, conditions: -> { where.not(status: 'archived') }
+      #     validates_uniqueness_of :title, conditions: -> { where.not(status: 'archived') }
       #   end
       #
       # To build conditions based on the record's state, define the conditions
       # callable with a parameter, which will be the record itself. This
-      # example validates the name is unique for the year of publication:
+      # example validates the title is unique for the year of publication:
       #
       #   class Article < ActiveRecord::Base
-      #     validates_uniqueness_of :name, conditions: ->(article) {
+      #     validates_uniqueness_of :title, conditions: ->(article) {
       #       published_at = article.published_at
       #       where(published_at: published_at.beginning_of_year..published_at.end_of_year)
       #     }
@@ -227,35 +227,35 @@ module ActiveRecord
       # does not guarantee the absence of duplicate record insertions, because
       # uniqueness checks on the application level are inherently prone to race
       # conditions. For example, suppose that two users try to post a Comment at
-      # the same time, and a Comment's name must be unique. At the database-level,
+      # the same time, and a Comment's title must be unique. At the database-level,
       # the actions performed by these users could be interleaved in the following manner:
       #
       #               User 1                 |               User 2
       #  ------------------------------------+--------------------------------------
       #  # User 1 checks whether there's     |
-      #  # already a comment with the name  |
+      #  # already a comment with the title  |
       #  # 'My Post'. This is not the case.  |
       #  SELECT * FROM comments              |
-      #  WHERE name = 'My Post'             |
+      #  WHERE title = 'My Post'             |
       #                                      |
       #                                      | # User 2 does the same thing and also
-      #                                      | # infers that their name is unique.
+      #                                      | # infers that their title is unique.
       #                                      | SELECT * FROM comments
-      #                                      | WHERE name = 'My Post'
+      #                                      | WHERE title = 'My Post'
       #                                      |
       #  # User 1 inserts their comment.     |
       #  INSERT INTO comments                |
-      #  (name, content) VALUES             |
+      #  (title, content) VALUES             |
       #  ('My Post', 'hi!')                  |
       #                                      |
       #                                      | # User 2 does the same thing.
       #                                      | INSERT INTO comments
-      #                                      | (name, content) VALUES
+      #                                      | (title, content) VALUES
       #                                      | ('My Post', 'hello!')
       #                                      |
       #                                      | # ^^^^^^
       #                                      | # Boom! We now have a duplicate
-      #                                      | # name!
+      #                                      | # title!
       #
       # The best way to work around this problem is to add a unique index to the database table using
       # {connection.add_index}[rdoc-ref:ConnectionAdapters::SchemaStatements#add_index].
@@ -267,7 +267,7 @@ module ActiveRecord
       # exception. You can either choose to let this error propagate (which
       # will result in the default \Rails exception page being shown), or you
       # can catch it and restart the transaction (e.g. by telling the user
-      # that the name already exists, and asking them to re-enter the name).
+      # that the title already exists, and asking them to re-enter the title).
       # This technique is also known as
       # {optimistic concurrency control}[https://en.wikipedia.org/wiki/Optimistic_concurrency_control].
       #

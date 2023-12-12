@@ -188,7 +188,7 @@ module Puma
       @config.plugins.fire_starts self
 
       setup_signals
-      set_process_name
+      set_process_title
 
       # This blocks until the server is stopped
       @runner.run
@@ -332,12 +332,12 @@ module Puma
       raise UnsupportedOption
     end
 
-    def set_process_name
-      Process.respond_to?(:setprocname) ? Process.setprocname(name) : $0 = name
+    def set_process_title
+      Process.respond_to?(:setproctitle) ? Process.setproctitle(title) : $0 = title
     end
 
-    # @!attribute [r] name
-    def name
+    # @!attribute [r] title
+    def title
       buffer  = "puma #{Puma::Const::VERSION} (#{@options[:binds].join(',')})"
       buffer += " [#{@options[:tag]}]" if @options[:tag] && !@options[:tag].empty?
       buffer

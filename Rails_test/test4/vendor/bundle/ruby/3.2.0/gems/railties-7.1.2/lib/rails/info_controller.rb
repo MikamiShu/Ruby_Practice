@@ -15,7 +15,7 @@ class Rails::InfoController < Rails::ApplicationController # :nodoc:
 
   def properties
     @info = Rails::Info.to_html
-    @page_name = "Properties"
+    @page_title = "Properties"
   end
 
   def routes
@@ -28,7 +28,7 @@ class Rails::InfoController < Rails::ApplicationController # :nodoc:
       }
     else
       @routes_inspector = ActionDispatch::Routing::RoutesInspector.new(_routes.routes)
-      @page_name = "Routes"
+      @page_title = "Routes"
     end
   end
 

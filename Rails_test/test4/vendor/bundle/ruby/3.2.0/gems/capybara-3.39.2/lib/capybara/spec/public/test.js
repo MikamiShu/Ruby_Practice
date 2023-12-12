@@ -152,9 +152,9 @@ $(function() {
       $('#the-list').html('<li>Foo</li><li>Bar</li>');
     }, 550)
   });
-  $('#change-name').click(function() {
+  $('#change-title').click(function() {
     setTimeout(function() {
-      $('name').text('changed name')
+      $('title').text('changed title')
     }, 400)
   });
   $('#change-size').click(function() {

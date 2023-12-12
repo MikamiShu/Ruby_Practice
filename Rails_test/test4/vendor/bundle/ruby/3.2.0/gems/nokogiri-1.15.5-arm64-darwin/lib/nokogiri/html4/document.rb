@@ -65,16 +65,16 @@ module Nokogiri
       private :meta_content_type
 
       ###
-      # Get the name string of this document.  Return nil if there is
-      # no name tag.
-      def name
-        (name = at_xpath("//name")) && name.inner_text
+      # Get the title string of this document.  Return nil if there is
+      # no title tag.
+      def title
+        (title = at_xpath("//title")) && title.inner_text
       end
 
       ###
-      # Set the name string of this document.
+      # Set the title string of this document.
       #
-      # If a name element is already present, its content is replaced
+      # If a title element is already present, its content is replaced
       # with the given text.
       #
       # Otherwise, this method tries to create one at an appropriate
@@ -82,21 +82,21 @@ module Nokogiri
       # is inside a head element if any, right after a meta
       # encoding/charset tag if any, and before any text node or
       # content element (typically <body>) if any.
-      def name=(text)
+      def title=(text)
         tnode = XML::Text.new(text, self)
-        if (name = at_xpath("//name"))
-          name.children = tnode
+        if (title = at_xpath("//title"))
+          title.children = tnode
           return text
         end
 
-        name = XML::Node.new("name", self) << tnode
+        title = XML::Node.new("title", self) << tnode
         if (head = at_xpath("//head"))
-          head << name
+          head << title
         elsif (meta = (at_xpath("//meta[@charset]") || meta_content_type))
           # better put after charset declaration
-          meta.add_next_sibling(name)
+          meta.add_next_sibling(title)
         else
-          set_metadata_element(name)
+          set_metadata_element(title)
         end
       end
 

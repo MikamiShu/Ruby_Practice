@@ -19,5 +19,5 @@ Description:
 
 Examples:
     `bin/rails generate resource post` # no attributes
-    `bin/rails generate resource post name:string body:text published:boolean`
+    `bin/rails generate resource post title:string body:text published:boolean`
     `bin/rails generate resource purchase order_id:integer amount:decimal`

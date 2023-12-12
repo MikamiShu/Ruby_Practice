@@ -129,7 +129,7 @@ begin
                          '--no-private',
                          '--embed-mixins',
                          '--markup', 'markdown',
-                         '--name', 'Concurrent Ruby',
+                         '--title', 'Concurrent Ruby',
                          '--template', 'default',
                          '--template-path', 'yard-template',
                          '--default-return', 'undocumented']

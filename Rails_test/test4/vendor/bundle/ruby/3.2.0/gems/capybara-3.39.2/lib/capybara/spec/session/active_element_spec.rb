@@ -17,11 +17,11 @@ Capybara::SpecHelper.spec '#active_element', requires: [:active_element] do
     expect(@session.active_element).to match_selector(:css, 'body')
     @session.execute_script <<-JS
       window.setTimeout(() => {
-        document.querySelector('#form_name').focus();
+        document.querySelector('#form_title').focus();
       }, 1000)
     JS
     expect(@session.active_element).to match_selector(:css, 'body', wait: false)
-    expect(@session.active_element).to match_selector(:css, '#form_name', wait: 2)
+    expect(@session.active_element).to match_selector(:css, '#form_title', wait: 2)
   end
 
   it 'should return a Capybara::Element' do

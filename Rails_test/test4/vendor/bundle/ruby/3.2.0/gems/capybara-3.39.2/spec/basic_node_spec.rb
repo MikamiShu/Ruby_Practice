@@ -9,10 +9,10 @@ RSpec.describe Capybara do
       described_class.string <<-STRING
         <html>
           <head>
-            <name>simple_node</name>
+            <title>simple_node</title>
           </head>
           <body>
-            <svg><name>not document name</name></svg>
+            <svg><title>not document title</title></svg>
             <div id="page">
               <div id="content">
                 <h1 data="fantastic">Totally awesome</h1>
@@ -135,33 +135,33 @@ RSpec.describe Capybara do
       expect(described_class.string('<td>1</td>')).to have_css('td')
     end
 
-    describe '#name' do
-      it 'returns the page name' do
-        expect(string.name).to eq('simple_node')
+    describe '#title' do
+      it 'returns the page title' do
+        expect(string.title).to eq('simple_node')
       end
     end
 
-    describe '#has_name?' do
-      it 'returns whether the page has the given name' do
-        expect(string.has_name?('simple_node')).to be true
-        expect(string.has_name?('monkey')).to be false
+    describe '#has_title?' do
+      it 'returns whether the page has the given title' do
+        expect(string.has_title?('simple_node')).to be true
+        expect(string.has_title?('monkey')).to be false
       end
 
       it 'allows regexp matches' do
-        expect(string.has_name?(/s[a-z]+_node/)).to be true
-        expect(string.has_name?(/monkey/)).to be false
+        expect(string.has_title?(/s[a-z]+_node/)).to be true
+        expect(string.has_title?(/monkey/)).to be false
       end
     end
 
-    describe '#has_no_name?' do
-      it 'returns whether the page does not have the given name' do
-        expect(string.has_no_name?('simple_node')).to be false
-        expect(string.has_no_name?('monkey')).to be true
+    describe '#has_no_title?' do
+      it 'returns whether the page does not have the given title' do
+        expect(string.has_no_title?('simple_node')).to be false
+        expect(string.has_no_title?('monkey')).to be true
       end
 
       it 'allows regexp matches' do
-        expect(string.has_no_name?(/s[a-z]+_node/)).to be false
-        expect(string.has_no_name?(/monkey/)).to be true
+        expect(string.has_no_title?(/s[a-z]+_node/)).to be false
+        expect(string.has_no_title?(/monkey/)).to be true
       end
     end
   end

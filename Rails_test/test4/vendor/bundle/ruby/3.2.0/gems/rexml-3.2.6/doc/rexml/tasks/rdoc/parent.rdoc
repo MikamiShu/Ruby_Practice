@@ -240,19 +240,19 @@ to clone deeply; that is, to clone every nested node that is a Parent object:
     <?xml version="1.0" encoding="UTF-8"?>
     <bookstore>
       <book category="cooking">
-        <name lang="en">Everyday Italian</name>
+        <title lang="en">Everyday Italian</title>
         <author>Giada De Laurentiis</author>
         <year>2005</year>
         <price>30.00</price>
       </book>
       <book category="children">
-        <name lang="en">Harry Potter</name>
+        <title lang="en">Harry Potter</title>
         <author>J K. Rowling</author>
         <year>2005</year>
         <price>29.99</price>
       </book>
       <book category="web">
-        <name lang="en">Learning XML</name>
+        <title lang="en">Learning XML</title>
         <author>Erik T. Ray</author>
         <year>2003</year>
         <price>39.95</price>

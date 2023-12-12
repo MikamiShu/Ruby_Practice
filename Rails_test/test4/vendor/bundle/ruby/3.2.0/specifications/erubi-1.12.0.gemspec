@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.files = ["CHANGELOG".freeze, "MIT-LICENSE".freeze, "README.rdoc".freeze]
   s.homepage = "https://github.com/jeremyevans/erubi".freeze
   s.licenses = ["MIT".freeze]
-  s.rdoc_options = ["--quiet".freeze, "--line-numbers".freeze, "--inline-source".freeze, "--name".freeze, "Erubi: Small ERB Implementation".freeze, "--main".freeze, "README.rdoc".freeze]
+  s.rdoc_options = ["--quiet".freeze, "--line-numbers".freeze, "--inline-source".freeze, "--title".freeze, "Erubi: Small ERB Implementation".freeze, "--main".freeze, "README.rdoc".freeze]
   s.rubygems_version = "3.4.21".freeze
   s.summary = "Small ERB Implementation".freeze
 

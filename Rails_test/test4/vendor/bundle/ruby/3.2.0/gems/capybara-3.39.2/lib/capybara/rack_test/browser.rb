@@ -131,8 +131,8 @@ class Capybara::RackTest::Browser
     ''
   end
 
-  def name
-    dom.name
+  def title
+    dom.title
   end
 
   def last_request

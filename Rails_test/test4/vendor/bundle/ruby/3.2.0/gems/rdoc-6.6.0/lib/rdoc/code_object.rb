@@ -106,7 +106,7 @@ class RDoc::CodeObject
     @parent_name      = nil # for loading
     @parent_class     = nil # for loading
     @section          = nil
-    @section_name    = nil # for loading
+    @section_title    = nil # for loading
     @file             = nil
     @full_name        = nil
     @store            = nil
@@ -355,7 +355,7 @@ class RDoc::CodeObject
   def section
     return @section if @section
 
-    @section = parent.add_section @section_name if parent
+    @section = parent.add_section @section_title if parent
   end
 
   ##

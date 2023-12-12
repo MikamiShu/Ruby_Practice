@@ -33,8 +33,8 @@ module Net
 
         def initialize(table, *args, **kwargs)
           @table  = table
-          details = (name = Tables::TITLES[table]) ?
-            "%s [%s]" % [name, table] : table
+          details = (title = Tables::TITLES[table]) ?
+            "%s [%s]" % [title, table] : table
           message = "String contains a prohibited codepoint: %s" % [details]
           super(message, *args, **kwargs)
         end

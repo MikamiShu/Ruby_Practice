@@ -610,11 +610,11 @@ module ActionDispatch
   #   class ApiTest < ActionDispatch::IntegrationTest
   #     test "creates articles" do
   #       assert_difference -> { Article.count } do
-  #         post articles_path, params: { article: { name: "Ahoy!" } }, as: :json
+  #         post articles_path, params: { article: { title: "Ahoy!" } }, as: :json
   #       end
   #
   #       assert_response :success
-  #       assert_equal({ id: Article.last.id, name: "Ahoy!" }, response.parsed_body)
+  #       assert_equal({ id: Article.last.id, title: "Ahoy!" }, response.parsed_body)
   #     end
   #   end
   #

@@ -23,17 +23,17 @@ module Capybara
       #   See {Capybara::Node::Matchers#assert_no_text}
 
       ##
-      # Assertion that page name does match
+      # Assertion that page title does match
       #
-      # @!method assert_name
-      #   See {Capybara::Node::DocumentMatchers#assert_name}
+      # @!method assert_title
+      #   See {Capybara::Node::DocumentMatchers#assert_title}
 
       ##
-      # Assertion that page name does not match
+      # Assertion that page title does not match
       #
-      # @!method refute_name
-      # @!method assert_no_name
-      #   See {Capybara::Node::DocumentMatchers#assert_no_name}
+      # @!method refute_title
+      # @!method assert_no_title
+      #   See {Capybara::Node::DocumentMatchers#assert_no_title}
 
       ##
       # Assertion that current path matches
@@ -48,7 +48,7 @@ module Capybara
       # @!method assert_no_current_path
       #   See {Capybara::SessionMatchers#assert_no_current_path}
 
-      %w[text no_text name no_name current_path no_current_path].each do |assertion_name|
+      %w[text no_text title no_title current_path no_current_path].each do |assertion_name|
         class_eval <<-ASSERTION, __FILE__, __LINE__ + 1
           def assert_#{assertion_name}(*args, **kwargs, &optional_filter_block)
             self.assertions +=1
@@ -60,7 +60,7 @@ module Capybara
         ASSERTION
       end
 
-      alias_method :refute_name, :assert_no_name
+      alias_method :refute_title, :assert_no_title
       alias_method :refute_text, :assert_no_text
       alias_method :refute_content, :refute_text
       alias_method :refute_current_path, :assert_no_current_path

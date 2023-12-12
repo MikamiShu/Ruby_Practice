@@ -220,7 +220,7 @@ module DEBUGGER__
           description: "ruby instance",
           devtoolsFrontendUrl: "devtools://devtools/bundled/inspector.html?experiments=true&v8only=true&ws=#{addr}/#{@uuid}",
           id: @uuid,
-          name: $0,
+          title: $0,
           type: "node",
           url: "file://#{File.absolute_path($0)}",
           webSocketDebuggerUrl: "ws://#{addr}/#{@uuid}"

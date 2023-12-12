@@ -9,7 +9,7 @@ Full details [here](https://bugs.ruby-lang.org/projects/ruby/wiki/HowToContribut
 
 * **Ensure the bug was not already reported** by searching on ruby-core, the ruby github repo and on Psych's github repo. More info [here](https://bugs.ruby-lang.org/projects/ruby/wiki/HowToReport)
 
-* If you're unable to find an open issue addressing the problem, [open a new one](https://bugs.ruby-lang.org/). Be sure to include a **name and clear description**, as much relevant information as possible, and a **code sample** or an **executable test case** demonstrating the expected behavior that is not occurring.
+* If you're unable to find an open issue addressing the problem, [open a new one](https://bugs.ruby-lang.org/). Be sure to include a **title and clear description**, as much relevant information as possible, and a **code sample** or an **executable test case** demonstrating the expected behavior that is not occurring.
 
 #### **Did you write a patch that fixes a bug?**
 

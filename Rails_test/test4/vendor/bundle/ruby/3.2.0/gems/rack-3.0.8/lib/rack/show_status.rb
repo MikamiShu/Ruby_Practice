@@ -71,7 +71,7 @@ TEMPLATE = <<'HTML'
 <html lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <name><%=h message %> at <%=h req.script_name + req.path_info %></name>
+  <title><%=h message %> at <%=h req.script_name + req.path_info %></title>
   <meta name="robots" content="NONE,NOARCHIVE" />
   <style type="text/css">
     html * { padding:0; margin:0; }

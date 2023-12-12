@@ -142,15 +142,15 @@ module ActiveRecord
         #       order('published_at desc').first
         #     end
         #
-        #     def self.names
-        #       pluck(:name)
+        #     def self.titles
+        #       pluck(:title)
         #     end
         #   end
         #
         # We are able to call the methods like this:
         #
         #   Article.published.featured.latest_article
-        #   Article.featured.names
+        #   Article.featured.titles
         def scope(name, body, &block)
           unless body.respond_to?(:call)
             raise ArgumentError, "The scope body needs to be callable."

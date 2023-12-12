@@ -16,7 +16,7 @@ Capybara::SpecHelper.spec '#find' do
 
   it 'should find the first element using the given locator and options' do
     expect(@session.find('//a', text: 'Redirect')[:id]).to eq('red')
-    expect(@session.find(:css, 'a', text: 'A link came first')[:name]).to eq('twas a fine link')
+    expect(@session.find(:css, 'a', text: 'A link came first')[:title]).to eq('twas a fine link')
   end
 
   it 'should raise an error if there are multiple matches' do

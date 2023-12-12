@@ -31,14 +31,14 @@ Capybara::SpecHelper.spec '#assert_text' do
 
   it 'should take scopes into account' do
     @session.visit('/with_html')
-    @session.within("//a[@name='awesome name']") do
+    @session.within("//a[@title='awesome title']") do
       expect(@session.assert_text('labore')).to be(true)
     end
   end
 
   it 'should raise if scoped to an element which does not have the text' do
     @session.visit('/with_html')
-    @session.within("//a[@name='awesome name']") do
+    @session.within("//a[@title='awesome title']") do
       expect do
         @session.assert_text('monkey')
       end.to raise_error(Capybara::ExpectationNotMet, 'expected to find text "monkey" in "labore"')
@@ -202,7 +202,7 @@ Capybara::SpecHelper.spec '#assert_no_text' do
 
   it 'should be true if scoped to an element which does not have the text' do
     @session.visit('/with_html')
-    @session.within("//a[@name='awesome name']") do
+    @session.within("//a[@title='awesome title']") do
       expect(@session.assert_no_text('monkey')).to be(true)
     end
   end

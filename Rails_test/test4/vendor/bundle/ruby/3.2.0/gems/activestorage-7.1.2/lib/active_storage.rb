@@ -322,7 +322,7 @@ module ActiveStorage
     "thumbnail",
     "tile_offset",
     "tint",
-    "name",
+    "title",
     "transform",
     "transparent",
     "transparent_color",

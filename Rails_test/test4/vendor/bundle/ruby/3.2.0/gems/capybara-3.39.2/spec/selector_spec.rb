@@ -9,7 +9,7 @@ RSpec.describe Capybara do
       described_class.string <<-STRING
         <html>
           <head>
-            <name>selectors</name>
+            <title>selectors</title>
           </head>
           <body>
             <div class="aa" id="page">
@@ -31,8 +31,8 @@ RSpec.describe Capybara do
             <input type="text" name="form[my_text_input]" placeholder="my text" id="my_text_input"/>
             <input type="file" id="file" class=".special file"/>
             <input type="hidden" id="hidden_field" value="this is hidden"/>
-            <input type="submit" value="click me" name="submit button"/>
-            <input type="button" value="don't click me" name="Other button 1" style="line-height: 30px;"/>
+            <input type="submit" value="click me" title="submit button"/>
+            <input type="button" value="don't click me" title="Other button 1" style="line-height: 30px;"/>
             <a href="#">link</a>
             <fieldset></fieldset>
             <select id="select">
@@ -90,8 +90,8 @@ RSpec.describe Capybara do
           expr + "[value='#{val}']"
         end
 
-        expression_filter(:name) do |expr, val|
-          expr + "[name='#{val}']"
+        expression_filter(:title) do |expr, val|
+          expr + "[title='#{val}']"
         end
       end
 
@@ -202,7 +202,7 @@ RSpec.describe Capybara do
       it 'supports explicitly defined expression filters' do
         expect(string).to have_selector(:custom_css_selector, placeholder: 'my text')
         expect(string).to have_no_selector(:custom_css_selector, placeholder: 'not my text')
-        expect(string).to have_selector(:custom_css_selector, value: 'click me', name: 'submit button')
+        expect(string).to have_selector(:custom_css_selector, value: 'click me', title: 'submit button')
       end
 
       it 'uses filter names passed in' do
@@ -348,11 +348,11 @@ RSpec.describe Capybara do
 
       context 'with :style option' do
         it 'accepts string for CSS based selectors' do
-          expect(string.find(:custom_css_selector, 'input', style: 'line-height: 30px;')[:name]).to eq 'Other button 1'
+          expect(string.find(:custom_css_selector, 'input', style: 'line-height: 30px;')[:title]).to eq 'Other button 1'
         end
 
         it 'accepts Regexp for CSS base selectors' do
-          expect(string.find(:custom_css_selector, 'input', style: /30px/)[:name]).to eq 'Other button 1'
+          expect(string.find(:custom_css_selector, 'input', style: /30px/)[:title]).to eq 'Other button 1'
         end
       end
 
@@ -428,12 +428,12 @@ RSpec.describe Capybara do
           expect(string.find(:button, 'click me').value).to eq 'click me'
         end
 
-        it 'finds by name' do
+        it 'finds by title' do
           expect(string.find(:button, 'submit button').value).to eq 'click me'
         end
 
         it 'includes non-matching parameters in failure message' do
-          expect { string.find(:button, 'click me', name: 'click me') }.to raise_error(/with name click me/)
+          expect { string.find(:button, 'click me', title: 'click me') }.to raise_error(/with title click me/)
         end
       end
 
@@ -444,14 +444,14 @@ RSpec.describe Capybara do
 
         it 'supports regexp matching' do
           expect(string.find(:element, 'input', type: /sub/).value).to eq 'click me'
-          expect(string.find(:element, 'input', name: /sub\w.*button/).value).to eq 'click me'
-          expect(string.find(:element, 'input', name: /sub.* b.*ton/).value).to eq 'click me'
-          expect(string.find(:element, 'input', name: /sub.*mit.*/).value).to eq 'click me'
-          expect(string.find(:element, 'input', name: /^submit button$/).value).to eq 'click me'
-          expect(string.find(:element, 'input', name: /^(?:submit|other) button$/).value).to eq 'click me'
-          expect(string.find(:element, 'input', name: /SuB.*mIt/i).value).to eq 'click me'
-          expect(string.find(:element, 'input', name: /^Su.*Bm.*It/i).value).to eq 'click me'
-          expect(string.find(:element, 'input', name: /^Ot.*he.*r b.*\d/i).value).to eq "don't click me"
+          expect(string.find(:element, 'input', title: /sub\w.*button/).value).to eq 'click me'
+          expect(string.find(:element, 'input', title: /sub.* b.*ton/).value).to eq 'click me'
+          expect(string.find(:element, 'input', title: /sub.*mit.*/).value).to eq 'click me'
+          expect(string.find(:element, 'input', title: /^submit button$/).value).to eq 'click me'
+          expect(string.find(:element, 'input', title: /^(?:submit|other) button$/).value).to eq 'click me'
+          expect(string.find(:element, 'input', title: /SuB.*mIt/i).value).to eq 'click me'
+          expect(string.find(:element, 'input', title: /^Su.*Bm.*It/i).value).to eq 'click me'
+          expect(string.find(:element, 'input', title: /^Ot.*he.*r b.*\d/i).value).to eq "don't click me"
         end
 
         it 'still works with system keys' do
@@ -485,8 +485,8 @@ RSpec.describe Capybara do
           expect(string.find(:element, 'input', type: XPath.starts_with('subm')).value).to eq 'click me'
           expect(string.find(:element, 'input', type: XPath.ends_with('ext'))[:type]).to eq 'text'
           expect(string.find(:element, 'input', type: XPath.contains('ckb'))[:type]).to eq 'checkbox'
-          expect(string.find(:element, 'input', name: XPath.contains_word('submit'))[:type]).to eq 'submit'
-          expect(string.find(:element, 'input', name: XPath.contains_word('button 1'))[:type]).to eq 'button'
+          expect(string.find(:element, 'input', title: XPath.contains_word('submit'))[:type]).to eq 'submit'
+          expect(string.find(:element, 'input', title: XPath.contains_word('button 1'))[:type]).to eq 'button'
         end
       end
 

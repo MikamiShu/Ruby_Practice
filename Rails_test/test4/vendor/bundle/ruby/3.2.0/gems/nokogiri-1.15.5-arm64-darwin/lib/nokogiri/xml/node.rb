@@ -20,7 +20,7 @@ module Nokogiri
     #   node['class'] = 'green' # => "green"
     #   node.to_html # => "<a href=\"#foo\" id=\"link\" class=\"green\">link</a>"
     #
-    # See the method group ennamed Node@Working+With+Node+Attributes for the full set of methods.
+    # See the method group entitled Node@Working+With+Node+Attributes for the full set of methods.
     #
     # == Navigation
     #
@@ -29,7 +29,7 @@ module Nokogiri
     # [#parent, #children, #next, #previous]
     #   Navigate up, down, or through siblings.
     #
-    # See the method group ennamed Node@Traversing+Document+Structure for the full set of methods.
+    # See the method group entitled Node@Traversing+Document+Structure for the full set of methods.
     #
     # == Serialization
     #
@@ -45,13 +45,13 @@ module Nokogiri
     #   These methods will all **emit properly-escaped markup**, meaning that it's suitable for
     #   consumption by browsers, parsers, etc.
     #
-    # See the method group ennamed Node@Serialization+and+Generating+Output for the full set of methods.
+    # See the method group entitled Node@Serialization+and+Generating+Output for the full set of methods.
     #
     # == Searching
     #
     # You may search this node's subtree using methods like #xpath and #css.
     #
-    # See the method group ennamed Node@Searching+via+XPath+or+CSS+Queries for the full set of methods.
+    # See the method group entitled Node@Searching+via+XPath+or+CSS+Queries for the full set of methods.
     #
     class Node
       include Nokogiri::XML::PP::Node
@@ -663,8 +663,8 @@ module Nokogiri
       #
       # *Example*
       #
-      #   node         # => <div class="section name header"></div>
-      #   node.classes # => ["section", "name", "header"]
+      #   node         # => <div class="section title header"></div>
+      #   node.classes # => ["section", "title", "header"]
       #
       def classes
         kwattr_values("class")

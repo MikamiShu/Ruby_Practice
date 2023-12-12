@@ -122,8 +122,8 @@ class Capybara::Selenium::Driver < Capybara::Driver::Base
     raise unless e.message.include?('documentElement is null')
   end
 
-  def name
-    browser.name
+  def title
+    browser.title
   end
 
   def current_url

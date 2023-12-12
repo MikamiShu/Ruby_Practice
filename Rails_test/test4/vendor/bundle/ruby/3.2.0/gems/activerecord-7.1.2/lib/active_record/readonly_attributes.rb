@@ -21,12 +21,12 @@ module ActiveRecord
       # ==== Examples
       #
       #   class Post < ActiveRecord::Base
-      #     attr_readonly :name
+      #     attr_readonly :title
       #   end
       #
-      #   post = Post.create!(name: "Introducing Ruby on Rails!")
-      #   post.name = "a different name" # raises ActiveRecord::ReadonlyAttributeError
-      #   post.update(name: "a different name") # raises ActiveRecord::ReadonlyAttributeError
+      #   post = Post.create!(title: "Introducing Ruby on Rails!")
+      #   post.title = "a different title" # raises ActiveRecord::ReadonlyAttributeError
+      #   post.update(title: "a different title") # raises ActiveRecord::ReadonlyAttributeError
       def attr_readonly(*attributes)
         self._attr_readonly |= attributes.map(&:to_s)
 

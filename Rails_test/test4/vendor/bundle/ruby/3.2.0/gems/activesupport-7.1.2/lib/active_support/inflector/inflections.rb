@@ -93,12 +93,12 @@ module ActiveSupport
       # Specifies a new acronym. An acronym must be specified as it will appear
       # in a camelized string. An underscore string that contains the acronym
       # will retain the acronym when passed to +camelize+, +humanize+, or
-      # +nameize+. A camelized string that contains the acronym will maintain
-      # the acronym when nameized or humanized, and will convert the acronym
+      # +titleize+. A camelized string that contains the acronym will maintain
+      # the acronym when titleized or humanized, and will convert the acronym
       # into a non-delimited single lowercase word when passed to +underscore+.
       #
       #   acronym 'HTML'
-      #   nameize 'html'     # => 'HTML'
+      #   titleize 'html'     # => 'HTML'
       #   camelize 'html'     # => 'HTML'
       #   underscore 'MyHTML' # => 'my_html'
       #
@@ -132,7 +132,7 @@ module ActiveSupport
       #   acronym 'RESTful'
       #   underscore 'RESTful'           # => 'restful'
       #   underscore 'RESTfulController' # => 'restful_controller'
-      #   nameize 'RESTfulController'   # => 'RESTful Controller'
+      #   titleize 'RESTfulController'   # => 'RESTful Controller'
       #   camelize 'restful'             # => 'RESTful'
       #   camelize 'restful_controller'  # => 'RESTfulController'
       #

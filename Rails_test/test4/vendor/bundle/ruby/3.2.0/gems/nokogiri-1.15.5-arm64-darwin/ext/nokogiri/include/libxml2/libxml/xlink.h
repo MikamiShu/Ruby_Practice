@@ -74,7 +74,7 @@ typedef void (*xlinkNodeDetectFunc) (void *ctx, xmlNodePtr node);
  * @node:  the node carrying the link
  * @href:  the target of the link
  * @role:  the role string
- * @name:  the link name
+ * @title:  the link title
  *
  * This is the prototype for a simple link detection callback.
  */
@@ -83,7 +83,7 @@ typedef void
 			 xmlNodePtr node,
 			 const xlinkHRef href,
 			 const xlinkRole role,
-			 const xlinkTitle name);
+			 const xlinkTitle title);
 
 /**
  * xlinkExtendedLinkFunk:
@@ -97,9 +97,9 @@ typedef void
  * @to:  pointer to the array of target roles found on the arcs
  * @show:  array of values for the show attributes found on the arcs
  * @actuate:  array of values for the actuate attributes found on the arcs
- * @nbTitles: the number of names detected on the link
- * @name:  array of names detected on the link
- * @langs:  array of xml:lang values for the names
+ * @nbTitles: the number of titles detected on the link
+ * @title:  array of titles detected on the link
+ * @langs:  array of xml:lang values for the titles
  *
  * This is the prototype for a extended link detection callback.
  */
@@ -115,7 +115,7 @@ typedef void
 			 xlinkShow *show,
 			 xlinkActuate *actuate,
 			 int nbTitles,
-			 const xlinkTitle *names,
+			 const xlinkTitle *titles,
 			 const xmlChar **langs);
 
 /**
@@ -125,9 +125,9 @@ typedef void
  * @nbLocators: the number of locators detected on the link
  * @hrefs:  pointer to the array of locator hrefs
  * @roles:  pointer to the array of locator roles
- * @nbTitles: the number of names detected on the link
- * @name:  array of names detected on the link
- * @langs:  array of xml:lang values for the names
+ * @nbTitles: the number of titles detected on the link
+ * @title:  array of titles detected on the link
+ * @langs:  array of xml:lang values for the titles
  *
  * This is the prototype for a extended link set detection callback.
  */
@@ -138,7 +138,7 @@ typedef void
 				 const xlinkHRef *hrefs,
 				 const xlinkRole *roles,
 				 int nbTitles,
-				 const xlinkTitle *names,
+				 const xlinkTitle *titles,
 				 const xmlChar **langs);
 
 /**

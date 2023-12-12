@@ -238,24 +238,24 @@ module ActionView
       #
       # * <tt>:rel</tt>  - Specify the relation of this link, defaults to "alternate"
       # * <tt>:type</tt>  - Override the auto-generated mime type
-      # * <tt>:name</tt>  - Specify the name of the link, defaults to the +type+
+      # * <tt>:title</tt>  - Specify the title of the link, defaults to the +type+
       #
       # ==== Examples
       #
       #   auto_discovery_link_tag
-      #   # => <link rel="alternate" type="application/rss+xml" name="RSS" href="http://www.currenthost.com/controller/action" />
+      #   # => <link rel="alternate" type="application/rss+xml" title="RSS" href="http://www.currenthost.com/controller/action" />
       #   auto_discovery_link_tag(:atom)
-      #   # => <link rel="alternate" type="application/atom+xml" name="ATOM" href="http://www.currenthost.com/controller/action" />
+      #   # => <link rel="alternate" type="application/atom+xml" title="ATOM" href="http://www.currenthost.com/controller/action" />
       #   auto_discovery_link_tag(:json)
-      #   # => <link rel="alternate" type="application/json" name="JSON" href="http://www.currenthost.com/controller/action" />
+      #   # => <link rel="alternate" type="application/json" title="JSON" href="http://www.currenthost.com/controller/action" />
       #   auto_discovery_link_tag(:rss, {action: "feed"})
-      #   # => <link rel="alternate" type="application/rss+xml" name="RSS" href="http://www.currenthost.com/controller/feed" />
-      #   auto_discovery_link_tag(:rss, {action: "feed"}, {name: "My RSS"})
-      #   # => <link rel="alternate" type="application/rss+xml" name="My RSS" href="http://www.currenthost.com/controller/feed" />
+      #   # => <link rel="alternate" type="application/rss+xml" title="RSS" href="http://www.currenthost.com/controller/feed" />
+      #   auto_discovery_link_tag(:rss, {action: "feed"}, {title: "My RSS"})
+      #   # => <link rel="alternate" type="application/rss+xml" title="My RSS" href="http://www.currenthost.com/controller/feed" />
       #   auto_discovery_link_tag(:rss, {controller: "news", action: "feed"})
-      #   # => <link rel="alternate" type="application/rss+xml" name="RSS" href="http://www.currenthost.com/news/feed" />
-      #   auto_discovery_link_tag(:rss, "http://www.example.com/feed.rss", {name: "Example RSS"})
-      #   # => <link rel="alternate" type="application/rss+xml" name="Example RSS" href="http://www.example.com/feed.rss" />
+      #   # => <link rel="alternate" type="application/rss+xml" title="RSS" href="http://www.currenthost.com/news/feed" />
+      #   auto_discovery_link_tag(:rss, "http://www.example.com/feed.rss", {title: "Example RSS"})
+      #   # => <link rel="alternate" type="application/rss+xml" title="Example RSS" href="http://www.example.com/feed.rss" />
       def auto_discovery_link_tag(type = :rss, url_options = {}, tag_options = {})
         if !(type == :rss || type == :atom || type == :json) && tag_options[:type].blank?
           raise ArgumentError.new("You should pass :type tag_option key explicitly, because you have passed #{type} type other than :rss, :atom, or :json.")
@@ -265,7 +265,7 @@ module ActionView
           "link",
           "rel"   => tag_options[:rel] || "alternate",
           "type"  => tag_options[:type] || Template::Types[type].to_s,
-          "name" => tag_options[:name] || type.to_s.upcase,
+          "title" => tag_options[:title] || type.to_s.upcase,
           "href"  => url_options.is_a?(Hash) ? url_for(url_options.merge(only_path: false)) : url_options
         )
       end
@@ -400,8 +400,8 @@ module ActionView
       #   # => <img height="32" src="/icons/icon.gif" width="32" />
       #   image_tag("/icons/icon.gif", class: "menu_icon")
       #   # => <img class="menu_icon" src="/icons/icon.gif" />
-      #   image_tag("/icons/icon.gif", data: { name: 'Rails Application' })
-      #   # => <img data-name="Rails Application" src="/icons/icon.gif" />
+      #   image_tag("/icons/icon.gif", data: { title: 'Rails Application' })
+      #   # => <img data-title="Rails Application" src="/icons/icon.gif" />
       #   image_tag("icon.png", srcset: { "icon_2x.png" => "2x", "icon_4x.png" => "4x" })
       #   # => <img src="/assets/icon.png" srcset="/assets/icon_2x.png 2x, /assets/icon_4x.png 4x">
       #   image_tag("pic.jpg", srcset: [["pic_1024.jpg", "1024w"], ["pic_1980.jpg", "1980w"]], sizes: "100vw")

@@ -205,12 +205,12 @@ module Mail #:nodoc:
       # Capitalizes the first letter of every word, when possible.
       #
       # Example:
-      #   Mail::Multibyte.mb_chars("ÉL QUE SE ENTERÓ").nameize    # => "Él Que Se Enteró"
-      #   Mail::Multibyte.mb_chars("日本語").nameize                 # => "日本語"
-      def nameize
+      #   Mail::Multibyte.mb_chars("ÉL QUE SE ENTERÓ").titleize    # => "Él Que Se Enteró"
+      #   Mail::Multibyte.mb_chars("日本語").titleize                 # => "日本語"
+      def titleize
         chars(downcase.to_s.gsub(/\b('?\S)/u) { Unicode.apply_mapping $1, :uppercase_mapping })
       end
-      alias_method :namecase, :nameize
+      alias_method :titlecase, :titleize
 
       # Returns the KC normalization of the string by default. NFKC is considered the best normalization form for
       # passing strings to databases and validations.

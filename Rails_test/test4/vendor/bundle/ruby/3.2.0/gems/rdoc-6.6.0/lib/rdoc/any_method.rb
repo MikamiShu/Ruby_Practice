@@ -9,7 +9,7 @@ class RDoc::AnyMethod < RDoc::MethodAttr
   #   RDoc 4
   #   Added calls_super
   #   Added parent name and class
-  #   Added section name
+  #   Added section title
   # 3::
   #   RDoc 4.1
   #   Added is_alias_for
@@ -26,8 +26,8 @@ class RDoc::AnyMethod < RDoc::MethodAttr
 
   attr_accessor :c_function
 
-  # The section name of the method (if defined in a C file via +:category:+)
-  attr_accessor :section_name
+  # The section title of the method (if defined in a C file via +:category:+)
+  attr_accessor :section_title
 
   # Parameters for this method
 
@@ -169,7 +169,7 @@ class RDoc::AnyMethod < RDoc::MethodAttr
       @calls_super,
       @parent.name,
       @parent.class,
-      @section.name,
+      @section.title,
       is_alias_for,
     ]
   end
@@ -206,8 +206,8 @@ class RDoc::AnyMethod < RDoc::MethodAttr
     #                      10 handled below
     @calls_super   = array[11]
     @parent_name   = array[12]
-    @parent_name  = array[13]
-    @section_name = array[14]
+    @parent_title  = array[13]
+    @section_title = array[14]
     @is_alias_for  = array[15]
 
     array[8].each do |new_name, comment|

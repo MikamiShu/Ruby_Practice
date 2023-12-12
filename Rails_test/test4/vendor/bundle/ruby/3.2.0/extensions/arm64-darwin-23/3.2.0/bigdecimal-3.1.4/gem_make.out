@@ -32,10 +32,10 @@ checking for RB_WARN_CATEGORY_DEPRECATED in ruby.h... yes
 creating Makefile
 
 current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/bigdecimal-3.1.4/ext/bigdecimal
-make DESTDIR\= sitearchdir\=./.gem.20231206-708-70lyw sitelibdir\=./.gem.20231206-708-70lyw clean
+make DESTDIR\= sitearchdir\=./.gem.20231212-67373-e3njcc sitelibdir\=./.gem.20231212-67373-e3njcc clean
 
 current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/bigdecimal-3.1.4/ext/bigdecimal
-make DESTDIR\= sitearchdir\=./.gem.20231206-708-70lyw sitelibdir\=./.gem.20231206-708-70lyw
+make DESTDIR\= sitearchdir\=./.gem.20231212-67373-e3njcc sitelibdir\=./.gem.20231212-67373-e3njcc
 compiling bigdecimal.c
 bigdecimal.c:7174:18: warning: variable 'prec' set but not used [-Wunused-but-set-variable]
     SIGNED_VALUE prec;
@@ -46,8 +46,8 @@ linking shared-object bigdecimal.bundle
 ld: warning: ignoring duplicate libraries: '-lruby.3.2'
 
 current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/bigdecimal-3.1.4/ext/bigdecimal
-make DESTDIR\= sitearchdir\=./.gem.20231206-708-70lyw sitelibdir\=./.gem.20231206-708-70lyw install
-/usr/bin/install -c -m 0755 bigdecimal.bundle ./.gem.20231206-708-70lyw
+make DESTDIR\= sitearchdir\=./.gem.20231212-67373-e3njcc sitelibdir\=./.gem.20231212-67373-e3njcc install
+/usr/bin/install -c -m 0755 bigdecimal.bundle ./.gem.20231212-67373-e3njcc
 
 current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/bigdecimal-3.1.4/ext/bigdecimal
-make DESTDIR\= sitearchdir\=./.gem.20231206-708-70lyw sitelibdir\=./.gem.20231206-708-70lyw clean
+make DESTDIR\= sitearchdir\=./.gem.20231212-67373-e3njcc sitelibdir\=./.gem.20231212-67373-e3njcc clean

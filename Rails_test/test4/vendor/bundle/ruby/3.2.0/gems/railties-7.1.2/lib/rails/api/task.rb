@@ -135,7 +135,7 @@ module Rails
       end
 
       def configure_sdoc
-        self.name    = "Ruby on Rails API"
+        self.title    = "Ruby on Rails API"
         self.rdoc_dir = api_dir
 
         options << "-m"  << api_main

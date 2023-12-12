@@ -142,8 +142,8 @@ module Selenium
           execute :get_current_url
         end
 
-        def name
-          execute :get_name
+        def title
+          execute :get_title
         end
 
         def page_source

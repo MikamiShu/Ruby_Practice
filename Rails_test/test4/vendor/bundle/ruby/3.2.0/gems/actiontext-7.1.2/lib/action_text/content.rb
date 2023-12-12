@@ -170,4 +170,4 @@ module ActionText
   end
 end
 
-ActiveSupport.run_load_hooks :action_name, ActionText::Content
+ActiveSupport.run_load_hooks :action_text_content, ActionText::Content

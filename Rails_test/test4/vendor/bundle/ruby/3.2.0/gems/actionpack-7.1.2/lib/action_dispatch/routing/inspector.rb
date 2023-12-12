@@ -86,7 +86,7 @@ module ActionDispatch
         formatter.section routes
 
         @engines.each do |name, engine_routes|
-          formatter.section_name "Routes for #{name}"
+          formatter.section_title "Routes for #{name}"
           formatter.section engine_routes
         end
 
@@ -160,7 +160,7 @@ module ActionDispatch
           @buffer.join("\n")
         end
 
-        def section_name(name)
+        def section_title(title)
         end
 
         def section(routes)
@@ -188,8 +188,8 @@ module ActionDispatch
       end
 
       class Sheet < Base
-        def section_name(name)
-          @buffer << "\n#{name}:"
+        def section_title(title)
+          @buffer << "\n#{title}:"
         end
 
         def section(routes)
@@ -229,8 +229,8 @@ module ActionDispatch
           super()
         end
 
-        def section_name(name)
-          @buffer << "\n#{"[ #{name} ]"}"
+        def section_title(title)
+          @buffer << "\n#{"[ #{title} ]"}"
         end
 
         def section(routes)
@@ -286,8 +286,8 @@ module ActionDispatch
         @buffer = []
       end
 
-      def section_name(name)
-        @buffer << %(<tr><th colspan="4">#{name}</th></tr>)
+      def section_title(title)
+        @buffer << %(<tr><th colspan="4">#{title}</th></tr>)
       end
 
       def section(routes)

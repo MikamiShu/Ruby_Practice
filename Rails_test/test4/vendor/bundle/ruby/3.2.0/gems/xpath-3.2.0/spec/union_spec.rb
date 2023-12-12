@@ -41,7 +41,7 @@ describe XPath::Union do
       @expr2 = XPath.generate { |x| x.descendant(:div).where(x.attr(:id) == 'foo') }
       @collection = XPath::Union.new(@expr1, @expr2)
       @results = doc.xpath(@collection.to_xpath)
-      @results[0][:name].should eq 'fooDiv'
+      @results[0][:title].should eq 'fooDiv'
       @results[1].text.should eq 'Blah'
       @results[2].text.should eq 'Bax'
     end
@@ -55,7 +55,7 @@ describe XPath::Union do
       @xpath1 = @collection.where(XPath.attr(:id) == 'foo').to_xpath
       @xpath2 = @collection.where(XPath.attr(:id) == 'fooDiv').to_xpath
       @results = doc.xpath(@xpath1)
-      @results[0][:name].should eq 'fooDiv'
+      @results[0][:title].should eq 'fooDiv'
       @results = doc.xpath(@xpath2)
       @results[0][:id].should eq 'fooDiv'
     end

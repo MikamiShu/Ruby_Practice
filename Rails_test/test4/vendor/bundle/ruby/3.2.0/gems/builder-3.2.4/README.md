@@ -167,24 +167,24 @@ incompatibility are:
   For example:
 
 ```ruby
-    xml_markup.declare! :ELEMENT, :chapter, :"(name,para+)"
-      #=>  <!ELEMENT chapter (name,para+)>
+    xml_markup.declare! :ELEMENT, :chapter, :"(title,para+)"
+      #=>  <!ELEMENT chapter (title,para+)>
 ```
 
   Nested entity declarations are allowed.  For example:
 
 ```ruby
     @xml_markup.declare! :DOCTYPE, :chapter do |x|
-      x.declare! :ELEMENT, :chapter, :"(name,para+)"
-      x.declare! :ELEMENT, :name, :"(#PCDATA)"
+      x.declare! :ELEMENT, :chapter, :"(title,para+)"
+      x.declare! :ELEMENT, :title, :"(#PCDATA)"
       x.declare! :ELEMENT, :para, :"(#PCDATA)"
     end
 
     #=>
 
     <!DOCTYPE chapter [
-      <!ELEMENT chapter (name,para+)>
-      <!ELEMENT name (#PCDATA)>
+      <!ELEMENT chapter (title,para+)>
+      <!ELEMENT title (#PCDATA)>
       <!ELEMENT para (#PCDATA)>
     ]>
 ```

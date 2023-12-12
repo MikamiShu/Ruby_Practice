@@ -167,12 +167,12 @@ Capybara::SpecHelper.spec '#click_button' do
       expect(extract_results(@session)['first_name']).to eq('John')
     end
 
-    it 'should submit by button name' do
+    it 'should submit by button title' do
       @session.click_button('What an Awesome Button')
       expect(extract_results(@session)['first_name']).to eq('John')
     end
 
-    it 'should submit by partial name', :exact_false do
+    it 'should submit by partial title', :exact_false do
       @session.click_button('What an Awesome')
       expect(extract_results(@session)['first_name']).to eq('John')
     end
@@ -306,7 +306,7 @@ Capybara::SpecHelper.spec '#click_button' do
     end
   end
 
-  context 'with name given on an image button' do
+  context 'with title given on an image button' do
     it 'should submit the associated form' do
       @session.click_button('Okay 556 Image')
       expect(extract_results(@session)['first_name']).to eq('John')
@@ -369,7 +369,7 @@ Capybara::SpecHelper.spec '#click_button' do
     end
   end
 
-  context 'with name given on a button defined by <button> tag' do
+  context 'with title given on a button defined by <button> tag' do
     it 'should submit the associated form' do
       @session.click_button('Click Title button')
       expect(extract_results(@session)['first_name']).to eq('John')

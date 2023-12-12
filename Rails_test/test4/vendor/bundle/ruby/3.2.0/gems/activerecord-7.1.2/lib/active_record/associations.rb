@@ -958,7 +958,7 @@ module ActiveRecord
       # Consider the following loop using the class above:
       #
       #   Post.all.each do |post|
-      #     puts "Post:            " + post.name
+      #     puts "Post:            " + post.title
       #     puts "Written by:      " + post.author.name
       #     puts "Last comment on: " + post.comments.first.created_on
       #   end

@@ -25,11 +25,11 @@ class MinitestTest < Minitest::Test
     refute_text('Also Not on the page')
   end
 
-  def test_assert_name
-    visit('/with_name')
-    assert_name('Test Title')
-    assert_no_name('Not the name')
-    refute_name('Not the name')
+  def test_assert_title
+    visit('/with_title')
+    assert_title('Test Title')
+    assert_no_title('Not the title')
+    refute_title('Not the title')
   end
 
   def test_assert_current_path
@@ -40,24 +40,24 @@ class MinitestTest < Minitest::Test
   end
 
   def test_assert_xpath
-    assert_xpath('.//select[@id="form_name"]')
-    assert_xpath('.//select', count: 1) { |el| el[:id] == 'form_name' }
-    assert_no_xpath('.//select[@id="not_form_name"]')
-    assert_no_xpath('.//select') { |el| el[:id] == 'not_form_name' }
-    refute_xpath('.//select[@id="not_form_name"]')
+    assert_xpath('.//select[@id="form_title"]')
+    assert_xpath('.//select', count: 1) { |el| el[:id] == 'form_title' }
+    assert_no_xpath('.//select[@id="not_form_title"]')
+    assert_no_xpath('.//select') { |el| el[:id] == 'not_form_title' }
+    refute_xpath('.//select[@id="not_form_title"]')
   end
 
   def test_assert_css
-    assert_css('select#form_name')
-    assert_no_css('select#not_form_name')
+    assert_css('select#form_title')
+    assert_no_css('select#not_form_title')
   end
 
   def test_assert_selector
-    assert_selector(:css, 'select#form_name')
-    assert_selector(:xpath, './/select[@id="form_name"]')
-    assert_no_selector(:css, 'select#not_form_name')
-    assert_no_selector(:xpath, './/select[@id="not_form_name"]')
-    refute_selector(:css, 'select#not_form_name')
+    assert_selector(:css, 'select#form_title')
+    assert_selector(:xpath, './/select[@id="form_title"]')
+    assert_no_selector(:css, 'select#not_form_title')
+    assert_no_selector(:xpath, './/select[@id="not_form_title"]')
+    refute_selector(:css, 'select#not_form_title')
   end
 
   def test_assert_link
@@ -79,8 +79,8 @@ class MinitestTest < Minitest::Test
   end
 
   def test_assert_select
-    assert_select('form_name')
-    assert_no_select('not_form_name')
+    assert_select('form_title')
+    assert_no_select('not_form_title')
   end
 
   def test_assert_checked_field
@@ -103,7 +103,7 @@ class MinitestTest < Minitest::Test
   end
 
   def test_assert_all_of_selectors
-    assert_all_of_selectors(:css, 'select#form_other_name', 'input#form_last_name')
+    assert_all_of_selectors(:css, 'select#form_other_title', 'input#form_last_name')
   end
 
   def test_assert_none_of_selectors
@@ -111,23 +111,23 @@ class MinitestTest < Minitest::Test
   end
 
   def test_assert_any_of_selectors
-    assert_any_of_selectors(:css, 'input#not_on_page', 'select#form_other_name')
+    assert_any_of_selectors(:css, 'input#not_on_page', 'select#form_other_title')
   end
 
   def test_assert_matches_selector
     assert_matches_selector(find(:field, 'customer_email'), :field, 'customer_email')
-    assert_not_matches_selector(find(:select, 'form_name'), :field, 'customer_email')
-    refute_matches_selector(find(:select, 'form_name'), :field, 'customer_email')
+    assert_not_matches_selector(find(:select, 'form_title'), :field, 'customer_email')
+    refute_matches_selector(find(:select, 'form_title'), :field, 'customer_email')
   end
 
   def test_assert_matches_css
-    assert_matches_css(find(:select, 'form_name'), 'select#form_name')
-    refute_matches_css(find(:select, 'form_name'), 'select#form_other_name')
+    assert_matches_css(find(:select, 'form_title'), 'select#form_title')
+    refute_matches_css(find(:select, 'form_title'), 'select#form_other_title')
   end
 
   def test_assert_matches_xpath
-    assert_matches_xpath(find(:select, 'form_name'), './/select[@id="form_name"]')
-    refute_matches_xpath(find(:select, 'form_name'), './/select[@id="form_other_name"]')
+    assert_matches_xpath(find(:select, 'form_title'), './/select[@id="form_title"]')
+    refute_matches_xpath(find(:select, 'form_title'), './/select[@id="form_other_title"]')
   end
 
   def test_assert_matches_style
@@ -142,7 +142,7 @@ class MinitestTest < Minitest::Test
   end
 
   def test_assert_sibling
-    option = find(:css, '#form_name').find(:option, 'Mrs')
+    option = find(:css, '#form_title').find(:option, 'Mrs')
     assert_sibling(option, :option, 'Mr')
   end
 end

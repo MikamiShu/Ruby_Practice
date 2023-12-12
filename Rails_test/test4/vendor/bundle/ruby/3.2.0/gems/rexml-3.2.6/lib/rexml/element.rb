@@ -1559,19 +1559,19 @@ module REXML
   #   <?xml version="1.0" encoding="UTF-8"?>
   #   <bookstore>
   #     <book category="cooking">
-  #       <name lang="en">Everyday Italian</name>
+  #       <title lang="en">Everyday Italian</title>
   #       <author>Giada De Laurentiis</author>
   #       <year>2005</year>
   #       <price>30.00</price>
   #     </book>
   #     <book category="children">
-  #       <name lang="en">Harry Potter</name>
+  #       <title lang="en">Harry Potter</title>
   #       <author>J K. Rowling</author>
   #       <year>2005</year>
   #       <price>29.99</price>
   #     </book>
   #     <book category="web">
-  #       <name lang="en">XQuery Kick Start</name>
+  #       <title lang="en">XQuery Kick Start</title>
   #       <author>James McGovern</author>
   #       <author>Per Bothner</author>
   #       <author>Kurt Cagle</author>
@@ -1581,7 +1581,7 @@ module REXML
   #       <price>49.99</price>
   #     </book>
   #     <book category="web" cover="paperback">
-  #       <name lang="en">Learning XML</name>
+  #       <title lang="en">Learning XML</title>
   #       <author>Erik T. Ray</author>
   #       <year>2003</year>
   #       <price>39.95</price>
@@ -1651,7 +1651,7 @@ module REXML
     #
     # The node at this index is not an \Element, and so is not returned:
     #
-    #   eles = d.root.first.first # => <name lang='en'> ... </>
+    #   eles = d.root.first.first # => <title lang='en'> ... </>
     #   eles.to_a # => ["Everyday Italian"]
     #   eles[1] # => nil
     #

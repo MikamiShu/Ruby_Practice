@@ -6,7 +6,7 @@ if Rails::VERSION::MAJOR > 4
 
   class ScaffoldApiControllerGeneratorTest < Rails::Generators::TestCase
     tests Rails::Generators::ScaffoldControllerGenerator
-    arguments %w(Post name body:text images:attachments --api)
+    arguments %w(Post title body:text images:attachments --api)
     destination File.expand_path('../tmp', __FILE__)
     setup :prepare_destination
 
@@ -40,9 +40,9 @@ if Rails::VERSION::MAJOR > 4
 
         assert_match %r{def post_params}, content
         if Rails::VERSION::MAJOR >= 6
-          assert_match %r{params\.require\(:post\)\.permit\(:name, :body, images: \[\]\)}, content
+          assert_match %r{params\.require\(:post\)\.permit\(:title, :body, images: \[\]\)}, content
         else
-          assert_match %r{params\.require\(:post\)\.permit\(:name, :body, :images\)}, content
+          assert_match %r{params\.require\(:post\)\.permit\(:title, :body, :images\)}, content
         end
       end
     end

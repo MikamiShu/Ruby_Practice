@@ -133,7 +133,7 @@ module Rails
                                                  "lang",
                                                  "name",
                                                  "src",
-                                                 "name",
+                                                 "title",
                                                  "width",
                                                  "xml:lang",
                                                ]).freeze

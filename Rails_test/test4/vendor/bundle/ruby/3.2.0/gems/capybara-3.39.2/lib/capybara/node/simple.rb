@@ -37,7 +37,7 @@ module Capybara
       #
       # Retrieve the given attribute
       #
-      #     element[:name] # => HTML name attribute
+      #     element[:title] # => HTML title attribute
       #
       # @param  [Symbol] name  The attribute name to retrieve
       # @return [String]       The value of the attribute
@@ -162,9 +162,9 @@ module Capybara
 
       ##
       #
-      # @return [String]     The name of the document
-      def name
-        native.name
+      # @return [String]     The title of the document
+      def title
+        native.title
       end
 
       def inspect

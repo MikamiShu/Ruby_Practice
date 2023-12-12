@@ -23,7 +23,7 @@ module Nokogiri
       #
       # Search this object for +paths+. +paths+ must be one or more XPath or CSS queries:
       #
-      #   node.search("div.employee", ".//name")
+      #   node.search("div.employee", ".//title")
       #
       # A hash of namespace bindings may be appended:
       #
@@ -48,7 +48,7 @@ module Nokogiri
       #       node_set.find_all { |node| node['some_attribute'] =~ /#{regex}/ }
       #     end
       #   }.new
-      #   node.search('.//name[nokogiri:regex(., "\w+")]', 'div.employee:regex("[0-9]+")', handler)
+      #   node.search('.//title[nokogiri:regex(., "\w+")]', 'div.employee:regex("[0-9]+")', handler)
       #
       # See Searchable#xpath and Searchable#css for further usage help.
       def search(*args)
@@ -84,7 +84,7 @@ module Nokogiri
       # Search this object for CSS +rules+. +rules+ must be one or more CSS
       # selectors. For example:
       #
-      #   node.css('name')
+      #   node.css('title')
       #   node.css('body h1.bold')
       #   node.css('div + p.green', 'div#one')
       #
@@ -102,7 +102,7 @@ module Nokogiri
       #       node_set.find_all { |node| node['some_attribute'] =~ /#{regex}/ }
       #     end
       #   }.new
-      #   node.css('name:regex("\w+")', handler)
+      #   node.css('title:regex("\w+")', handler)
       #
       # 💡 Some XPath syntax is supported in CSS queries. For example, to query for an attribute:
       #
@@ -151,7 +151,7 @@ module Nokogiri
       # Search this node for XPath +paths+. +paths+ must be one or more XPath
       # queries.
       #
-      #   node.xpath('.//name')
+      #   node.xpath('.//title')
       #
       # A hash of namespace bindings may be appended. For example:
       #
@@ -174,7 +174,7 @@ module Nokogiri
       #       node_set.find_all { |node| node['some_attribute'] =~ /#{regex}/ }
       #     end
       #   }.new
-      #   node.xpath('.//name[nokogiri:regex(., "\w+")]', handler)
+      #   node.xpath('.//title[nokogiri:regex(., "\w+")]', handler)
       #
       def xpath(*args)
         paths, handler, ns, binds = extract_params(args)

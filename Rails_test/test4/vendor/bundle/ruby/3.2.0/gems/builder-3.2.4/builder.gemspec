@@ -34,7 +34,7 @@ simple to do.  Currently the following builder objects are supported:
   s.has_rdoc = true
   # s.extra_rdoc_files = rd.rdoc_files.reject { |fn| fn =~ /\.rb$/ }.to_a
   s.rdoc_options <<
-    '--name' <<  'Builder -- Easy XML Building' <<
+    '--title' <<  'Builder -- Easy XML Building' <<
     '--main' << 'README.rdoc' <<
     '--line-numbers'
 

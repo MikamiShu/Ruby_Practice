@@ -1393,8 +1393,8 @@ The "clearly I don't have enough tests for the config" release.
   * Add a configuration option that prevents puma from queueing requests.
   * Add reload_worker_directory
   * Add the ability to pass environment variables to the init script (for Jungle).
-  * Add the procname tag to the worker. Fixes [#633]
-  * Infer a procname tag based on the directory
+  * Add the proctitle tag to the worker. Fixes [#633]
+  * Infer a proctitle tag based on the directory
   * Update lowlevel error message to be more meaningful.
 
 * 10 PRs merged:

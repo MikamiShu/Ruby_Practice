@@ -74,11 +74,11 @@ module ActiveRecord
       #   class Task < ActiveRecord::Base
       #   end
       #
-      #   task = Task.new(name: nil, is_done: true, completed_on: '2012-10-21')
+      #   task = Task.new(title: nil, is_done: true, completed_on: '2012-10-21')
       #   task.attributes
-      #   # => {"id"=>nil, "name"=>nil, "is_done"=>true, "completed_on"=>Sun, 21 Oct 2012, "created_at"=>nil, "updated_at"=>nil}
+      #   # => {"id"=>nil, "title"=>nil, "is_done"=>true, "completed_on"=>Sun, 21 Oct 2012, "created_at"=>nil, "updated_at"=>nil}
       #   task.attributes_before_type_cast
-      #   # => {"id"=>nil, "name"=>nil, "is_done"=>true, "completed_on"=>"2012-10-21", "created_at"=>nil, "updated_at"=>nil}
+      #   # => {"id"=>nil, "title"=>nil, "is_done"=>true, "completed_on"=>"2012-10-21", "created_at"=>nil, "updated_at"=>nil}
       def attributes_before_type_cast
         @attributes.values_before_type_cast
       end

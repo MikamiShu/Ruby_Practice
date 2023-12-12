@@ -72,7 +72,7 @@ end
 
 ```erb
 <%= form_with model: @message, local: true do |form| %>
-  <%= form.text_field :name, placeholder: "Title" %><br>
+  <%= form.text_field :title, placeholder: "Title" %><br>
   <%= form.text_area :content %><br><br>
 
   <%= form.file_field :images, multiple: true %><br>
@@ -88,7 +88,7 @@ class MessagesController < ApplicationController
   end
 
   def create
-    message = Message.create! params.require(:message).permit(:name, :content, images: [])
+    message = Message.create! params.require(:message).permit(:title, :content, images: [])
     redirect_to message
   end
 

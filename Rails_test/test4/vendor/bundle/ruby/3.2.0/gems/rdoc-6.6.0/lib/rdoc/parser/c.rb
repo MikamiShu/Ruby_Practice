@@ -1036,8 +1036,8 @@ class RDoc::Parser::C < RDoc::Parser
 
         meth_obj.record_location @top_level
 
-        if meth_obj.section_name
-          class_obj.temporary_section = class_obj.add_section(meth_obj.section_name)
+        if meth_obj.section_title
+          class_obj.temporary_section = class_obj.add_section(meth_obj.section_title)
         end
         class_obj.add_method meth_obj
 
@@ -1085,7 +1085,7 @@ class RDoc::Parser::C < RDoc::Parser
   # Look for directives in a normal comment block:
   #
   #   /*
-  #    * :name: My Awesome Project
+  #    * :title: My Awesome Project
   #    */
   #
   # This method modifies the +comment+
@@ -1096,8 +1096,8 @@ class RDoc::Parser::C < RDoc::Parser
       when 'main' then
         @options.main_page = param
         ''
-      when 'name' then
-        @options.default_name = param if @options.respond_to? :default_name=
+      when 'title' then
+        @options.default_title = param if @options.respond_to? :default_title=
         ''
       end
     end

@@ -333,7 +333,7 @@ This section covers methods:
   Use inherited method REXML::Child.bytes to retrieve an extended
   string representation.
 
-    doc.root.bytes # => "<bookstore>\n\n<book category='cooking'>\n  <name lang='en'>Everyday Italian</name>\n  <author>Giada De Laurentiis</author>\n  <year>2005</year>\n  <price>30.00</price>\n</book>\n\n<book category='children'>\n  <name lang='en'>Harry Potter</name>\n  <author>J K. Rowling</author>\n  <year>2005</year>\n  <price>29.99</price>\n</book>\n\n<book category='web'>\n  <name lang='en'>XQuery Kick Start</name>\n  <author>James McGovern</author>\n  <author>Per Bothner</author>\n  <author>Kurt Cagle</author>\n  <author>James Linn</author>\n  <author>Vaidyanathan Nagarajan</author>\n  <year>2003</year>\n  <price>49.99</price>\n</book>\n\n<book category='web' cover='paperback'>\n  <name lang='en'>Learning XML</name>\n  <author>Erik T. Ray</author>\n  <year>2003</year>\n  <price>39.95</price>\n</book>\n\n</bookstore>"
+    doc.root.bytes # => "<bookstore>\n\n<book category='cooking'>\n  <title lang='en'>Everyday Italian</title>\n  <author>Giada De Laurentiis</author>\n  <year>2005</year>\n  <price>30.00</price>\n</book>\n\n<book category='children'>\n  <title lang='en'>Harry Potter</title>\n  <author>J K. Rowling</author>\n  <year>2005</year>\n  <price>29.99</price>\n</book>\n\n<book category='web'>\n  <title lang='en'>XQuery Kick Start</title>\n  <author>James McGovern</author>\n  <author>Per Bothner</author>\n  <author>Kurt Cagle</author>\n  <author>James Linn</author>\n  <author>Vaidyanathan Nagarajan</author>\n  <year>2003</year>\n  <price>49.99</price>\n</book>\n\n<book category='web' cover='paperback'>\n  <title lang='en'>Learning XML</title>\n  <author>Erik T. Ray</author>\n  <year>2003</year>\n  <price>39.95</price>\n</book>\n\n</bookstore>"
 
 [Node Type]
 
@@ -911,17 +911,17 @@ Each child that meets given criteria is yielded to the given block.
   Output:
 
     [REXML::Element, <book category='cooking'> ... </>]
-    [REXML::Element, <name lang='en'> ... </>]
+    [REXML::Element, <title lang='en'> ... </>]
     [REXML::Element, <author> ... </>]
     [REXML::Element, <year> ... </>]
     [REXML::Element, <price> ... </>]
     [REXML::Element, <book category='children'> ... </>]
-    [REXML::Element, <name lang='en'> ... </>]
+    [REXML::Element, <title lang='en'> ... </>]
     [REXML::Element, <author> ... </>]
     [REXML::Element, <year> ... </>]
     [REXML::Element, <price> ... </>]
     [REXML::Element, <book category='web'> ... </>]
-    [REXML::Element, <name lang='en'> ... </>]
+    [REXML::Element, <title lang='en'> ... </>]
     [REXML::Element, <author> ... </>]
     [REXML::Element, <author> ... </>]
     [REXML::Element, <author> ... </>]
@@ -930,7 +930,7 @@ Each child that meets given criteria is yielded to the given block.
     [REXML::Element, <year> ... </>]
     [REXML::Element, <price> ... </>]
     [REXML::Element, <book category='web' cover='paperback'> ... </>]
-    [REXML::Element, <name lang='en'> ... </>]
+    [REXML::Element, <title lang='en'> ... </>]
     [REXML::Element, <author> ... </>]
     [REXML::Element, <year> ... </>]
     [REXML::Element, <price> ... </>]
@@ -1324,21 +1324,21 @@ Output:
   <bookstore>
 
   <book category='cooking'>
-    <name lang='en'>Everyday Italian</name>
+    <title lang='en'>Everyday Italian</title>
     <author>Giada De Laurentiis</author>
     <year>2005</year>
     <price>30.00</price>
   </book>
 
   <book category='children'>
-    <name lang='en'>Harry Potter</name>
+    <title lang='en'>Harry Potter</title>
     <author>J K. Rowling</author>
     <year>2005</year>
     <price>29.99</price>
   </book>
 
   <book category='web'>
-    <name lang='en'>XQuery Kick Start</name>
+    <title lang='en'>XQuery Kick Start</title>
     <author>James McGovern</author>
     <author>Per Bothner</author>
     <author>Kurt Cagle</author>
@@ -1349,7 +1349,7 @@ Output:
   </book>
 
   <book category='web' cover='paperback'>
-    <name lang='en'>Learning XML</name>
+    <title lang='en'>Learning XML</title>
     <author>Erik T. Ray</author>
     <year>2003</year>
     <price>39.95</price>

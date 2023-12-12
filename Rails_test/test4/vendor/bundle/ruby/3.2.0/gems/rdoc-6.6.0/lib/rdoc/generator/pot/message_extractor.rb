@@ -29,9 +29,9 @@ class RDoc::Generator::POT::MessageExtractor
     extract_text(klass.comment_location, klass.full_name)
 
     klass.each_section do |section, constants, attributes|
-      extract_text(section.name ,"#{klass.full_name}: section name")
+      extract_text(section.title ,"#{klass.full_name}: section title")
       section.comments.each do |comment|
-        extract_text(comment, "#{klass.full_name}: #{section.name}")
+        extract_text(comment, "#{klass.full_name}: #{section.title}")
       end
     end
 

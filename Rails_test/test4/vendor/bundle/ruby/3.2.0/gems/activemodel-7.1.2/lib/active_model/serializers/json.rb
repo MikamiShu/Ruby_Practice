@@ -78,21 +78,21 @@ module ActiveModel
       #   user.as_json(include: :posts)
       #   # => { "id" => 1, "name" => "Konata Izumi", "age" => 16,
       #   #      "created_at" => "2006-08-01T17:27:13.000Z", "awesome" => true,
-      #   #      "posts" => [ { "id" => 1, "author_id" => 1, "name" => "Welcome to the weblog" },
-      #   #                   { "id" => 2, "author_id" => 1, "name" => "So I was thinking" } ] }
+      #   #      "posts" => [ { "id" => 1, "author_id" => 1, "title" => "Welcome to the weblog" },
+      #   #                   { "id" => 2, "author_id" => 1, "title" => "So I was thinking" } ] }
       #
       # Second level and higher order associations work as well:
       #
       #   user.as_json(include: { posts: {
       #                              include: { comments: {
       #                                             only: :body } },
-      #                              only: :name } })
+      #                              only: :title } })
       #   # => { "id" => 1, "name" => "Konata Izumi", "age" => 16,
       #   #      "created_at" => "2006-08-01T17:27:13.000Z", "awesome" => true,
       #   #      "posts" => [ { "comments" => [ { "body" => "1st post!" }, { "body" => "Second!" } ],
-      #   #                     "name" => "Welcome to the weblog" },
+      #   #                     "title" => "Welcome to the weblog" },
       #   #                   { "comments" => [ { "body" => "Don't think too hard" } ],
-      #   #                     "name" => "So I was thinking" } ] }
+      #   #                     "title" => "So I was thinking" } ] }
       def as_json(options = nil)
         root = if options && options.key?(:root)
           options[:root]

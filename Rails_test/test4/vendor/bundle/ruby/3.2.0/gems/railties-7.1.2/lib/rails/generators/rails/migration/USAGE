@@ -18,11 +18,11 @@ Examples:
     If the current date is May 14, 2008 and the current time 09:09:12, this creates the AddSslFlag migration
     db/migrate/20080514090912_add_ssl_flag.rb
 
-    `bin/rails generate migration add_name_body_published_to_post name:string body:text published:boolean`
+    `bin/rails generate migration add_title_body_published_to_post title:string body:text published:boolean`
 
-    This will create db/migrate/20080514090912_add_name_body_published_to_post.rb with this in the migration:
+    This will create db/migrate/20080514090912_add_title_body_published_to_post.rb with this in the migration:
 
-      add_column :posts, :name, :string
+      add_column :posts, :title, :string
       add_column :posts, :body, :text
       add_column :posts, :published, :boolean
 

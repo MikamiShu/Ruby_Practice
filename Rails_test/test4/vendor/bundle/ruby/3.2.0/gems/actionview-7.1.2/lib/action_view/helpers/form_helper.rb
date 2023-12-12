@@ -485,48 +485,48 @@ module ActionView
       #
       #   # Using just a URL:
       #   <%= form_with url: posts_path do |form| %>
-      #     <%= form.text_field :name %>
+      #     <%= form.text_field :title %>
       #   <% end %>
       #   # =>
       #   <form action="/posts" method="post">
-      #     <input type="text" name="name">
+      #     <input type="text" name="title">
       #   </form>
       #
       #   # With an intentionally empty URL:
       #   <%= form_with url: false do |form| %>
-      #     <%= form.text_field :name %>
+      #     <%= form.text_field :title %>
       #   <% end %>
       #   # =>
       #   <form method="post">
-      #     <input type="text" name="name">
+      #     <input type="text" name="title">
       #   </form>
       #
       #   # Adding a scope prefixes the input field names:
       #   <%= form_with scope: :post, url: posts_path do |form| %>
-      #     <%= form.text_field :name %>
+      #     <%= form.text_field :title %>
       #   <% end %>
       #   # =>
       #   <form action="/posts" method="post">
-      #     <input type="text" name="post[name]">
+      #     <input type="text" name="post[title]">
       #   </form>
       #
       #   # Using a model infers both the URL and scope:
       #   <%= form_with model: Post.new do |form| %>
-      #     <%= form.text_field :name %>
+      #     <%= form.text_field :title %>
       #   <% end %>
       #   # =>
       #   <form action="/posts" method="post">
-      #     <input type="text" name="post[name]">
+      #     <input type="text" name="post[title]">
       #   </form>
       #
       #   # An existing model makes an update form and fills out field values:
       #   <%= form_with model: Post.first do |form| %>
-      #     <%= form.text_field :name %>
+      #     <%= form.text_field :title %>
       #   <% end %>
       #   # =>
       #   <form action="/posts/1" method="post">
       #     <input type="hidden" name="_method" value="patch">
-      #     <input type="text" name="post[name]" value="<the name of the post>">
+      #     <input type="text" name="post[title]" value="<the title of the post>">
       #   </form>
       #
       #   # Though the fields don't have to correspond to model attributes:
@@ -541,8 +541,8 @@ module ActionView
       #   </form>
       #
       # The parameters in the forms are accessible in controllers according to
-      # their name nesting. So inputs named +name+ and <tt>post[name]</tt> are
-      # accessible as <tt>params[:name]</tt> and <tt>params[:post][:name]</tt>
+      # their name nesting. So inputs named +title+ and <tt>post[title]</tt> are
+      # accessible as <tt>params[:title]</tt> and <tt>params[:post][:title]</tt>
       # respectively.
       #
       # For ease of comparison the examples above left out the submit button,
@@ -600,7 +600,7 @@ module ActionView
       #   with underscore on the generated HTML id.
       # * <tt>:model</tt> - A model object to infer the <tt>:url</tt> and
       #   <tt>:scope</tt> by, plus fill out input field values.
-      #   So if a +name+ attribute is set to "Ahoy!" then a +name+ input
+      #   So if a +title+ attribute is set to "Ahoy!" then a +title+ input
       #   field's value would be "Ahoy!".
       #   If the model is a new record a create form is generated, if an
       #   existing record, however, an update form is generated.
@@ -1047,7 +1047,7 @@ module ActionView
       #
       #   # Using +fields+ with +form_with+:
       #   <%= form_with model: @post do |form| %>
-      #     <%= form.text_field :name %>
+      #     <%= form.text_field :title %>
       #
       #     <%= form.fields :comment do |fields| %>
       #       <%= fields.text_field :body %>
@@ -1094,8 +1094,8 @@ module ActionView
       # target labels for radio_button tags (where the value is used in the ID of the input tag).
       #
       # ==== Examples
-      #   label(:post, :name)
-      #   # => <label for="post_name">Title</label>
+      #   label(:post, :title)
+      #   # => <label for="post_title">Title</label>
       #
       # You can localize your labels based on model and attribute names.
       # For example you can define the following in your locale (e.g. en.yml)
@@ -1121,11 +1121,11 @@ module ActionView
       #   label(:post, :cost)
       #   # => <label for="post_cost">Total cost</label>
       #
-      #   label(:post, :name, "A short name")
-      #   # => <label for="post_name">A short name</label>
+      #   label(:post, :title, "A short title")
+      #   # => <label for="post_title">A short title</label>
       #
-      #   label(:post, :name, "A short name", class: "name_label")
-      #   # => <label for="post_name" class="name_label">A short name</label>
+      #   label(:post, :title, "A short title", class: "title_label")
+      #   # => <label for="post_title" class="title_label">A short title</label>
       #
       #   label(:post, :privacy, "Public Post", value: "public")
       #   # => <label for="post_privacy_public">Public Post</label>
@@ -1154,14 +1154,14 @@ module ActionView
       # shown.
       #
       # ==== Examples
-      #   text_field(:post, :name, size: 20)
-      #   # => <input type="text" id="post_name" name="post[name]" size="20" value="#{@post.name}" />
+      #   text_field(:post, :title, size: 20)
+      #   # => <input type="text" id="post_title" name="post[title]" size="20" value="#{@post.title}" />
       #
-      #   text_field(:post, :name, class: "create_input")
-      #   # => <input type="text" id="post_name" name="post[name]" value="#{@post.name}" class="create_input" />
+      #   text_field(:post, :title, class: "create_input")
+      #   # => <input type="text" id="post_title" name="post[title]" value="#{@post.title}" class="create_input" />
       #
-      #   text_field(:post, :name,  maxlength: 30, class: "name_input")
-      #   # => <input type="text" id="post_name" name="post[name]" maxlength="30" size="30" value="#{@post.name}" class="name_input" />
+      #   text_field(:post, :title,  maxlength: 30, class: "title_input")
+      #   # => <input type="text" id="post_title" name="post[title]" maxlength="30" size="30" value="#{@post.title}" class="title_input" />
       #
       #   text_field(:session, :user, onchange: "if ($('#session_user').val() === 'admin') { alert('Your login cannot be admin!'); }")
       #   # => <input type="text" id="session_user" name="session[user]" value="#{@session.user}" onchange="if ($('#session_user').val() === 'admin') { alert('Your login cannot be admin!'); }"/>
@@ -1757,15 +1757,15 @@ module ActionView
       # attribute name.
       #
       #   <%= form_for @post do |f| %>
-      #     <%= f.label :name %>
-      #     <%= f.text_field :name, aria: { describedby: f.field_id(:name, :error) } %>
-      #     <%= tag.span("is blank", id: f.field_id(:name, :error) %>
+      #     <%= f.label :title %>
+      #     <%= f.text_field :title, aria: { describedby: f.field_id(:title, :error) } %>
+      #     <%= tag.span("is blank", id: f.field_id(:title, :error) %>
       #   <% end %>
       #
       # In the example above, the <tt><input type="text"></tt> element built by
       # the call to <tt>FormBuilder#text_field</tt> declares an
       # <tt>aria-describedby</tt> attribute referencing the <tt><span></tt>
-      # element, sharing a common <tt>id</tt> root (<tt>post_name</tt>, in this
+      # element, sharing a common <tt>id</tt> root (<tt>post_title</tt>, in this
       # case).
       def field_id(method, *suffixes, namespace: @options[:namespace], index: @options[:index])
         @template.field_id(@object_name, method, *suffixes, namespace: namespace, index: index)
@@ -1778,8 +1778,8 @@ module ActionView
       # attribute name.
       #
       #   <%= form_for @post do |f| %>
-      #     <%= f.text_field :name, name: f.field_name(:name, :subname) %>
-      #     <%# => <input type="text" name="post[name][subname]">
+      #     <%= f.text_field :title, name: f.field_name(:title, :subtitle) %>
+      #     <%# => <input type="text" name="post[title][subtitle]">
       #   <% end %>
       #
       #   <%= form_for @post do |f| %>
@@ -2334,8 +2334,8 @@ module ActionView
       # target labels for radio_button tags (where the value is used in the ID of the input tag).
       #
       # ==== Examples
-      #   label(:name)
-      #   # => <label for="post_name">Title</label>
+      #   label(:title)
+      #   # => <label for="post_title">Title</label>
       #
       # You can localize your labels based on model and attribute names.
       # For example you can define the following in your locale (e.g. en.yml)
@@ -2361,11 +2361,11 @@ module ActionView
       #   label(:cost)
       #   # => <label for="post_cost">Total cost</label>
       #
-      #   label(:name, "A short name")
-      #   # => <label for="post_name">A short name</label>
+      #   label(:title, "A short title")
+      #   # => <label for="post_title">A short title</label>
       #
-      #   label(:name, "A short name", class: "name_label")
-      #   # => <label for="post_name" class="name_label">A short name</label>
+      #   label(:title, "A short title", class: "title_label")
+      #   # => <label for="post_title" class="title_label">A short title</label>
       #
       #   label(:privacy, "Public Post", value: "public")
       #   # => <label for="post_privacy_public">Public Post</label>

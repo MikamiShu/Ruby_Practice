@@ -54,12 +54,12 @@ module ActionView # :nodoc:
   # But you don't have to restrict yourself to static includes. Templates can share variables amongst themselves by using instance
   # variables defined using the regular embedding tags. Like this:
   #
-  #   <% @page_name = "A Wonderful Hello" %>
+  #   <% @page_title = "A Wonderful Hello" %>
   #   <%= render "application/header" %>
   #
-  # Now the header can pick up on the <tt>@page_name</tt> variable and use it for outputting a name tag:
+  # Now the header can pick up on the <tt>@page_title</tt> variable and use it for outputting a title tag:
   #
-  #   <name><%= @page_name %></name>
+  #   <title><%= @page_title %></title>
   #
   # === Passing local variables to sub templates
   #
@@ -116,7 +116,7 @@ module ActionView # :nodoc:
   #
   #   xml.rss("version" => "2.0", "xmlns:dc" => "http://purl.org/dc/elements/1.1/") do
   #     xml.channel do
-  #       xml.name(@feed_name)
+  #       xml.title(@feed_title)
   #       xml.link(@url)
   #       xml.description "Basecamp: Recent items"
   #       xml.language "en-us"
@@ -124,7 +124,7 @@ module ActionView # :nodoc:
   #
   #       @recent_items.each do |item|
   #         xml.item do
-  #           xml.name(item_name(item))
+  #           xml.title(item_title(item))
   #           xml.description(item_description(item)) if item_description(item)
   #           xml.pubDate(item_pubDate(item))
   #           xml.guid(@person.firm.account.url + @recent_items.url(item))

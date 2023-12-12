@@ -26,10 +26,10 @@ module Capybara
 
       ##
       #
-      # @return [String]    The name of the document
+      # @return [String]    The title of the document
       #
-      def name
-        session.driver.name
+      def title
+        session.driver.title
       end
 
       def execute_script(*args)

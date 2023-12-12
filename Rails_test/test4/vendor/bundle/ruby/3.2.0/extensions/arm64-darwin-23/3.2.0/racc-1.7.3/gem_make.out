@@ -3,17 +3,17 @@ current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendo
 creating Makefile
 
 current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/racc-1.7.3/ext/racc/cparse
-make DESTDIR\= sitearchdir\=./.gem.20231206-708-wmzagd sitelibdir\=./.gem.20231206-708-wmzagd clean
+make DESTDIR\= sitearchdir\=./.gem.20231212-67373-cja45m sitelibdir\=./.gem.20231212-67373-cja45m clean
 
 current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/racc-1.7.3/ext/racc/cparse
-make DESTDIR\= sitearchdir\=./.gem.20231206-708-wmzagd sitelibdir\=./.gem.20231206-708-wmzagd
+make DESTDIR\= sitearchdir\=./.gem.20231212-67373-cja45m sitelibdir\=./.gem.20231212-67373-cja45m
 compiling cparse.c
 linking shared-object racc/cparse.bundle
 ld: warning: ignoring duplicate libraries: '-lruby.3.2'
 
 current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/racc-1.7.3/ext/racc/cparse
-make DESTDIR\= sitearchdir\=./.gem.20231206-708-wmzagd sitelibdir\=./.gem.20231206-708-wmzagd install
-/usr/bin/install -c -m 0755 cparse.bundle ./.gem.20231206-708-wmzagd/racc
+make DESTDIR\= sitearchdir\=./.gem.20231212-67373-cja45m sitelibdir\=./.gem.20231212-67373-cja45m install
+/usr/bin/install -c -m 0755 cparse.bundle ./.gem.20231212-67373-cja45m/racc
 
 current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/racc-1.7.3/ext/racc/cparse
-make DESTDIR\= sitearchdir\=./.gem.20231206-708-wmzagd sitelibdir\=./.gem.20231206-708-wmzagd clean
+make DESTDIR\= sitearchdir\=./.gem.20231212-67373-cja45m sitelibdir\=./.gem.20231212-67373-cja45m clean

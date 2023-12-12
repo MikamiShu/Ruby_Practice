@@ -120,16 +120,16 @@ module Capybara
       #   See {Capybara::Node::Matchers#has_no_text?}
 
       ##
-      # Expectation that page name does match
+      # Expectation that page title does match
       #
-      # @!method must_have_name
-      #   See {Capybara::Node::DocumentMatchers#has_name?}
+      # @!method must_have_title
+      #   See {Capybara::Node::DocumentMatchers#has_title?}
 
       ##
-      # Expectation that page name does not match
+      # Expectation that page title does not match
       #
-      # @!method wont_have_name
-      #   See {Capybara::Node::DocumentMatchers#has_no_name?}
+      # @!method wont_have_title
+      #   See {Capybara::Node::DocumentMatchers#has_no_title?}
 
       ##
       # Expectation that there is select
@@ -210,13 +210,13 @@ module Capybara
       #   See {Capybara::Node::Matchers#has_no_xpath?}
 
       # This currently doesn't work for Ruby 2.8 due to Minitest not forwarding keyword args separately
-      # %w[text content name current_path].each do |assertion|
+      # %w[text content title current_path].each do |assertion|
       #   infect_an_assertion "assert_#{assertion}", "must_have_#{assertion}", :reverse
       #   infect_an_assertion "refute_#{assertion}", "wont_have_#{assertion}", :reverse
       # end
 
       # rubocop:disable Style/MultilineBlockChain
-      (%w[text content name current_path
+      (%w[text content title current_path
           selector xpath css link button field select table checked_field unchecked_field
           ancestor sibling].flat_map do |assertion|
             [%W[assert_#{assertion} must_have_#{assertion}],

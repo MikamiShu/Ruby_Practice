@@ -141,13 +141,13 @@ module Capybara
       # Find a link on the page. The link can be found by its id or text.
       #
       # @overload find_link([locator], **options)
-      #   @param [String] locator            id, {Capybara.configure test_id} attribute, name, text, or alt of enclosed img element
+      #   @param [String] locator            id, {Capybara.configure test_id} attribute, title, text, or alt of enclosed img element
       #
       #   @macro waiting_behavior
       #
       #   @option options [String,Regexp,nil] href    Value to match against the links href, if `nil` finds link placeholders (`<a>` elements with no href attribute), if `false` ignores the href
       #   @option options [String, Regexp] id         Match links with the id provided
-      #   @option options [String] name              Match links with the name provided
+      #   @option options [String] title              Match links with the title provided
       #   @option options [String] alt                Match links with a contained img element whose alt matches
       #   @option options [String, Boolean] download  Match links with the download provided
       #   @option options [String] target             Match links with the target provided
@@ -162,11 +162,11 @@ module Capybara
       #
       # Find a button on the page.
       # This can be any `<input>` element of type submit, reset, image, button or it can be a
-      # `<button>` element. All buttons can be found by their id, name, {Capybara.configure test_id} attribute, value, or name.
+      # `<button>` element. All buttons can be found by their id, name, {Capybara.configure test_id} attribute, value, or title.
       # `<button>` elements can also be found by their text content, and image `<input>` elements by their alt attribute.
       #
       # @overload find_button([locator], **options)
-      #   @param [String] locator            id, name, {Capybara.configure test_id} attribute, value, name, text content, alt of image
+      #   @param [String] locator            id, name, {Capybara.configure test_id} attribute, value, title, text content, alt of image
       #
       #   @macro waiting_behavior
       #
@@ -176,7 +176,7 @@ module Capybara
       #                                                       * :all - finds either an enabled or disabled button
       #   @option options [String, Regexp] id                 Match buttons with the id provided
       #   @option options [String] name                       Match buttons with the name provided
-      #   @option options [String] name                      Match buttons with the name provided
+      #   @option options [String] title                      Match buttons with the title provided
       #   @option options [String] value                      Match buttons with the value provided
       #   @option options [String, Array<String>, Regexp] class    Match buttons that match the class(es) provided
       # @return [Capybara::Node::Element]   The found element

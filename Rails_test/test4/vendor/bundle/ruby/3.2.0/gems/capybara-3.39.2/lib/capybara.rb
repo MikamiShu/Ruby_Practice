@@ -458,7 +458,7 @@ module Capybara
   require 'capybara/queries/base_query'
   require 'capybara/queries/selector_query'
   require 'capybara/queries/text_query'
-  require 'capybara/queries/name_query'
+  require 'capybara/queries/title_query'
   require 'capybara/queries/current_path_query'
   require 'capybara/queries/match_query'
   require 'capybara/queries/ancestor_query'

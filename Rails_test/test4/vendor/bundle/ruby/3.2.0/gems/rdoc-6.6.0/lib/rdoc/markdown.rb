@@ -142,7 +142,7 @@
 #
 # ## Limitations
 #
-# * Link names are not used
+# * Link titles are not used
 # * Footnotes are collapsed into a single paragraph
 #
 # ## Author
@@ -11828,7 +11828,7 @@ class RDoc::Markdown
     return _tmp
   end
 
-  # Reference = @NonindentSpace !"[]" Label:label ":" Spnl RefSrc:link RefTitle @BlankLine+ { # TODO use name               reference label, link               nil             }
+  # Reference = @NonindentSpace !"[]" Label:label ":" Spnl RefSrc:link RefTitle @BlankLine+ { # TODO use title               reference label, link               nil             }
   def _Reference
 
     _save = self.pos
@@ -11888,7 +11888,7 @@ class RDoc::Markdown
         self.pos = _save
         break
       end
-      @result = begin;  # TODO use name
+      @result = begin;  # TODO use title
               reference label, link
               nil
             ; end
@@ -16715,7 +16715,7 @@ class RDoc::Markdown
   Rules[:_AutoLink] = rule_info("AutoLink", "(AutoLinkUrl | AutoLinkEmail)")
   Rules[:_AutoLinkUrl] = rule_info("AutoLinkUrl", "\"<\" < /[A-Za-z]+/ \"://\" (!@Newline !\">\" .)+ > \">\" { text }")
   Rules[:_AutoLinkEmail] = rule_info("AutoLinkEmail", "\"<\" \"mailto:\"? < /[\\w+.\\/!%~$-]+/i \"@\" (!@Newline !\">\" .)+ > \">\" { \"mailto:\#{text}\" }")
-  Rules[:_Reference] = rule_info("Reference", "@NonindentSpace !\"[]\" Label:label \":\" Spnl RefSrc:link RefTitle @BlankLine+ { \# TODO use name               reference label, link               nil             }")
+  Rules[:_Reference] = rule_info("Reference", "@NonindentSpace !\"[]\" Label:label \":\" Spnl RefSrc:link RefTitle @BlankLine+ { \# TODO use title               reference label, link               nil             }")
   Rules[:_Label] = rule_info("Label", "\"[\" (!\"^\" &{ notes? } | &. &{ !notes? }) @StartList:a (!\"]\" Inline:l { a << l })* \"]\" { a.join.gsub(/\\s+/, ' ') }")
   Rules[:_RefSrc] = rule_info("RefSrc", "< Nonspacechar+ > { text }")
   Rules[:_RefTitle] = rule_info("RefTitle", "(RefTitleSingle | RefTitleDouble | RefTitleParens | EmptyTitle)")

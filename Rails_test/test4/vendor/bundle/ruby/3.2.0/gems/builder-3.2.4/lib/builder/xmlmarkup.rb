@@ -36,7 +36,7 @@ module Builder
   #   xm.instruct!                   # <?xml version="1.0" encoding="UTF-8"?>
   #   xm.html {                      # <html>
   #     xm.head {                    #   <head>
-  #       xm.name("History")        #     <name>History</name>
+  #       xm.title("History")        #     <title>History</title>
   #     }                            #   </head>
   #     xm.body {                    #   <body>
   #       xm.comment! "HI"           #     <!-- HI -->
@@ -98,7 +98,7 @@ module Builder
   #   Examples:
   #
   #     xm = Builder::XmlMarkup.new
-  #     result = xm.name("yada")
+  #     result = xm.title("yada")
   #     # result is a string containing the markup.
   #
   #     buffer = ""

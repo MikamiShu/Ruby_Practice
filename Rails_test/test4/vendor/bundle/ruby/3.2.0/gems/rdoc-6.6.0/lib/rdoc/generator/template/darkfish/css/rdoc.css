@@ -459,10 +459,10 @@ main header h3 {
   font-size: 120%;
 }
 
-.documentation-section-name {
+.documentation-section-title {
   position: relative;
 }
-.documentation-section-name .section-click-top {
+.documentation-section-title .section-click-top {
   position: absolute;
   top: 6px;
   left: 12px;
@@ -472,7 +472,7 @@ main header h3 {
   padding-left: 0.5px;
 }
 
-.documentation-section-name:hover .section-click-top {
+.documentation-section-title:hover .section-click-top {
   visibility: visible;
 }
 

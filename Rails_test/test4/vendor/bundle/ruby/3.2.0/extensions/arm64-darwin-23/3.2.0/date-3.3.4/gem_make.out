@@ -6,10 +6,10 @@ checking for altzone in time.h with  -Werror... no
 creating Makefile
 
 current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/date-3.3.4/ext/date
-make DESTDIR\= sitearchdir\=./.gem.20231206-708-tkscsq sitelibdir\=./.gem.20231206-708-tkscsq clean
+make DESTDIR\= sitearchdir\=./.gem.20231212-67373-kez84v sitelibdir\=./.gem.20231212-67373-kez84v clean
 
 current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/date-3.3.4/ext/date
-make DESTDIR\= sitearchdir\=./.gem.20231206-708-tkscsq sitelibdir\=./.gem.20231206-708-tkscsq
+make DESTDIR\= sitearchdir\=./.gem.20231212-67373-kez84v sitelibdir\=./.gem.20231212-67373-kez84v
 compiling date_core.c
 compiling date_parse.c
 compiling date_strftime.c
@@ -18,8 +18,8 @@ linking shared-object date_core.bundle
 ld: warning: ignoring duplicate libraries: '-lruby.3.2'
 
 current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/date-3.3.4/ext/date
-make DESTDIR\= sitearchdir\=./.gem.20231206-708-tkscsq sitelibdir\=./.gem.20231206-708-tkscsq install
-/usr/bin/install -c -m 0755 date_core.bundle ./.gem.20231206-708-tkscsq
+make DESTDIR\= sitearchdir\=./.gem.20231212-67373-kez84v sitelibdir\=./.gem.20231212-67373-kez84v install
+/usr/bin/install -c -m 0755 date_core.bundle ./.gem.20231212-67373-kez84v
 
 current directory: /Users/mikami/Git/Software_Engineering/Rails_test/test4/vendor/bundle/ruby/3.2.0/gems/date-3.3.4/ext/date
-make DESTDIR\= sitearchdir\=./.gem.20231206-708-tkscsq sitelibdir\=./.gem.20231206-708-tkscsq clean
+make DESTDIR\= sitearchdir\=./.gem.20231212-67373-kez84v sitelibdir\=./.gem.20231212-67373-kez84v clean

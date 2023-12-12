@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Capybara.add_selector(:link, locator_type: [String, Symbol]) do
-  xpath do |locator, href: true, alt: nil, name: nil, target: nil, **|
+  xpath do |locator, href: true, alt: nil, title: nil, target: nil, **|
     xpath = XPath.descendant(:a)
     xpath = builder(xpath).add_attribute_conditions(href: href) unless href == false
 
@@ -16,14 +16,14 @@ Capybara.add_selector(:link, locator_type: [String, Symbol]) do
       locator = locator.to_s
       matchers = [XPath.attr(:id) == locator,
                   XPath.string.n.is(locator),
-                  XPath.attr(:name).is(locator),
+                  XPath.attr(:title).is(locator),
                   XPath.descendant(:img)[XPath.attr(:alt).is(locator)]]
       matchers << XPath.attr(:'aria-label').is(locator) if enable_aria_label
       matchers << XPath.attr(test_id).equals(locator) if test_id
       xpath = xpath[matchers.reduce(:|)]
     end
 
-    xpath = xpath[find_by_attr(:name, name)]
+    xpath = xpath[find_by_attr(:title, title)]
     xpath = xpath[XPath.descendant(:img)[XPath.attr(:alt) == alt]] if alt
     xpath = xpath[find_by_attr(:target, target)] if target
 

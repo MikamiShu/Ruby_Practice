@@ -48,7 +48,7 @@ API changes to RDoc
 
 === Accessibility
 
-Page name in right hand side
+Page title in right hand side
 
 Table of contents in left hand side as sub-list under main heading
 

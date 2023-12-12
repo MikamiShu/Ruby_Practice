@@ -16,7 +16,7 @@ module ActiveRecord
     #   end
     #
     #   class Book < ActiveRecord::Base
-    #     # columns: name, sales, author_id
+    #     # columns: title, sales, author_id
     #   end
     #
     # When you load an author with all associated books Active Record will make
@@ -34,12 +34,12 @@ module ActiveRecord
     # However, if there is a WHERE clause that spans across tables Active
     # Record will fall back to a slightly more resource-intensive single query:
     #
-    #   Author.includes(:books).where(books: {name: 'Illiad'}).to_a
+    #   Author.includes(:books).where(books: {title: 'Illiad'}).to_a
     #   # SELECT `authors`.`id` AS t0_r0, `authors`.`name` AS t0_r1, `authors`.`age` AS t0_r2,
-    #   #        `books`.`id`   AS t1_r0, `books`.`name`  AS t1_r1, `books`.`sales` AS t1_r2
+    #   #        `books`.`id`   AS t1_r0, `books`.`title`  AS t1_r1, `books`.`sales` AS t1_r2
     #   # FROM `authors`
     #   # LEFT OUTER JOIN `books` ON `authors`.`id` =  `books`.`author_id`
-    #   # WHERE `books`.`name` = 'Illiad'
+    #   # WHERE `books`.`title` = 'Illiad'
     #
     # This could result in many rows that contain redundant data and it performs poorly at scale
     # and is therefore only used when necessary.

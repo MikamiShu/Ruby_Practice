@@ -22,8 +22,8 @@ module ActionText
       #
       # If you wish to preload the dependent RichText model, you can use the named scope:
       #
-      #   Message.all.with_rich_name # Avoids N+1 queries when you just want the body, not the attachments.
-      #   Message.all.with_rich_name_and_embeds # Avoids N+1 queries when you just want the body and attachments.
+      #   Message.all.with_rich_text_content # Avoids N+1 queries when you just want the body, not the attachments.
+      #   Message.all.with_rich_text_content_and_embeds # Avoids N+1 queries when you just want the body and attachments.
       #   Message.all.with_all_rich_text # Loads all rich text associations.
       #
       # ==== Options

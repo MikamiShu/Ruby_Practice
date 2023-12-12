@@ -24,7 +24,7 @@ module ActionText
   # data for <tt>Article</tt> instances in <tt>test/fixtures/articles.yml</tt>:
   #
   #   first:
-  #     name: An Article
+  #     title: An Article
   #
   # Then declare the ActionText::RichText fixture data in
   # <tt>test/fixtures/action_text/rich_texts.yml</tt>, making sure to declare
@@ -47,7 +47,7 @@ module ActionText
     # <tt>test/fixtures/articles.yml</tt>:
     #
     #   second:
-    #     name: Another Article
+    #     title: Another Article
     #
     # You can attach a mention of <tt>articles(:first)</tt> to <tt>second</tt>'s
     # <tt>content</tt> by embedding a call to <tt>ActionText::FixtureSet.attachment</tt>

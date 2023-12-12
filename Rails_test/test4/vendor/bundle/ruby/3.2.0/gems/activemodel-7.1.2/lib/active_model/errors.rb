@@ -439,16 +439,16 @@ module ActiveModel
     # When using inheritance in your models, it will check all the inherited
     # models too, but only if the model itself hasn't been found. Say you have
     # <tt>class Admin < User; end</tt> and you wanted the translation for
-    # the <tt>:blank</tt> error message for the <tt>name</tt> attribute,
+    # the <tt>:blank</tt> error message for the <tt>title</tt> attribute,
     # it looks for these translations:
     #
-    # * <tt>activemodel.errors.models.admin.attributes.name.blank</tt>
+    # * <tt>activemodel.errors.models.admin.attributes.title.blank</tt>
     # * <tt>activemodel.errors.models.admin.blank</tt>
-    # * <tt>activemodel.errors.models.user.attributes.name.blank</tt>
+    # * <tt>activemodel.errors.models.user.attributes.title.blank</tt>
     # * <tt>activemodel.errors.models.user.blank</tt>
     # * any default you provided through the +options+ hash (in the <tt>activemodel.errors</tt> scope)
     # * <tt>activemodel.errors.messages.blank</tt>
-    # * <tt>errors.attributes.name.blank</tt>
+    # * <tt>errors.attributes.title.blank</tt>
     # * <tt>errors.messages.blank</tt>
     def generate_message(attribute, type = :invalid, options = {})
       Error.generate_message(attribute, type, @base, options)

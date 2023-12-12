@@ -27,10 +27,10 @@
 
   <%- klass.each_section do |section, constants, attributes| -%>
   <section id="<%= section.aref %>" class="documentation-section">
-    <%- if section.name then -%>
-    <header class="documentation-section-name">
+    <%- if section.title then -%>
+    <header class="documentation-section-title">
       <h2>
-        <%= section.name %>
+        <%= section.title %>
       </h2>
       <span class="section-click-top">
         <a href="#top">&uarr; top</a>

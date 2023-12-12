@@ -15,7 +15,7 @@ class Rails::MailersController < Rails::ApplicationController # :nodoc:
 
   def index
     @previews = ActionMailer::Preview.all
-    @page_name = "Action Mailer Previews"
+    @page_title = "Action Mailer Previews"
   end
 
   def download
@@ -30,13 +30,13 @@ class Rails::MailersController < Rails::ApplicationController # :nodoc:
 
   def preview
     if params[:path] == @preview.preview_name
-      @page_name = "Action Mailer Previews for #{@preview.preview_name}"
+      @page_title = "Action Mailer Previews for #{@preview.preview_name}"
       render action: "mailer"
     else
       @email_action = File.basename(params[:path])
 
       if @preview.email_exists?(@email_action)
-        @page_name = "Mailer Preview for #{@preview.preview_name}##{@email_action}"
+        @page_title = "Mailer Preview for #{@preview.preview_name}##{@email_action}"
         @email = @preview.call(@email_action, params)
 
         if params[:part]

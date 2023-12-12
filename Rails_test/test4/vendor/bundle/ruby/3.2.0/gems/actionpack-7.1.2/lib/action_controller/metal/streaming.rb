@@ -70,22 +70,22 @@ module ActionController # :nodoc:
   # or not, is by using +content_for+, +provide+, and +yield+.
   #
   # Take a simple example where the layout expects the template to tell
-  # which name to use:
+  # which title to use:
   #
   #   <html>
-  #     <head><name><%= yield :name %></name></head>
+  #     <head><title><%= yield :title %></title></head>
   #     <body><%= yield %></body>
   #   </html>
   #
-  # You would use +content_for+ in your template to specify the name:
+  # You would use +content_for+ in your template to specify the title:
   #
-  #   <%= content_for :name, "Main" %>
+  #   <%= content_for :title, "Main" %>
   #   Hello
   #
   # And the final result would be:
   #
   #   <html>
-  #     <head><name>Main</name></head>
+  #     <head><title>Main</title></head>
   #     <body>Hello</body>
   #   </html>
   #
@@ -93,34 +93,34 @@ module ActionController # :nodoc:
   # would have all calls concatenated. For instance, if we have the following
   # template:
   #
-  #   <%= content_for :name, "Main" %>
+  #   <%= content_for :title, "Main" %>
   #   Hello
-  #   <%= content_for :name, " page" %>
+  #   <%= content_for :title, " page" %>
   #
   # The final result would be:
   #
   #   <html>
-  #     <head><name>Main page</name></head>
+  #     <head><title>Main page</title></head>
   #     <body>Hello</body>
   #   </html>
   #
-  # This means that, if you have <code>yield :name</code> in your layout
+  # This means that, if you have <code>yield :title</code> in your layout
   # and you want to use streaming, you would have to render the whole template
-  # (and eventually trigger all queries) before streaming the name and all
+  # (and eventually trigger all queries) before streaming the title and all
   # assets, which defeats the purpose of streaming. Alternatively, you can use
   # a helper called +provide+ that does the same as +content_for+ but tells the
   # layout to stop searching for other entries and continue rendering.
   #
   # For instance, the template above using +provide+ would be:
   #
-  #   <%= provide :name, "Main" %>
+  #   <%= provide :title, "Main" %>
   #   Hello
-  #   <%= content_for :name, " page" %>
+  #   <%= content_for :title, " page" %>
   #
   # Resulting in:
   #
   #   <html>
-  #     <head><name>Main</name></head>
+  #     <head><title>Main</title></head>
   #     <body>Hello</body>
   #   </html>
   #

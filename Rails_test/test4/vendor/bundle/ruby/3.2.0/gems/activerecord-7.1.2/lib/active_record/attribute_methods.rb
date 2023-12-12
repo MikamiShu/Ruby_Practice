@@ -374,12 +374,12 @@ module ActiveRecord
     #   class Task < ActiveRecord::Base
     #   end
     #
-    #   task = Task.new(name: '', is_done: false)
-    #   task.attribute_present?(:name)   # => false
+    #   task = Task.new(title: '', is_done: false)
+    #   task.attribute_present?(:title)   # => false
     #   task.attribute_present?(:is_done) # => true
-    #   task.name = 'Buy milk'
+    #   task.title = 'Buy milk'
     #   task.is_done = true
-    #   task.attribute_present?(:name)   # => true
+    #   task.attribute_present?(:title)   # => true
     #   task.attribute_present?(:is_done) # => true
     def attribute_present?(attr_name)
       attr_name = attr_name.to_s
@@ -451,7 +451,7 @@ module ActiveRecord
     #
     #   class PostsController < ActionController::Base
     #     def index
-    #       @posts = Post.select(:id, :name, :author_id, :updated_at)
+    #       @posts = Post.select(:id, :title, :author_id, :updated_at)
     #     end
     #   end
     def accessed_fields

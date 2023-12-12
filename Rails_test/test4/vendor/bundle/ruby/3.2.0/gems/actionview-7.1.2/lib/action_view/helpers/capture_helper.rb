@@ -34,7 +34,7 @@ module ActionView
       # You can then use that variable anywhere else. For example:
       #
       #   <html>
-      #   <head><name><%= @greeting %></name></head>
+      #   <head><title><%= @greeting %></title></head>
       #   <body>
       #   <b><%= @greeting %></b>
       #   </body>
@@ -102,7 +102,7 @@ module ActionView
       #   <%# This is the layout %>
       #   <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
       #   <head>
-      #     <name>My Website</name>
+      #     <title>My Website</title>
       #     <%= yield :script %>
       #   </head>
       #   <body>
@@ -204,7 +204,7 @@ module ActionView
       #   <%# This is the layout %>
       #   <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
       #   <head>
-      #     <name>My Website</name>
+      #     <title>My Website</title>
       #     <%= yield :script %>
       #   </head>
       #   <body class="<%= content_for?(:right_col) ? 'two-column' : 'one-column' %>">

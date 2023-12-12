@@ -236,9 +236,9 @@ module ActiveRecord
       # transaction. For example, the following behavior may be surprising:
       #
       #   ActiveRecord::Base.transaction do
-      #     Post.create(name: 'first')
+      #     Post.create(title: 'first')
       #     ActiveRecord::Base.transaction do
-      #       Post.create(name: 'second')
+      #       Post.create(title: 'second')
       #       raise ActiveRecord::Rollback
       #     end
       #   end
@@ -273,14 +273,14 @@ module ActiveRecord
       # If we add it to the previous example:
       #
       #   ActiveRecord::Base.transaction do
-      #     Post.create(name: 'first')
+      #     Post.create(title: 'first')
       #     ActiveRecord::Base.transaction(requires_new: true) do
-      #       Post.create(name: 'second')
+      #       Post.create(title: 'second')
       #       raise ActiveRecord::Rollback
       #     end
       #   end
       #
-      # only post with name "first" is created.
+      # only post with title "first" is created.
       #
       # See ActiveRecord::Transactions to learn more.
       #

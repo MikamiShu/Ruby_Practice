@@ -33,12 +33,12 @@ module ActionView
       #
       #   app/views/posts/index.atom.builder:
       #     atom_feed do |feed|
-      #       feed.name("My great blog!")
+      #       feed.title("My great blog!")
       #       feed.updated(@posts[0].created_at) if @posts.length > 0
       #
       #       @posts.each do |post|
       #         feed.entry(post) do |entry|
-      #           entry.name(post.name)
+      #           entry.title(post.title)
       #           entry.content(post.body, type: 'html')
       #
       #           entry.author do |author|
@@ -64,13 +64,13 @@ module ActionView
       #   app/views/posts/index.atom.builder:
       #     atom_feed({'xmlns:app' => 'http://www.w3.org/2007/app',
       #         'xmlns:openSearch' => 'http://a9.com/-/spec/opensearch/1.1/'}) do |feed|
-      #       feed.name("My great blog!")
+      #       feed.title("My great blog!")
       #       feed.updated((@posts.first.created_at))
       #       feed.tag!('openSearch:totalResults', 10)
       #
       #       @posts.each do |post|
       #         feed.entry(post) do |entry|
-      #           entry.name(post.name)
+      #           entry.title(post.title)
       #           entry.content(post.body, type: 'html')
       #           entry.tag!('app:edited', Time.now)
       #
@@ -81,7 +81,7 @@ module ActionView
       #       end
       #     end
       #
-      # The Atom spec defines five elements (content rights name subname
+      # The Atom spec defines five elements (content rights title subtitle
       # summary) which may directly contain XHTML content if type: 'xhtml'
       # is specified as an attribute. If so, this helper will take care of
       # the enclosing div and XHTML namespace declaration. Example usage:
@@ -127,7 +127,7 @@ module ActionView
       end
 
       class AtomBuilder # :nodoc:
-        XHTML_TAG_NAMES = %w(content rights name subname summary).to_set
+        XHTML_TAG_NAMES = %w(content rights title subtitle summary).to_set
 
         def initialize(xml)
           @xml = xml

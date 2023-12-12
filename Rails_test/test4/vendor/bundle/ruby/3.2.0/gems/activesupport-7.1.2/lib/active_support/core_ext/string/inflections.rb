@@ -111,22 +111,22 @@ class String
   alias_method :camelcase, :camelize
 
   # Capitalizes all the words and replaces some characters in the string to create
-  # a nicer looking name. +nameize+ is meant for creating pretty output. It is not
+  # a nicer looking title. +titleize+ is meant for creating pretty output. It is not
   # used in the \Rails internals.
   #
   # The trailing '_id','Id'.. can be kept and capitalized by setting the
   # optional parameter +keep_id_suffix+ to true.
   # By default, this parameter is false.
   #
-  #   'man from the boondocks'.nameize                       # => "Man From The Boondocks"
-  #   'x-men: the last stand'.nameize                        # => "X Men: The Last Stand"
-  #   'string_ending_with_id'.nameize(keep_id_suffix: true)  # => "String Ending With Id"
+  #   'man from the boondocks'.titleize                       # => "Man From The Boondocks"
+  #   'x-men: the last stand'.titleize                        # => "X Men: The Last Stand"
+  #   'string_ending_with_id'.titleize(keep_id_suffix: true)  # => "String Ending With Id"
   #
-  # See ActiveSupport::Inflector.nameize.
-  def nameize(keep_id_suffix: false)
-    ActiveSupport::Inflector.nameize(self, keep_id_suffix: keep_id_suffix)
+  # See ActiveSupport::Inflector.titleize.
+  def titleize(keep_id_suffix: false)
+    ActiveSupport::Inflector.titleize(self, keep_id_suffix: keep_id_suffix)
   end
-  alias_method :namecase, :nameize
+  alias_method :titlecase, :titleize
 
   # The reverse of +camelize+. Makes an underscored, lowercase form from the expression in the string.
   #
@@ -242,7 +242,7 @@ class String
 
   # Capitalizes the first word, turns underscores into spaces, and (by default) strips a
   # trailing '_id' if present.
-  # Like +nameize+, this is meant for creating pretty output.
+  # Like +titleize+, this is meant for creating pretty output.
   #
   # The capitalization of the first word can be turned off by setting the
   # optional parameter +capitalize+ to false.

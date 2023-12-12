@@ -122,7 +122,7 @@ module ActionDispatch
           svg.join.sub(/width="[^"]*"/, "").sub(/height="[^"]*"/, "")
         end
 
-        def visualizer(paths, name = "FSM")
+        def visualizer(paths, title = "FSM")
           viz_dir   = File.join __dir__, "..", "visualizer"
           fsm_js    = File.read File.join(viz_dir, "fsm.js")
           fsm_css   = File.read File.join(viz_dir, "fsm.css")

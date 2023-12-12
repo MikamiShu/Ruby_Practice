@@ -685,13 +685,13 @@ Changes since RDoc 4.0.0.rc.2:
 * Minor enhancements
   * Added DEVELOPERS document which contains an overview of how RDoc works and
     how to add new features to RDoc.
-  * Improved name for HTML output to include <code>--name</code> in the
-    name element.
+  * Improved title for HTML output to include <code>--title</code> in the
+    title element.
   * <code>rdoc --pipe</code> now understands <code>--markup</code>.
   * RDoc now supports IRC-scheme hyperlinks.  Issue #83 by trans.
 
 * Bug fixes
-  * Fixed name on HTML output for pages.
+  * Fixed title on HTML output for pages.
   * Fixed parsing of non-indented HEREDOC.
   * Fixed parsing of <code>%w[]</code> and other % literals.  Issue #84 by
     Erik Hollensbe
@@ -759,7 +759,7 @@ Changes since RDoc 4.0.0.rc.2:
 
 * Minor enhancements
   * RDoc autoloads everything.  You only need to require 'rdoc' now.
-  * HTML headings now have ids matching their names.
+  * HTML headings now have ids matching their titles.
 
       = Hello!
 
@@ -1166,7 +1166,7 @@ Special thanks to Thierry Lambert for massive improvements to RDoc.
     <tt>--format</tt>.  See RDoc::Options::setup_generator.
   * rdoc gives an error when multiple formats are given.
   * Files with erb inside will no longer trip RDoc::Parser::binary?
-  * Last <tt>--name</tt> wins.  Patch by Thierry Lambert.
+  * Last <tt>--title</tt> wins.  Patch by Thierry Lambert.
   * Better block params handling.  Patch by Thierry Lambert.
   * Moved rdoc/tokenstream.rb to rdoc/token_stream.rb.
   * Moved rdoc/markup/preprocess.rb to rdoc/markup/pre_process.rb.
@@ -1562,7 +1562,7 @@ documentation about ri.
     user to get information for a class' method.
 
 * 8 Minor Enhancements
-  * RDoc now adds the package name to the web pages that it generates
+  * RDoc now adds the package title to the web pages that it generates
     for files and classes/modules, which helps them appear better in
     search engine results.
   * RDoc now automatically generates cross-reference links for classes and

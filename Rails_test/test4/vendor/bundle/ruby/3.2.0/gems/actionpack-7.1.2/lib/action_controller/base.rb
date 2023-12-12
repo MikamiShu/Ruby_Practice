@@ -112,7 +112,7 @@ module ActionController
   #
   # Which are then automatically available to the view:
   #
-  #   Title: <%= @post.name %>
+  #   Title: <%= @post.title %>
   #
   # You don't have to rely on the automated rendering. For example, actions that could result in the rendering of different templates
   # will use the manual rendering methods:

@@ -118,12 +118,12 @@ module ActiveSupport # :nodoc:
 
       # Capitalizes the first letter of every word, when possible.
       #
-      #   "ÉL QUE SE ENTERÓ".mb_chars.nameize.to_s    # => "Él Que Se Enteró"
-      #   "日本語".mb_chars.nameize.to_s               # => "日本語"
-      def nameize
+      #   "ÉL QUE SE ENTERÓ".mb_chars.titleize.to_s    # => "Él Que Se Enteró"
+      #   "日本語".mb_chars.titleize.to_s               # => "日本語"
+      def titleize
         chars(downcase.to_s.gsub(/\b('?\S)/u) { $1.upcase })
       end
-      alias_method :namecase, :nameize
+      alias_method :titlecase, :titleize
 
       # Performs canonical decomposition on all the characters.
       #

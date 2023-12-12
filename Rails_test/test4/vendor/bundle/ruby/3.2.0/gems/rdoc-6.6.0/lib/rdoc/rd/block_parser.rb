@@ -1384,9 +1384,9 @@ def _reduce_11(val, _values, result)
 end
 
 def _reduce_12(val, _values, result)
-      # val[0] is like [level, name]
-      name = @inline_parser.parse(val[0][1])
-      result = RDoc::Markup::Heading.new(val[0][0], name)
+      # val[0] is like [level, title]
+      title = @inline_parser.parse(val[0][1])
+      result = RDoc::Markup::Heading.new(val[0][0], title)
 
     result
 end

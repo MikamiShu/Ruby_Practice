@@ -37,7 +37,7 @@ cs,surrogate
 cwcf,changes_when_casefolded
 cwcm,changes_when_casemapped
 cwl,changes_when_lowercased
-cwt,changes_when_namecased
+cwt,changes_when_titlecased
 cwu,changes_when_uppercased
 cyrl,cyrillic
 dep,deprecated
@@ -110,7 +110,7 @@ ll,lowercase_letter
 lm,modifier_letter
 lo,other_letter
 loe,logical_order_exception
-lt,namecase_letter
+lt,titlecase_letter
 lu,uppercase_letter
 lyci,lycian
 lydi,lydian

@@ -10,10 +10,10 @@
 <form action="/form" method="post" novalidate>
 
   <p>
-    <label for="form_name">Title</label>
-    <select name="form[name]" id="form_name" class="name" tabindex="3">
-      <option class="name">Mrs</option>
-      <option class="name">Mr</option>
+    <label for="form_title">Title</label>
+    <select name="form[title]" id="form_title" class="title" tabindex="3">
+      <option class="title">Mrs</option>
+      <option class="title">Mr</option>
       <option>Miss</option>
       <option disabled="disabled">Other</option>
     </select>
@@ -38,8 +38,8 @@
   </p>
 
   <p>
-    <label for="form_other_name">Other name</label>
-    <select name="form[other_name]" id="form_other_name">
+    <label for="form_other_title">Other title</label>
+    <select name="form[other_title]" id="form_other_title">
       <option>Mrs</option>
       <option>Mr</option>
       <option>Miss</option>
@@ -457,10 +457,10 @@ New line after and before textarea tag
 
   <p>
     <input type="button" aria-label="Aria button" name="form[fresh]" id="fresh_btn" value="i am fresh"/>
-    <input type="submit" name="form[awesome]" id="awe123" data-test-id="test_id_button" name="What an Awesome Button" value="awesome"/>
+    <input type="submit" name="form[awesome]" id="awe123" data-test-id="test_id_button" title="What an Awesome Button" value="awesome"/>
     <input type="submit" name="form[crappy]" id="crap321" value="crappy"/>
-    <input type="image" name="form[okay]" id="okay556" name="Okay 556 Image" value="okay" alt="oh hai thar"/>
-    <button type="submit" id="click_me_123" name="Click Title button" value="click_me">Click me!</button>
+    <input type="image" name="form[okay]" id="okay556" title="Okay 556 Image" value="okay" alt="oh hai thar"/>
+    <button type="submit" id="click_me_123" title="Click Title button" value="click_me">Click me!</button>
     <button type="submit" name="form[no_value]">No Value!</button>
     <button id="no_type">No Type!</button>
     <button><img alt="A horse eating hay"/></button>
@@ -712,7 +712,7 @@ New line after and before textarea tag
 </label>
 
 <p>
-  <label for="asterisk_input">With Asterisk<abbr name="required">*</abbr></label>
+  <label for="asterisk_input">With Asterisk<abbr title="required">*</abbr></label>
   <input id="asterisk_input" type="number"value="2016"/>
 </p>
 

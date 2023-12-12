@@ -140,12 +140,12 @@ module Rails
           #   # Form element includes four input fields
           #   assert_dom "form input", 4
           #
-          #   # Page name is "Welcome"
-          #   assert_dom "name", "Welcome"
+          #   # Page title is "Welcome"
+          #   assert_dom "title", "Welcome"
           #
-          #   # Page name is "Welcome" and there is only one name element
-          #   assert_dom "name", {count: 1, text: "Welcome"},
-          #       "Wrong name or more than one name element"
+          #   # Page title is "Welcome" and there is only one title element
+          #   assert_dom "title", {count: 1, text: "Welcome"},
+          #       "Wrong title or more than one title element"
           #
           #   # Page contains no forms
           #   assert_dom "form", false, "This page must contain no forms"
@@ -189,11 +189,11 @@ module Rails
           # The content of each element is un-encoded, and wrapped in the root
           # element +encoded+. It then calls the block with all un-encoded elements.
           #
-          #   # Selects all bold tags from within the name of an Atom feed's entries (perhaps to nab a section name prefix)
+          #   # Selects all bold tags from within the title of an Atom feed's entries (perhaps to nab a section name prefix)
           #   assert_dom "feed[xmlns='http://www.w3.org/2005/Atom']" do
-          #     # Select each entry item and then the name item
-          #     assert_dom "entry>name" do
-          #       # Run assertions on the encoded name elements
+          #     # Select each entry item and then the title item
+          #     assert_dom "entry>title" do
+          #       # Run assertions on the encoded title elements
           #       assert_dom_encoded do
           #         assert_dom "b"
           #       end
@@ -222,7 +222,7 @@ module Rails
           # <tt>html_version: :html4</tt> or <tt>html_version: :html5</tt> keyword arguments:
           #
           #   assert_dom "feed[xmlns='http://www.w3.org/2005/Atom']" do
-          #     assert_dom "entry>name" do
+          #     assert_dom "entry>title" do
           #       assert_dom_encoded(html_version: :html5) do
           #         assert_dom "b"
           #       end

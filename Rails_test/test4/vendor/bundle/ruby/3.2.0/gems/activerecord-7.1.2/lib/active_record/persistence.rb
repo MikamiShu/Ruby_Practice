@@ -161,16 +161,16 @@ module ActiveRecord
       #   # Here "Eloquent Ruby" is skipped because its id is not unique.
       #
       #   Book.insert_all([
-      #     { id: 1, name: "Rework", author: "David" },
-      #     { id: 1, name: "Eloquent Ruby", author: "Russ" }
+      #     { id: 1, title: "Rework", author: "David" },
+      #     { id: 1, title: "Eloquent Ruby", author: "Russ" }
       #   ])
       #
       #   # insert_all works on chained scopes, and you can use create_with
       #   # to set default attributes for all inserted records.
       #
       #   author.books.create_with(created_at: Time.now).insert_all([
-      #     { id: 1, name: "Rework" },
-      #     { id: 2, name: "Eloquent Ruby" }
+      #     { id: 1, title: "Rework" },
+      #     { id: 2, title: "Eloquent Ruby" }
       #   ])
       def insert_all(attributes, returning: nil, unique_by: nil, record_timestamps: nil)
         InsertAll.new(self, attributes, on_duplicate: :skip, returning: returning, unique_by: unique_by, record_timestamps: record_timestamps).execute
@@ -229,15 +229,15 @@ module ActiveRecord
       #
       #   # Insert multiple records
       #   Book.insert_all!([
-      #     { name: "Rework", author: "David" },
-      #     { name: "Eloquent Ruby", author: "Russ" }
+      #     { title: "Rework", author: "David" },
+      #     { title: "Eloquent Ruby", author: "Russ" }
       #   ])
       #
       #   # Raises ActiveRecord::RecordNotUnique because "Eloquent Ruby"
       #   # does not have a unique id.
       #   Book.insert_all!([
-      #     { id: 1, name: "Rework", author: "David" },
-      #     { id: 1, name: "Eloquent Ruby", author: "Russ" }
+      #     { id: 1, title: "Rework", author: "David" },
+      #     { id: 1, title: "Eloquent Ruby", author: "Russ" }
       #   ])
       def insert_all!(attributes, returning: nil, record_timestamps: nil)
         InsertAll.new(self, attributes, on_duplicate: :raise, returning: returning, record_timestamps: record_timestamps).execute
@@ -354,11 +354,11 @@ module ActiveRecord
       #   # Here "Eloquent Ruby" overwrites "Rework" because its ISBN is duplicate.
       #
       #   Book.upsert_all([
-      #     { name: "Rework", author: "David", isbn: "1" },
-      #     { name: "Eloquent Ruby", author: "Russ", isbn: "1" }
+      #     { title: "Rework", author: "David", isbn: "1" },
+      #     { title: "Eloquent Ruby", author: "Russ", isbn: "1" }
       #   ], unique_by: :isbn)
       #
-      #   Book.find_by(isbn: "1").name # => "Eloquent Ruby"
+      #   Book.find_by(isbn: "1").title # => "Eloquent Ruby"
       def upsert_all(attributes, on_duplicate: :update, update_only: nil, returning: nil, unique_by: nil, record_timestamps: nil)
         InsertAll.new(self, attributes, on_duplicate: on_duplicate, update_only: update_only, returning: returning, unique_by: unique_by, record_timestamps: record_timestamps).execute
       end

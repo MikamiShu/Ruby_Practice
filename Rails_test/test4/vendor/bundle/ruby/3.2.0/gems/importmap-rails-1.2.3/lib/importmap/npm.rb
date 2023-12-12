@@ -39,7 +39,7 @@ class Importmap::Npm
         VulnerablePackage.new(name: package,
                               severity: vulnerability['severity'],
                               vulnerable_versions: vulnerability['vulnerable_versions'],
-                              vulnerability: vulnerability['name'])
+                              vulnerability: vulnerability['title'])
       end
     end.sort_by { |p| [p.name, p.severity] }
   end

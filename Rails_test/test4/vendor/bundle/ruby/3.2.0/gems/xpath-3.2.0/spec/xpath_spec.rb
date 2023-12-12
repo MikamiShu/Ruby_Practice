@@ -22,7 +22,7 @@ describe XPath do
 
   it 'should work as a mixin' do
     xpath = Thingy.new.foo_div.to_xpath
-    doc.xpath(xpath).first[:name].should eq 'fooDiv'
+    doc.xpath(xpath).first[:title].should eq 'fooDiv'
   end
 
   describe '#descendant' do
@@ -35,7 +35,7 @@ describe XPath do
     it 'should not find nodes outside the context' do
       @results = xpath do |x|
         foo_div = x.descendant(:div).where(x.attr(:id) == 'foo')
-        x.descendant(:p).where(x.attr(:id) == foo_div.attr(:name))
+        x.descendant(:p).where(x.attr(:id) == foo_div.attr(:title))
       end
       @results[0].should be_nil
     end
@@ -94,7 +94,7 @@ describe XPath do
     it 'should find nodes which are immediate siblings of the current node' do
       xpath { |x| x.descendant(:p)[x.attr(:id) == 'fooDiv'].next_sibling(:p) }.first.text.should eq 'Bax'
       xpath { |x| x.descendant(:p)[x.attr(:id) == 'fooDiv'].next_sibling(:ul, :p) }.first.text.should eq 'Bax'
-      xpath { |x| x.descendant(:p)[x.attr(:name) == 'monkey'].next_sibling(:ul, :p) }.first.text.should eq 'A list'
+      xpath { |x| x.descendant(:p)[x.attr(:title) == 'monkey'].next_sibling(:ul, :p) }.first.text.should eq 'A list'
       xpath { |x| x.descendant(:p)[x.attr(:id) == 'fooDiv'].next_sibling(:ul, :li) }.first.should be_nil
       xpath { |x| x.descendant(:p)[x.attr(:id) == 'fooDiv'].next_sibling }.first.text.should eq 'Bax'
     end
@@ -104,7 +104,7 @@ describe XPath do
     it 'should find nodes which are exactly preceding the current node' do
       xpath { |x| x.descendant(:p)[x.attr(:id) == 'wooDiv'].previous_sibling(:p) }.first.text.should eq 'Bax'
       xpath { |x| x.descendant(:p)[x.attr(:id) == 'wooDiv'].previous_sibling(:ul, :p) }.first.text.should eq 'Bax'
-      xpath { |x| x.descendant(:p)[x.attr(:name) == 'gorilla'].previous_sibling(:ul, :p) }.first.text.should eq 'A list'
+      xpath { |x| x.descendant(:p)[x.attr(:title) == 'gorilla'].previous_sibling(:ul, :p) }.first.text.should eq 'A list'
       xpath { |x| x.descendant(:p)[x.attr(:id) == 'wooDiv'].previous_sibling(:ul, :li) }.first.should be_nil
       xpath { |x| x.descendant(:p)[x.attr(:id) == 'wooDiv'].previous_sibling }.first.text.should eq 'Bax'
     end
@@ -114,7 +114,7 @@ describe XPath do
     it 'should find nodes regardless of the context' do
       @results = xpath do |x|
         foo_div = x.anywhere(:div).where(x.attr(:id) == 'foo')
-        x.descendant(:p).where(x.attr(:id) == foo_div.attr(:name))
+        x.descendant(:p).where(x.attr(:id) == foo_div.attr(:title))
       end
       @results[0].text.should eq 'Blah'
     end
@@ -149,15 +149,15 @@ describe XPath do
   describe '#contains' do
     it 'should find nodes that contain the given string' do
       @results = xpath do |x|
-        x.descendant(:div).where(x.attr(:name).contains('ooD'))
+        x.descendant(:div).where(x.attr(:title).contains('ooD'))
       end
       @results[0][:id].should eq 'foo'
     end
 
     it 'should find nodes that contain the given expression' do
       @results = xpath do |x|
-        expression = x.anywhere(:div).where(x.attr(:name) == 'fooDiv').attr(:id)
-        x.descendant(:div).where(x.attr(:name).contains(expression))
+        expression = x.anywhere(:div).where(x.attr(:title) == 'fooDiv').attr(:id)
+        x.descendant(:div).where(x.attr(:title).contains(expression))
       end
       @results[0][:id].should eq 'foo'
     end
@@ -186,8 +186,8 @@ describe XPath do
 
     it 'should find nodes that contain the given expression' do
       @results = xpath do |x|
-        expression = x.anywhere(:div).where(x.attr(:name) == 'fooDiv').attr(:id)
-        x.descendant(:div).where(x.attr(:name).starts_with(expression))
+        expression = x.anywhere(:div).where(x.attr(:title) == 'fooDiv').attr(:id)
+        x.descendant(:div).where(x.attr(:title).starts_with(expression))
       end
       @results[0][:id].should eq 'foo'
     end
@@ -205,8 +205,8 @@ describe XPath do
 
     it 'should find nodes that contain the given expression' do
       @results = xpath do |x|
-        expression = x.anywhere(:div).where(x.attr(:name) == 'viDoof').attr(:id)
-        x.descendant(:div).where(x.attr(:name).ends_with(expression))
+        expression = x.anywhere(:div).where(x.attr(:title) == 'viDoof').attr(:id)
+        x.descendant(:div).where(x.attr(:title).ends_with(expression))
       end
       @results[0][:id].should eq 'oof'
     end
@@ -215,7 +215,7 @@ describe XPath do
   describe '#uppercase' do
     it 'should match uppercased text' do
       @results = xpath do |x|
-        x.descendant(:div).where(x.attr(:name).uppercase == 'VIDOOF')
+        x.descendant(:div).where(x.attr(:title).uppercase == 'VIDOOF')
       end
       @results[0][:id].should eq 'oof'
     end
@@ -224,7 +224,7 @@ describe XPath do
   describe '#lowercase' do
     it 'should match lowercased text' do
       @results = xpath do |x|
-        x.descendant(:div).where(x.attr(:name).lowercase == 'vidoof')
+        x.descendant(:div).where(x.attr(:title).lowercase == 'vidoof')
       end
       @results[0][:id].should eq 'oof'
     end
@@ -234,9 +234,9 @@ describe XPath do
     it "should select a node's text" do
       @results = xpath { |x| x.descendant(:p).where(x.text == 'Bax') }
       @results[0].text.should eq 'Bax'
-      @results[1][:name].should eq 'monkey'
+      @results[1][:title].should eq 'monkey'
       @results = xpath { |x| x.descendant(:div).where(x.descendant(:p).text == 'Bax') }
-      @results[0][:name].should eq 'fooDiv'
+      @results[0][:title].should eq 'fooDiv'
     end
   end
 
@@ -279,11 +279,11 @@ describe XPath do
 
   describe '#where' do
     it 'should limit the expression to find only certain nodes' do
-      xpath { |x| x.descendant(:div).where(:"@id = 'foo'") }.first[:name].should eq 'fooDiv'
+      xpath { |x| x.descendant(:div).where(:"@id = 'foo'") }.first[:title].should eq 'fooDiv'
     end
 
     it 'should be aliased as []' do
-      xpath { |x| x.descendant(:div)[:"@id = 'foo'"] }.first[:name].should eq 'fooDiv'
+      xpath { |x| x.descendant(:div)[:"@id = 'foo'"] }.first[:title].should eq 'fooDiv'
     end
 
     it 'should be a no-op when nil condition is passed' do
@@ -307,61 +307,61 @@ describe XPath do
 
   describe '#equals' do
     it 'should limit the expression to find only certain nodes' do
-      xpath { |x| x.descendant(:div).where(x.attr(:id).equals('foo')) }.first[:name].should eq 'fooDiv'
+      xpath { |x| x.descendant(:div).where(x.attr(:id).equals('foo')) }.first[:title].should eq 'fooDiv'
     end
 
     it 'should be aliased as ==' do
-      xpath { |x| x.descendant(:div).where(x.attr(:id) == 'foo') }.first[:name].should eq 'fooDiv'
+      xpath { |x| x.descendant(:div).where(x.attr(:id) == 'foo') }.first[:title].should eq 'fooDiv'
     end
   end
 
   describe '#not_equals' do
     it 'should match only when not equal' do
-      xpath { |x| x.descendant(:div).where(x.attr(:id).not_equals('bar')) }.first[:name].should eq 'fooDiv'
+      xpath { |x| x.descendant(:div).where(x.attr(:id).not_equals('bar')) }.first[:title].should eq 'fooDiv'
     end
 
     it 'should be aliased as !=' do
-      xpath { |x| x.descendant(:div).where(x.attr(:id) != 'bar') }.first[:name].should eq 'fooDiv'
+      xpath { |x| x.descendant(:div).where(x.attr(:id) != 'bar') }.first[:title].should eq 'fooDiv'
     end
   end
 
   describe '#is' do
     it 'uses equality when :exact given' do
-      xpath(:exact) { |x| x.descendant(:div).where(x.attr(:id).is('foo')) }.first[:name].should eq 'fooDiv'
+      xpath(:exact) { |x| x.descendant(:div).where(x.attr(:id).is('foo')) }.first[:title].should eq 'fooDiv'
       xpath(:exact) { |x| x.descendant(:div).where(x.attr(:id).is('oo')) }.first.should be_nil
     end
 
     it 'uses substring matching otherwise' do
-      xpath { |x| x.descendant(:div).where(x.attr(:id).is('foo')) }.first[:name].should eq 'fooDiv'
-      xpath { |x| x.descendant(:div).where(x.attr(:id).is('oo')) }.first[:name].should eq 'fooDiv'
+      xpath { |x| x.descendant(:div).where(x.attr(:id).is('foo')) }.first[:title].should eq 'fooDiv'
+      xpath { |x| x.descendant(:div).where(x.attr(:id).is('oo')) }.first[:title].should eq 'fooDiv'
     end
   end
 
   describe '#one_of' do
     it 'should return all nodes where the condition matches' do
       @results = xpath do |x|
-        p = x.anywhere(:div).where(x.attr(:id) == 'foo').attr(:name)
+        p = x.anywhere(:div).where(x.attr(:id) == 'foo').attr(:title)
         x.descendant(:*).where(x.attr(:id).one_of('foo', p, 'baz'))
       end
-      @results[0][:name].should eq 'fooDiv'
+      @results[0][:title].should eq 'fooDiv'
       @results[1].text.should eq 'Blah'
-      @results[2][:name].should eq 'bazDiv'
+      @results[2][:title].should eq 'bazDiv'
     end
   end
 
   describe '#and' do
     it 'should find all nodes in both expression' do
       @results = xpath do |x|
-        x.descendant(:*).where(x.contains('Bax').and(x.attr(:name).equals('monkey')))
+        x.descendant(:*).where(x.contains('Bax').and(x.attr(:title).equals('monkey')))
       end
-      @results[0][:name].should eq 'monkey'
+      @results[0][:title].should eq 'monkey'
     end
 
     it 'should be aliased as ampersand (&)' do
       @results = xpath do |x|
-        x.descendant(:*).where(x.contains('Bax') & x.attr(:name).equals('monkey'))
+        x.descendant(:*).where(x.contains('Bax') & x.attr(:title).equals('monkey'))
       end
-      @results[0][:name].should eq 'monkey'
+      @results[0][:title].should eq 'monkey'
     end
   end
 
@@ -370,7 +370,7 @@ describe XPath do
       @results = xpath do |x|
         x.descendant(:*).where(x.attr(:id).equals('foo').or(x.attr(:id).equals('fooDiv')))
       end
-      @results[0][:name].should eq 'fooDiv'
+      @results[0][:title].should eq 'fooDiv'
       @results[1].text.should eq 'Blah'
     end
 
@@ -378,7 +378,7 @@ describe XPath do
       @results = xpath do |x|
         x.descendant(:*).where(x.attr(:id).equals('foo') | x.attr(:id).equals('fooDiv'))
       end
-      @results[0][:name].should eq 'fooDiv'
+      @results[0][:title].should eq 'fooDiv'
       @results[1].text.should eq 'Blah'
     end
   end
@@ -386,8 +386,8 @@ describe XPath do
   describe '#attr' do
     it 'should be an attribute' do
       @results = xpath { |x| x.descendant(:div).where(x.attr(:id)) }
-      @results[0][:name].should eq 'barDiv'
-      @results[1][:name].should eq 'fooDiv'
+      @results[0][:title].should eq 'barDiv'
+      @results[1][:title].should eq 'fooDiv'
     end
   end
 
@@ -432,7 +432,7 @@ describe XPath do
       @xpath1 = @collection.where(XPath.attr(:id) == 'foo').to_xpath
       @xpath2 = @collection.where(XPath.attr(:id) == 'fooDiv').to_xpath
       @results = doc.xpath(@xpath1)
-      @results[0][:name].should eq 'fooDiv'
+      @results[0][:title].should eq 'fooDiv'
       @results = doc.xpath(@xpath2)
       @results[0][:id].should eq 'fooDiv'
     end
@@ -444,7 +444,7 @@ describe XPath do
       @xpath1 = @collection.where(XPath.attr(:id) == 'foo').to_xpath
       @xpath2 = @collection.where(XPath.attr(:id) == 'fooDiv').to_xpath
       @results = doc.xpath(@xpath1)
-      @results[0][:name].should eq 'fooDiv'
+      @results[0][:title].should eq 'fooDiv'
       @results = doc.xpath(@xpath2)
       @results[0][:id].should eq 'fooDiv'
     end
@@ -479,7 +479,7 @@ describe XPath do
       @results = xpath { |x| x.descendant(:p)[XPath.position() <= 2] }
       @results[0].text.should eq 'Blah'
       @results[1].text.should eq 'Bax'
-      @results[2][:name].should eq 'gorilla'
+      @results[2][:title].should eq 'gorilla'
       @results[3].text.should eq 'Bax'
     end
   end
@@ -488,7 +488,7 @@ describe XPath do
     it 'checks lesser than' do
       @results = xpath { |x| x.descendant(:p)[XPath.position() < 2] }
       @results[0].text.should eq 'Blah'
-      @results[1][:name].should eq 'gorilla'
+      @results[1][:title].should eq 'gorilla'
     end
   end
 
@@ -496,7 +496,7 @@ describe XPath do
     it 'checks greater than or equal' do
       @results = xpath { |x| x.descendant(:p)[XPath.position() >= 2] }
       @results[0].text.should eq 'Bax'
-      @results[1][:name].should eq 'monkey'
+      @results[1][:title].should eq 'monkey'
       @results[2].text.should eq 'Bax'
       @results[3].text.should eq 'Blah'
     end
@@ -505,7 +505,7 @@ describe XPath do
   describe '#gt' do
     it 'checks greater than' do
       @results = xpath { |x| x.descendant(:p)[XPath.position() > 2] }
-      @results[0][:name].should eq 'monkey'
+      @results[0][:title].should eq 'monkey'
       @results[1].text.should eq 'Blah'
     end
   end
@@ -514,7 +514,7 @@ describe XPath do
     it 'adds stuff' do
       @results = xpath { |x| x.descendant(:p)[XPath.position().plus(1) == 2] }
       @results[0][:id].should eq 'fooDiv'
-      @results[1][:name].should eq 'gorilla'
+      @results[1][:title].should eq 'gorilla'
     end
   end
 
@@ -522,7 +522,7 @@ describe XPath do
     it 'subtracts stuff' do
       @results = xpath { |x| x.descendant(:p)[XPath.position().minus(1) == 0] }
       @results[0][:id].should eq 'fooDiv'
-      @results[1][:name].should eq 'gorilla'
+      @results[1][:title].should eq 'gorilla'
     end
   end
 
@@ -530,7 +530,7 @@ describe XPath do
     it 'multiplies stuff' do
       @results = xpath { |x| x.descendant(:p)[XPath.position() * 3 == 3] }
       @results[0][:id].should eq 'fooDiv'
-      @results[1][:name].should eq 'gorilla'
+      @results[1][:title].should eq 'gorilla'
     end
   end
 
@@ -546,8 +546,8 @@ describe XPath do
     it 'take modulo' do
       @results = xpath { |x| x.descendant(:p)[XPath.position() % 2 == 1] }
       @results[0].text.should eq 'Blah'
-      @results[1][:name].should eq 'monkey'
-      @results[2][:name].should eq 'gorilla'
+      @results[1][:title].should eq 'monkey'
+      @results[2][:title].should eq 'gorilla'
     end
   end
 

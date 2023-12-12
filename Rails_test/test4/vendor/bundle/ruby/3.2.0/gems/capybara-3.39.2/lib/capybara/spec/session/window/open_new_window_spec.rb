@@ -14,10 +14,10 @@ Capybara::SpecHelper.spec '#open_new_window', requires: [:windows] do
     @session.switch_to_window(@window)
   end
 
-  it 'should open new window with blank url and name' do
+  it 'should open new window with blank url and title' do
     window = @session.open_new_window
     @session.switch_to_window(window)
-    expect(@session.name).to satisfy('be a blank name') { |name| ['', 'about:blank'].include? name }
+    expect(@session.title).to satisfy('be a blank title') { |title| ['', 'about:blank'].include? title }
     expect(@session.current_url).to eq('about:blank')
   end
 

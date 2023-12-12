@@ -494,11 +494,11 @@ module SanitizerTests
     end
 
     def test_should_strip_src_attribute_in_img_with_bad_protocols
-      assert_sanitized %(<img src="javascript:bang" name="1">), %(<img name="1">)
+      assert_sanitized %(<img src="javascript:bang" title="1">), %(<img title="1">)
     end
 
     def test_should_strip_href_attribute_in_a_with_bad_protocols
-      assert_sanitized %(<a href="javascript:bang" name="1">boo</a>), %(<a name="1">boo</a>)
+      assert_sanitized %(<a href="javascript:bang" title="1">boo</a>), %(<a title="1">boo</a>)
     end
 
     def test_should_block_script_tag
@@ -586,15 +586,15 @@ module SanitizerTests
     end
 
     def test_should_sanitize_attributes
-      input = %(<SPAN name="'><script>alert()</script>">blah</SPAN>)
+      input = %(<SPAN title="'><script>alert()</script>">blah</SPAN>)
       result = safe_list_sanitize(input)
       acceptable_results = [
         # libxml2
-        %(<span name="'&gt;&lt;script&gt;alert()&lt;/script&gt;">blah</span>),
+        %(<span title="'&gt;&lt;script&gt;alert()&lt;/script&gt;">blah</span>),
         # libgumbo
         # this looks scary, but it's fine. for a more detailed analysis check out:
         # https://github.com/discourse/discourse/pull/21522#issuecomment-1545697968
-        %(<span name="'><script>alert()</script>">blah</span>)
+        %(<span title="'><script>alert()</script>">blah</span>)
       ]
 
       assert_includes(acceptable_results, result)

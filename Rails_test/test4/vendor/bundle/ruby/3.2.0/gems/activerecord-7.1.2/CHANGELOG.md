@@ -774,15 +774,15 @@
     For instance:
 
     ```ruby
-    # Cpk::Book => Cpk::Book(author_id: integer, number: integer, name: string, revision: integer)
+    # Cpk::Book => Cpk::Book(author_id: integer, number: integer, title: string, revision: integer)
     # Cpk::Book.primary_key => ["author_id", "number"]
 
     book = Cpk::Book.create!(author_id: 1, number: 1)
     Cpk::Book.where(Cpk::Book.primary_key => [[1, 2]]) # => [book]
 
-    # Topic => Topic(id: integer, name: string, author_name: string...)
+    # Topic => Topic(id: integer, title: string, author_name: string...)
 
-    Topic.where([:name, :author_name] => [["The Alchemist", "Paulo Coelho"], ["Harry Potter", "J.K Rowling"]])
+    Topic.where([:title, :author_name] => [["The Alchemist", "Paulo Coelho"], ["Harry Potter", "J.K Rowling"]])
     ```
 
     *Paarth Madan*
@@ -1058,7 +1058,7 @@
 *   Fix a bug where `ActiveRecord::Generators::ModelGenerator` would not respect create_table_migration template overrides.
 
     ```
-    rails g model create_books name:string content:text
+    rails g model create_books title:string content:text
     ```
     will now read from the create_table_migration.rb.tt template in the following locations in order:
     ```
@@ -1116,7 +1116,7 @@
     Example:
 
     ```ruby
-    Post.group(:name).regroup(:author)
+    Post.group(:title).regroup(:author)
     # SELECT `posts`.`*` FROM `posts` GROUP BY `posts`.`author`
     ```
 
@@ -1451,11 +1451,11 @@
 
       book = Book.create!
       book.name
-      # => "<unnamed>"
+      # => "<untitled>"
       book.name_before_type_cast
       # => "{\"p\":\"abc..."
       book.reload.name_before_type_cast
-      # => "<unnamed>"
+      # => "<untitled>"
       ```
 
     Now, attributes with column default values are encrypted:
@@ -1465,7 +1465,7 @@
 
       book = Book.create!
       book.name
-      # => "<unnamed>"
+      # => "<untitled>"
       book.name_before_type_cast
       # => "{\"p\":\"abc..."
       book.reload.name_before_type_cast
@@ -1618,12 +1618,12 @@
     With this change we can provide `hash` as argument, for example:
 
     ```ruby
-    Post.joins(:comments).select(posts: [:id, :name, :created_at], comments: [:id, :body, :author_id])
-    #=> "SELECT \"posts\".\"id\", \"posts\".\"name\", \"posts\".\"created_at\", \"comments\".\"id\", \"comments\".\"body\", \"comments\".\"author_id\"
+    Post.joins(:comments).select(posts: [:id, :title, :created_at], comments: [:id, :body, :author_id])
+    #=> "SELECT \"posts\".\"id\", \"posts\".\"title\", \"posts\".\"created_at\", \"comments\".\"id\", \"comments\".\"body\", \"comments\".\"author_id\"
     #   FROM \"posts\" INNER JOIN \"comments\" ON \"comments\".\"post_id\" = \"posts\".\"id\""
 
-    Post.joins(:comments).select(posts: { id: :post_id, name: :post_name }, comments: { id: :comment_id, body: :comment_body })
-    #=> "SELECT posts.id as post_id, posts.name as post_name, comments.id as comment_id, comments.body as comment_body
+    Post.joins(:comments).select(posts: { id: :post_id, title: :post_title }, comments: { id: :comment_id, body: :comment_body })
+    #=> "SELECT posts.id as post_id, posts.title as post_title, comments.id as comment_id, comments.body as comment_body
     #    FROM \"posts\" INNER JOIN \"comments\" ON \"comments\".\"post_id\" = \"posts\".\"id\""
     ```
     *Oleksandr Holubenko*, *Josef Šimánek*, *Jean Boussier*
@@ -1658,8 +1658,8 @@
 *   Fix `ActiveRecord::QueryMethods#in_order_of` to include `nil`s, to match the
     behavior of `Enumerable#in_order_of`.
 
-    For example, `Post.in_order_of(:name, [nil, "foo"])` will now include posts
-    with `nil` names, the same as `Post.all.to_a.in_order_of(:name, [nil, "foo"])`.
+    For example, `Post.in_order_of(:title, [nil, "foo"])` will now include posts
+    with `nil` titles, the same as `Post.all.to_a.in_order_of(:title, [nil, "foo"])`.
 
     *fatkodima*
 
@@ -2085,10 +2085,10 @@
 
     ```ruby
     class Book < ApplicationRecord
-      alias_attribute :name, :name
+      alias_attribute :title, :name
     end
 
-    Book.insert_all [{ name: "Remote", author_id: 1 }], returning: :name
+    Book.insert_all [{ title: "Remote", author_id: 1 }], returning: :title
     ```
 
     *fatkodima*
@@ -2191,7 +2191,7 @@
 
     *Kevin McPhillips*
 
-*   Allow column name with COLLATE (e.g., name COLLATE "C") as safe SQL string
+*   Allow column name with COLLATE (e.g., title COLLATE "C") as safe SQL string
 
     *Shugo Maeda*
 
@@ -2242,18 +2242,18 @@
 
     ```ruby
     class Topic < ActiveRecord::Base
-      before_save :check_name
+      before_save :check_title
 
-      def check_name
-        throw(:abort) if name == "abort"
+      def check_title
+        throw(:abort) if title == "abort"
       end
     end
 
-    topic = Topic.create(name: "Test Title")
-    # #=> #<Topic name: "Test Title">
-    topic.update_attribute!(:name, "Another Title")
-    # #=> #<Topic name: "Another Title">
-    topic.update_attribute!(:name, "abort")
+    topic = Topic.create(title: "Test Title")
+    # #=> #<Topic title: "Test Title">
+    topic.update_attribute!(:title, "Another Title")
+    # #=> #<Topic title: "Another Title">
+    topic.update_attribute!(:title, "abort")
     # raises ActiveRecord::RecordNotSaved
     ```
 

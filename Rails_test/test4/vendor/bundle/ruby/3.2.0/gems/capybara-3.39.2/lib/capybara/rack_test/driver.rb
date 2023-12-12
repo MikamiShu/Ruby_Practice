@@ -90,8 +90,8 @@ class Capybara::RackTest::Driver < Capybara::Driver::Base
     browser.dom
   end
 
-  def name
-    browser.name
+  def title
+    browser.title
   end
 
   def reset!

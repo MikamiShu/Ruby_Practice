@@ -527,42 +527,42 @@ RSpec.shared_examples Capybara::RSpecMatchers do |session, _mode|
     end
   end
 
-  describe 'have_name matcher' do
+  describe 'have_title matcher' do
     it 'gives proper description' do
-      expect(have_name('Just a name').description).to eq('have name "Just a name"')
+      expect(have_title('Just a title').description).to eq('have title "Just a title"')
     end
 
     context 'on a string' do
-      let(:html) { '<name>Just a name</name>' }
+      let(:html) { '<title>Just a title</title>' }
 
-      it 'passes if there is such a name' do
-        expect(html).to have_name('Just a name')
+      it 'passes if there is such a title' do
+        expect(html).to have_title('Just a title')
       end
 
-      it 'fails if there is no such name' do
+      it 'fails if there is no such title' do
         expect do
-          expect(html).to have_name('No such name')
-        end.to raise_error('expected "Just a name" to include "No such name"')
+          expect(html).to have_title('No such title')
+        end.to raise_error('expected "Just a title" to include "No such title"')
       end
 
-      it "fails if name doesn't match regexp" do
+      it "fails if title doesn't match regexp" do
         expect do
-          expect(html).to have_name(/[[:upper:]]+[[:lower:]]+l{2}o/)
-        end.to raise_error('expected "Just a name" to match /[[:upper:]]+[[:lower:]]+l{2}o/')
+          expect(html).to have_title(/[[:upper:]]+[[:lower:]]+l{2}o/)
+        end.to raise_error('expected "Just a title" to match /[[:upper:]]+[[:lower:]]+l{2}o/')
       end
     end
 
     context 'on a page or node' do
-      it 'passes if there is such a name' do
+      it 'passes if there is such a title' do
         session.visit('/with_js')
-        expect(session).to have_name('with_js')
+        expect(session).to have_title('with_js')
       end
 
-      it 'fails if there is no such name' do
+      it 'fails if there is no such title' do
         session.visit('/with_js')
         expect do
-          expect(session).to have_name('No such name')
-        end.to raise_error(/ to include "No such name"/)
+          expect(session).to have_title('No such title')
+        end.to raise_error(/ to include "No such title"/)
       end
 
       context 'with wait' do
@@ -571,23 +571,23 @@ RSpec.shared_examples Capybara::RSpecMatchers do |session, _mode|
         end
 
         it 'waits if wait time is more than timeout' do
-          session.click_link('Change name')
+          session.click_link('Change title')
           session.using_wait_time 0 do
-            expect(session).to have_name('changed name', wait: 2)
+            expect(session).to have_title('changed title', wait: 2)
           end
         end
 
         it "doesn't wait if wait time is less than timeout" do
-          session.click_link('Change name')
+          session.click_link('Change title')
           session.using_wait_time 3 do
-            expect(session).not_to have_name('changed name', wait: 0)
+            expect(session).not_to have_title('changed title', wait: 0)
           end
         end
       end
     end
 
     it 'supports compounding' do
-      expect('<name>I compound</name>').to have_name('I dont compound').or have_name('I compound')
+      expect('<title>I compound</title>').to have_title('I dont compound').or have_title('I compound')
     end
   end
 

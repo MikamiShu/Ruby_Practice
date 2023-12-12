@@ -116,8 +116,8 @@ module ActionView
     #
     # Pattern matching assignment also supports variable renaming:
     #
-    #   local_assigns => { headline: name }
-    #   name                    # => "Welcome"
+    #   local_assigns => { headline: title }
+    #   title                    # => "Welcome"
     #
     # If a template refers to a variable that isn't passed into the view as part
     # of the <tt>locals: { ... }</tt> Hash, the template will raise an
@@ -332,10 +332,10 @@ module ActionView
 
     # This method is responsible for marking a template as having strict locals
     # which means the template can only accept the locals defined in a magic
-    # comment. For example, if your template acceps the locals +name+ and
+    # comment. For example, if your template acceps the locals +title+ and
     # +comment_count+, add the following to your template file:
     #
-    #   <%# locals: (name: "Default name", comment_count: 0) %>
+    #   <%# locals: (title: "Default title", comment_count: 0) %>
     #
     # Strict locals are useful for validating template arguments and for
     # specifying defaults.

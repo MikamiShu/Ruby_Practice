@@ -182,7 +182,7 @@ module ActionView
       #
       # Tags can pass content to embed within it:
       #
-      #   tag.h1 'All names fit to print' # => <h1>All names fit to print</h1>
+      #   tag.h1 'All titles fit to print' # => <h1>All titles fit to print</h1>
       #
       #   tag.div tag.p('Hello world!')  # => <div><p>Hello world!</p></div>
       #

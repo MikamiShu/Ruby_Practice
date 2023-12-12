@@ -53,7 +53,7 @@ end
 if defined?(RDoc)
   rd = RDoc::Task.new("rdoc") { |rdoc|
     rdoc.rdoc_dir = 'html'
-    rdoc.name    = "Builder for Markup"
+    rdoc.title    = "Builder for Markup"
     rdoc.options << '--line-numbers' << '--inline-source' << '--main' << 'README.rdoc'
     rdoc.rdoc_files.include('lib/**/*.rb', '[A-Z]*', 'doc/**/*.rdoc').exclude("TAGS")
     rdoc.template = 'doc/jamis.rb'
@@ -107,7 +107,7 @@ simple to do.  Currently the following builder objects are supported:
 
     s.extra_rdoc_files = rd.rdoc_files.reject { |fn| fn =~ /\.rb$/ }.to_a
     s.rdoc_options <<
-      '--name' <<  'Builder -- Easy XML Building' <<
+      '--title' <<  'Builder -- Easy XML Building' <<
       '--main' << 'README.rdoc' <<
       '--line-numbers'
 
@@ -137,7 +137,7 @@ classes that make heavy use of method_missing.
 
     s.extra_rdoc_files = rd.rdoc_files.reject { |fn| fn =~ /\.rb$/ }.to_a
     s.rdoc_options <<
-      '--name' <<  'BlankSlate -- Base Class for building proxies.' <<
+      '--title' <<  'BlankSlate -- Base Class for building proxies.' <<
       '--main' << 'README.rdoc' <<
       '--line-numbers'
 
