@@ -9,7 +9,7 @@
         <%= form.text_field :email, value: @search_params[:email]%>
     </div>
     <%= button_to "検索", user_path(form)%>
-    <%= link_to "新しい投稿", new_user_path%><br>
+    <%= link_to "楽譜作成", new_score_path %><br>
     <%= @search_params%><br>
 <% end %>
 

@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  composer: MyString
+  arranger: MyString
+  grade: MyString
+
+two:
+  name: MyString
+  composer: MyString
+  arranger: MyString
+  grade: MyString

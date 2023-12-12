@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+    has_many :scores, dependent: :destroy
     
     scope :search, -> (search_params) do
         return if search_params.blank?

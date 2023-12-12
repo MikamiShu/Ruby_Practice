@@ -13,7 +13,9 @@ Rails.application.routes.draw do
 
 
   resources :users
+  resources :scores
   get '/users/new', to: 'users#new'
+  get '/scores/new', to: 'scores#new'
 
   root 'users#index'
 end

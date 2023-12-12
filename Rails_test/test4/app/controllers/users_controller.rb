@@ -4,10 +4,8 @@ class UsersController < ApplicationController
         @search_params = user_search_params
         #@sorted_params = user_sorted_params
         @users = User.search(@search_params).name_sort
-
     end
-
-
+    
     def new 
         @user = User.new
     end
@@ -29,6 +27,12 @@ class UsersController < ApplicationController
         @user.destroy
         redirect_to users_path
     end
+    
+    def home 
+        @user = User.find(params[:id])
+        @scores = @user.scores
+    end
+
 
     @private
 
@@ -43,8 +47,4 @@ class UsersController < ApplicationController
     #def user_sorted_params 
     #    params.fetch(:sorted, {}).permit(:name)
     #end
-    
-
-
-    
 end

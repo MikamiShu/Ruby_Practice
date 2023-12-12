@@ -1,0 +1,9 @@
+<h1>ScoresController#new</h1>
+
+<%= form_with model: @score do |form| %> 
+    <div><%= form.label :name %> <%= form.text_field :name %></div>
+    <div><%= form.label :composer %> <%= form.text_field :composer %></div>
+    <div><%= form.label :arranger %> <%= form.text_field :arranger %></div>
+    <div><%= form.label :grade %> <%= form.text_area :grade %></div>
+    <div><%= form.submit "投稿" %></div>
+<% end %>
