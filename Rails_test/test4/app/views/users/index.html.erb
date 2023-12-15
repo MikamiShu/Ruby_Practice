@@ -1,25 +1,37 @@
 <h1>UsersController#index</h1>
 
+<body>
+<div class="center">
 <%= form_with(scope: :search, method: :get, local: true) do |form| %> 
     <div>
-        <%= form.label :name, "検索ワード" %>
-        <%= form.text_field :name, value: @search_params[:name] %><br>
-        <%= form.label :email, "内容検索"%>
-        <%= form.text_field :email, value: @search_params[:email]%>
+        <div class="field">
+            <div class="box">
+                <%= form.label :name, "検索ワード" %>
+                <%= form.text_field :name, value: @search_params[:name] %><br>
+            </div>
+            <div class="box">
+                <%= form.label :email, "内容検索"%>
+                <%= form.text_field :email, value: @search_params[:email]%>
+            </div>
+        </div>
     </div>
     <%= button_to "検索", user_path(form)%>
-    <%= link_to "新しい投稿", new_user_path%><br>
-    <%= @search_params%><br>
 <% end %>
-
-<ul>
+<table>
+<tr>
+    <th><%= link_to "新しい投稿", new_user_path%></th>
+    </tr>
+<tr>
+<th>test1</th><th>test2</th><th>test3</th></tr>
     <% @users.each do |user| %>
-        <div class="user_info">
-            ユーザ名：<%= user.name%>
-            メールアドレス：<%= user.email%>
-            作成日：<%= user.created_at %>
-            <!-- <%= button_to "削除", user_path(user), method: :delete %> -->
-        </div>
+        <tr>
+            <td>ユーザ名：<%= user.name%></td>
+            <td>メールアドレス：<%= user.email%></td>
+            <td>作成日：<%= user.created_at %><td>
+        </tr>
+        <!-- <%= button_to "削除", user_path(user), method: :delete %> -->
     <%end%>
-</ul>
+</table>
+</div>
+</body>
 
