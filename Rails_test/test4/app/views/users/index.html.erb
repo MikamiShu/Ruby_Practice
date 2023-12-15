@@ -13,6 +13,15 @@
                 <%= form.label :email, "内容検索"%>
                 <%= form.text_field :email, value: @search_params[:email]%>
             </div>
+            <div class="box">
+                <input type="checkbox" id="hide">
+                <label class="hide" for="hide">表示</label>
+                <div class="hide-and-seek">
+                    <input type="checkbox" name="test1"><br>
+                    <input type="checkbox" name="test2"><br>
+                    <input type="checkbox" name="test3">
+                </div>
+            </div>
         </div>
     </div>
     <%= button_to "検索", user_path(form)%>

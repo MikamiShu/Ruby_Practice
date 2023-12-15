@@ -27,14 +27,34 @@
     text-align: center;
   }
 
+  .left {
+   text-align: left;
+  }
+
  .field {
     justify-content: space-around;
     display: flex;
  }
 
  table {
-    margin: auto;
+   margin: auto;
+   padding: 50px;
  }
 
+ /*テストコード*/
+ #hide {
+   display: none;
+ }
+ .hide {
+   display: inline-block;
+   padding: 5px;
+   cursor: pointer;
+ }
+ .hide-and-seek {
+   display: none;
+ }
+ #hide:checked+label+.hide-and-seek {
+   display: block;
+ }
 
  
