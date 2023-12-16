@@ -1,5 +1,7 @@
 class User < ApplicationRecord
     
+    validates :email, presence: true, length: { maximum: 6 }
+
     scope :search, -> (search_params) do
         return if search_params.blank?
 

@@ -2,7 +2,12 @@
 
 <body>
 <div class="center">
-<%= form_with(scope: :search, method: :get, local: true) do |form| %> 
+
+<% flash.each do |message_type, message| %>
+    <div class="flash-message <%= message_type %>"><%= message %></div>
+<% end %>
+
+<%= form_with(scope: :search, method: :get) do |form| %> 
     <div>
         <div class="field">
             <div class="box">
@@ -37,8 +42,8 @@
             <td>ユーザ名：<%= user.name%></td>
             <td>メールアドレス：<%= user.email%></td>
             <td>作成日：<%= user.created_at %><td>
+            <td><%= button_to "削除", user_path(user), method: :delete %></td>
         </tr>
-        <!-- <%= button_to "削除", user_path(user), method: :delete %> -->
     <%end%>
 </table>
 </div>

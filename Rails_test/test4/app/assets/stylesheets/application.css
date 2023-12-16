@@ -41,7 +41,24 @@
    padding: 50px;
  }
 
- /*テストコード*/
+/*フラッシュメッセージ関連*/
+.flash-message {
+    border-radius: 5px;
+    padding: 16px 24px;
+    margin: 16px 0px;
+}
+.flash-message.success {
+    background-color: #bcdfff;
+  color: #0067C0;
+  border: solid 1px #0067C0;
+}
+.flash-message.danger {
+    background-color: #ffd4d1;
+  color: #930403;
+  border: solid 1px #930403;
+}
+
+ /*クリックで表示*/
  #hide {
    display: none;
  }
